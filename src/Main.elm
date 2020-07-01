@@ -10,6 +10,7 @@ import Element.Font as Font
 import Element.Region as Region
 import Url as Url exposing (Url)
 import Vulture
+import WayOut
 
 
 
@@ -71,7 +72,7 @@ samplePosts =
         , ( "two-ways-out"
           , { title = "Two Ways Out"
             , description = "There was no way out"
-            , content = [ "p1", "p3" ]
+            , content = WayOut.content
             }
           )
         ]
@@ -164,13 +165,28 @@ articleBody : Post -> Element Msg
 articleBody post =
     column
         [ width fill
-        , spacing 24
         , height fill
         ]
-        [ articleTitle post.title
-        , articleContent post.content
+        [ row [ width fill, height fill ]
+            [ column [ spacing 24, width fill, padding 24, alignTop ]
+                [ articleTitle post.title
+                , articleContent post.content
+                ]
+            , sideBar
+            ]
         , el [ width fill, alignBottom ] header
         ]
+
+
+sideBar =
+    el
+        [ width (px 96)
+        , Background.color teal
+        , alignRight
+        , height fill
+        ]
+    <|
+        text ""
 
 
 articleTitle : String -> Element Msg
@@ -188,16 +204,20 @@ articleTitle title =
 articleContent : List String -> Element Msg
 articleContent content =
     textColumn
-        [ paddingEach { directions0 | left = 24 }
+        [ paddingEach { directions0 | left = 48 }
         , spacing 18
         ]
     <|
         List.map (\p -> paragraph [] [ text p ]) content
 
 
+teal =
+    rgb255 103 201 207
+
+
 header =
     row
-        [ Background.color <| rgb255 103 201 207
+        [ Background.color teal
         , padding 24
         , width fill
         , Font.color <| rgb255 250 250 250
