@@ -7,10 +7,13 @@ import Element exposing (..)
 import Element.Background as Background
 import Element.Border as Border
 import Element.Font as Font
+import Element.Input as Input
 import Element.Region as Region
 import Url as Url exposing (Url)
 import Vulture
 import WayOut
+import What
+import Who
 
 
 
@@ -29,15 +32,15 @@ main =
 
 
 
--- NAVIGATION
 -- INIT
 
 
 init : () -> Url -> Nav.Key -> ( Model, Cmd Msg )
 init _ url key =
-    ( { posts = samplePosts
-      , post = postFromUrl url samplePosts
+    ( { posts = myPosts
+      , post = postFromUrl url myPosts
       , key = key
+      , showMenu = False
       }
     , Cmd.none
     )
@@ -51,6 +54,7 @@ type alias Model =
     { posts : Dict String Post
     , post : Maybe Post
     , key : Nav.Key
+    , showMenu : Bool
     }
 
 
@@ -58,21 +62,50 @@ type alias Post =
     { title : String
     , description : String
     , content : List String
+    , showOnHomePage : Bool
     }
 
 
-samplePosts =
+type Page
+    = Home
+    | Article
+
+
+myPosts =
     Dict.fromList
         [ ( "vultures-envision-a-toaster"
           , { title = "Vultures Envision a Toaster"
             , description = "A story about a giraffe"
             , content = Vulture.content
+            , showOnHomePage = True
             }
           )
         , ( "two-ways-out"
           , { title = "Two Ways Out"
             , description = "There was no way out"
             , content = WayOut.content
+            , showOnHomePage = True
+            }
+          )
+        , ( "what-is-this"
+          , { title = "What is this?"
+            , description = ""
+            , content = What.content
+            , showOnHomePage = False
+            }
+          )
+        , ( "who-am-i"
+          , { title = "Who am I?"
+            , description = ""
+            , content = Who.content
+            , showOnHomePage = False
+            }
+          )
+        , ( "contact-me"
+          , { title = "Contact me"
+            , description = ""
+            , content = [ "Please don't" ]
+            , showOnHomePage = False
             }
           )
         ]
@@ -85,6 +118,7 @@ samplePosts =
 type Msg
     = UrlChanged Url
     | LinkClicked Browser.UrlRequest
+    | MenuToggled
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -105,10 +139,15 @@ update msg model =
         UrlChanged url ->
             handleUrlChange model url
 
+        MenuToggled ->
+            ( { model | showMenu = not model.showMenu }
+            , Cmd.none
+            )
+
 
 handleUrlChange : Model -> Url -> ( Model, Cmd Msg )
 handleUrlChange model url =
-    ( { model | post = postFromUrl url model.posts }
+    ( { model | post = postFromUrl url model.posts, showMenu = False }
     , Cmd.none
     )
 
@@ -137,32 +176,32 @@ view model =
         body =
             case model.post of
                 Nothing ->
-                    homeBody model.posts
+                    homeBody model.posts model
 
                 Just post ->
-                    articleBody post
+                    articleBody post model
     in
-    { title = "Blog"
+    { title = "Unanswered"
     , body =
         [ layout [] <| body
         ]
     }
 
 
-homeBody : Dict String Post -> Element Msg
-homeBody posts =
+homeBody : Dict String Post -> Model -> Element Msg
+homeBody posts model =
     column
         [ width fill, spacing 24 ]
         [ column [ width fill ]
-            [ header
+            [ header Home model
             , subheader
             ]
         , homeContent posts
         ]
 
 
-articleBody : Post -> Element Msg
-articleBody post =
+articleBody : Post -> Model -> Element Msg
+articleBody post model =
     column
         [ width fill
         , height fill
@@ -174,7 +213,7 @@ articleBody post =
                 ]
             , sideBar
             ]
-        , el [ width fill, alignBottom ] header
+        , el [ width fill, alignBottom ] <| header Article model
         ]
 
 
@@ -215,7 +254,21 @@ teal =
     rgb255 103 201 207
 
 
-header =
+darkTeal =
+    rgb255 64 124 128
+
+
+header : Page -> Model -> Element Msg
+header page model =
+    let
+        maybeMenu =
+            case page of
+                Home ->
+                    menu model.showMenu
+
+                Article ->
+                    Element.none
+    in
     row
         [ Background.color teal
         , padding 24
@@ -223,7 +276,7 @@ header =
         , Font.color <| rgb255 250 250 250
         ]
         [ heading
-        , menu
+        , maybeMenu
         ]
 
 
@@ -231,30 +284,99 @@ heading =
     link
         [ Region.heading 1
         , Font.size 36
-        , Font.family
-            [ Font.external
-                { name = "Source Serif Pro"
-                , url = "https://fonts.googleapis.com/css2?family=Montserrat&family=Source+Serif+Pro&display=swap"
-                }
-            , Font.serif
-            ]
+        , sourceSerifPro
         ]
         { label = text "Unanswered"
         , url = "/"
         }
 
 
-menu =
+sourceSerifPro =
+    Font.family
+        [ Font.external
+            { name = "Source Serif Pro"
+            , url = "https://fonts.googleapis.com/css2?family=Montserrat&family=Source+Serif+Pro&display=swap"
+            }
+        , Font.serif
+        ]
+
+
+menu : Bool -> Element Msg
+menu showMenu =
+    let
+        modal =
+            if showMenu then
+                menuModal
+
+            else
+                Element.none
+    in
     el
-        [ Font.size 30
-        , alignRight
+        [ alignRight
+        , onLeft modal
         ]
     <|
-        text "⋮"
+        Input.button [ Font.size 30 ]
+            { label = text "⋮"
+            , onPress = Just MenuToggled
+            }
+
+
+menuModal : Element Msg
+menuModal =
+    el
+        [ width shrink
+        , height shrink
+        , Background.color darkTeal
+        , Border.color teal
+        , Border.width 1
+        , Border.rounded 6
+        , paddingXY 30 5
+        ]
+        menuOptions
+
+
+menuOptions : Element Msg
+menuOptions =
+    column
+        [ Font.size 24
+        , sourceSerifPro
+        ]
+    <|
+        borderBetween
+            [ menuOption "what-is-this" "What is this?"
+            , menuOption "who-am-i" "Who am I?"
+            , menuOption "contact-me" "Contact me"
+            ]
+
+
+menuOption : String -> String -> Element Msg
+menuOption slug lbl =
+    link
+        [ paddingEach { directions0 | top = 24, bottom = 24 }
+        ]
+        { url = "/" ++ slug
+        , label = text lbl
+        }
+
+
+borderBetween : List (Element msg) -> List (Element msg)
+borderBetween elements =
+    case elements of
+        [] ->
+            []
+
+        [ element ] ->
+            [ element ]
+
+        element :: rest ->
+            el [ Border.widthEach { directions0 | bottom = 1 } ]
+                element
+                :: borderBetween rest
 
 
 subheader =
-    el
+    paragraph
         [ Region.heading 2
         , Font.size 18
         , width fill
@@ -262,8 +384,7 @@ subheader =
         , Background.color <| rgb255 80 80 80
         , Font.color <| rgb255 255 255 255
         ]
-    <|
-        text "Not a blog"
+        [ text "Where I type and scream my thoughts into the void, unanswered" ]
 
 
 directions0 =
@@ -280,7 +401,8 @@ homeContent posts =
         ]
     <|
         Dict.values <|
-            Dict.map viewPost posts
+            Dict.map viewPost <|
+                Dict.filter (\_ post -> post.showOnHomePage) posts
 
 
 viewPost : String -> Post -> Element Msg
