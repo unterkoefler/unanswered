@@ -9,11 +9,8 @@ import Element.Border as Border
 import Element.Font as Font
 import Element.Input as Input
 import Element.Region as Region
+import Post
 import Url as Url exposing (Url)
-import Vulture
-import WayOut
-import What
-import Who
 
 
 
@@ -37,8 +34,8 @@ main =
 
 init : () -> Url -> Nav.Key -> ( Model, Cmd Msg )
 init _ url key =
-    ( { posts = myPosts
-      , post = postFromUrl url myPosts
+    ( { posts = Post.all
+      , post = Post.fromUrl url Post.all
       , key = key
       , showMenu = False
       }
@@ -51,64 +48,16 @@ init _ url key =
 
 
 type alias Model =
-    { posts : Dict String Post
-    , post : Maybe Post
+    { posts : Dict String Post.Post
+    , post : Maybe Post.Post
     , key : Nav.Key
     , showMenu : Bool
-    }
-
-
-type alias Post =
-    { title : String
-    , description : String
-    , content : List String
-    , showOnHomePage : Bool
     }
 
 
 type Page
     = Home
     | Article
-
-
-myPosts =
-    Dict.fromList
-        [ ( "vultures-envision-a-toaster"
-          , { title = "Vultures Envision a Toaster"
-            , description = "A story about a giraffe"
-            , content = Vulture.content
-            , showOnHomePage = True
-            }
-          )
-        , ( "two-ways-out"
-          , { title = "Two Ways Out"
-            , description = "There was no way out"
-            , content = WayOut.content
-            , showOnHomePage = True
-            }
-          )
-        , ( "what-is-this"
-          , { title = "What is this?"
-            , description = ""
-            , content = What.content
-            , showOnHomePage = False
-            }
-          )
-        , ( "who-am-i"
-          , { title = "Who am I?"
-            , description = ""
-            , content = Who.content
-            , showOnHomePage = False
-            }
-          )
-        , ( "contact-me"
-          , { title = "Contact me"
-            , description = ""
-            , content = [ "Please don't" ]
-            , showOnHomePage = False
-            }
-          )
-        ]
 
 
 
@@ -147,18 +96,9 @@ update msg model =
 
 handleUrlChange : Model -> Url -> ( Model, Cmd Msg )
 handleUrlChange model url =
-    ( { model | post = postFromUrl url model.posts, showMenu = False }
+    ( { model | post = Post.fromUrl url model.posts, showMenu = False }
     , Cmd.none
     )
-
-
-postFromUrl : Url -> Dict String Post -> Maybe Post
-postFromUrl url posts =
-    let
-        slug =
-            String.dropLeft 1 url.path
-    in
-    Dict.get slug posts
 
 
 subscriptions : Model -> Sub Msg
@@ -188,7 +128,7 @@ view model =
     }
 
 
-homeBody : Dict String Post -> Model -> Element Msg
+homeBody : Dict String Post.Post -> Model -> Element Msg
 homeBody posts model =
     column
         [ width fill, spacing 24 ]
@@ -200,17 +140,14 @@ homeBody posts model =
         ]
 
 
-articleBody : Post -> Model -> Element Msg
+articleBody : Post.Post -> Model -> Element Msg
 articleBody post model =
     column
         [ width fill
         , height fill
         ]
         [ row [ width fill, height fill ]
-            [ column [ spacing 24, width fill, padding 24, alignTop ]
-                [ articleTitle post.title
-                , articleContent post.content
-                ]
+            [ Post.view post
             , sideBar
             ]
         , el [ width fill, alignBottom ] <| header Article model
@@ -226,28 +163,6 @@ sideBar =
         ]
     <|
         text ""
-
-
-articleTitle : String -> Element Msg
-articleTitle title =
-    el
-        [ Region.heading 1
-        , Font.size 36
-        , Font.underline
-        , padding 24
-        ]
-    <|
-        text title
-
-
-articleContent : List String -> Element Msg
-articleContent content =
-    textColumn
-        [ paddingEach { directions0 | left = 48 }
-        , spacing 18
-        ]
-    <|
-        List.map (\p -> paragraph [] [ text p ]) content
 
 
 teal =
@@ -391,7 +306,7 @@ directions0 =
     { left = 0, top = 0, right = 0, bottom = 0 }
 
 
-homeContent : Dict String Post -> Element Msg
+homeContent : Dict String Post.Post -> Element Msg
 homeContent posts =
     column
         [ paddingXY 96 24
@@ -401,33 +316,5 @@ homeContent posts =
         ]
     <|
         Dict.values <|
-            Dict.map viewPost <|
+            Dict.map Post.preview <|
                 Dict.filter (\_ post -> post.showOnHomePage) posts
-
-
-viewPost : String -> Post -> Element Msg
-viewPost slug p =
-    column
-        [ spacing 12 ]
-        [ postTitle p.title slug
-        , postDescription p.description
-        ]
-
-
-postTitle : String -> String -> Element Msg
-postTitle title slug =
-    link
-        [ Font.size 24 ]
-        { label = text title
-        , url = "/" ++ slug
-        }
-
-
-postDescription : String -> Element Msg
-postDescription description =
-    el
-        [ Font.size 14
-        , Font.italic
-        ]
-    <|
-        text description
