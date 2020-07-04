@@ -4,8 +4,10 @@ import AssocList as Dict exposing (Dict)
 import Element exposing (..)
 import Element.Font as Font
 import Element.Region as Region
+import Fedex
 import FourStars
 import Url as Url exposing (Url)
+import Utils exposing (directions0)
 import Vulture
 import WayOut
 import What
@@ -31,7 +33,14 @@ type alias Post msg =
 all : Dict String (Post msg)
 all =
     Dict.fromList
-        [ ( "vultures-envision-a-toaster"
+        [ ( "fedex"
+          , { title = "Incorrect Address"
+            , description = "A post-modern Odyssey"
+            , content = Fedex.content
+            , showOnHomePage = True
+            }
+          )
+        , ( "vultures-envision-a-toaster"
           , { title = "Vultures Envision a Toaster"
             , description = "A story about a giraffe"
             , content = Vulture.content
@@ -149,7 +158,3 @@ viewDescription description =
         ]
     <|
         text description
-
-
-directions0 =
-    { left = 0, top = 0, right = 0, bottom = 0 }

@@ -11,6 +11,7 @@ import Element.Input as Input
 import Element.Region as Region
 import Post
 import Url as Url exposing (Url)
+import Utils exposing (borderBetween, directions0)
 
 
 
@@ -275,21 +276,6 @@ menuOption slug lbl =
         }
 
 
-borderBetween : List (Element msg) -> List (Element msg)
-borderBetween elements =
-    case elements of
-        [] ->
-            []
-
-        [ element ] ->
-            [ element ]
-
-        element :: rest ->
-            el [ Border.widthEach { directions0 | bottom = 1 } ]
-                element
-                :: borderBetween rest
-
-
 subheader =
     paragraph
         [ Region.heading 2
@@ -300,10 +286,6 @@ subheader =
         , Font.color <| rgb255 255 255 255
         ]
         [ text "Where I type and scream my thoughts into the void, unanswered" ]
-
-
-directions0 =
-    { left = 0, top = 0, right = 0, bottom = 0 }
 
 
 homeContent : Dict String (Post.Post Msg) -> Element Msg
