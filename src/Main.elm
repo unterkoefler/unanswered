@@ -48,8 +48,8 @@ init _ url key =
 
 
 type alias Model =
-    { posts : Dict String Post.Post
-    , post : Maybe Post.Post
+    { posts : Dict String (Post.Post Msg)
+    , post : Maybe (Post.Post Msg)
     , key : Nav.Key
     , showMenu : Bool
     }
@@ -128,7 +128,7 @@ view model =
     }
 
 
-homeBody : Dict String Post.Post -> Model -> Element Msg
+homeBody : Dict String (Post.Post Msg) -> Model -> Element Msg
 homeBody posts model =
     column
         [ width fill, spacing 24 ]
@@ -140,7 +140,7 @@ homeBody posts model =
         ]
 
 
-articleBody : Post.Post -> Model -> Element Msg
+articleBody : Post.Post Msg -> Model -> Element Msg
 articleBody post model =
     column
         [ width fill
@@ -306,7 +306,7 @@ directions0 =
     { left = 0, top = 0, right = 0, bottom = 0 }
 
 
-homeContent : Dict String Post.Post -> Element Msg
+homeContent : Dict String (Post.Post Msg) -> Element Msg
 homeContent posts =
     column
         [ paddingXY 96 24

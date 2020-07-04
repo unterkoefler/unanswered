@@ -1,8 +1,17 @@
 module What exposing (content)
 
+import Element exposing (..)
 
-content : List String
+
+content : List (Element msg)
 content =
+    List.map
+        (\p -> paragraph [] [ text p ])
+        paragraphs
+
+
+paragraphs : List String
+paragraphs =
     [ """This is, to reiterate the subheader, where I scream
         into the void. I used to do this on my notes app, but then I
         realized that I could copy and paste the things on my notes app

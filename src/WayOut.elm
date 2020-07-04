@@ -1,8 +1,17 @@
 module WayOut exposing (content)
 
+import Element exposing (..)
 
-content : List String
+
+content : List (Element msg)
 content =
+    List.map
+        (\p -> paragraph [] [ text p ])
+        paragraphs
+
+
+paragraphs : List String
+paragraphs =
     [ """I can't leave the beach. That much is clear. There's no boardwalk, sea-wall, or parking lot to turn to. Or run to. There is nothing behind me. It's a nothingness that is not void or null, or even nothing. It is unrendered, unimagined. It is not. There's nowhere to run. """
     , """Each wave swells, curls, and crashes onto the sand, steadily inching closer. As the shore shrinks before me, the slope of the beach grows steeper. Soon, I will lose my footing and slide down the wall of sand to be swallowed whole by the unrelenting sea. """
     , """To my left and right lie two jagged jetties protruding far out into the dark swirling waters, like the feelers of some horrid bug. The ocean slams into the jetties's pointed rocks, dislodging mollusks and crushing crabs. The water froths and tumbles to shore. """

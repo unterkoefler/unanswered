@@ -4,6 +4,7 @@ import AssocList as Dict exposing (Dict)
 import Element exposing (..)
 import Element.Font as Font
 import Element.Region as Region
+import FourStars
 import Url as Url exposing (Url)
 import Vulture
 import WayOut
@@ -15,10 +16,10 @@ import Who
 -- MODEL
 
 
-type alias Post =
+type alias Post msg =
     { title : String
     , description : String
-    , content : List String
+    , content : List (Element msg)
     , showOnHomePage : Bool
     }
 
@@ -27,7 +28,7 @@ type alias Post =
 -- INIT
 
 
-all : Dict String Post
+all : Dict String (Post msg)
 all =
     Dict.fromList
         [ ( "vultures-envision-a-toaster"
@@ -41,6 +42,13 @@ all =
           , { title = "Two Ways Out"
             , description = "There was no way out"
             , content = WayOut.content
+            , showOnHomePage = True
+            }
+          )
+        , ( "four-stars"
+          , { title = "4 Stars"
+            , description = "A review of reviews"
+            , content = FourStars.content
             , showOnHomePage = True
             }
           )
@@ -61,7 +69,7 @@ all =
         , ( "contact-me"
           , { title = "Contact me"
             , description = ""
-            , content = [ "Please don't" ]
+            , content = [ paragraph [] [ text "Please don't" ] ]
             , showOnHomePage = False
             }
           )
@@ -72,7 +80,7 @@ all =
 -- UPDATE
 
 
-fromUrl : Url -> Dict String Post -> Maybe Post
+fromUrl : Url -> Dict String (Post msg) -> Maybe (Post msg)
 fromUrl url posts =
     let
         slug =
@@ -85,7 +93,7 @@ fromUrl url posts =
 -- VIEW
 
 
-view : Post -> Element msg
+view : Post msg -> Element msg
 view post =
     column [ spacing 24, width fill, padding 24, alignTop ]
         [ viewTitle post.title
@@ -105,17 +113,17 @@ viewTitle title =
         text title
 
 
-viewContent : List String -> Element msg
+viewContent : List (Element msg) -> Element msg
 viewContent content =
     textColumn
         [ paddingEach { directions0 | left = 48 }
         , spacing 18
         ]
     <|
-        List.map (\p -> paragraph [] [ text p ]) content
+        content
 
 
-preview : String -> Post -> Element msg
+preview : String -> Post msg -> Element msg
 preview slug p =
     column
         [ spacing 12 ]

@@ -2704,7 +2704,7 @@ var _VirtualDom_mapEventTuple = F2(function(func, tuple)
 var _VirtualDom_mapEventRecord = F2(function(func, record)
 {
 	return {
-		F: func(record.F),
+		H: func(record.H),
 		aT: record.aT,
 		aO: record.aO
 	}
@@ -2974,7 +2974,7 @@ function _VirtualDom_makeCallback(eventNode, initialHandler)
 		// 3 = Custom
 
 		var value = result.a;
-		var message = !tag ? value : tag < 3 ? value.a : value.F;
+		var message = !tag ? value : tag < 3 ? value.a : value.H;
 		var stopPropagation = tag == 1 ? value.b : tag == 3 && value.aT;
 		var currentEventNode = (
 			stopPropagation && event.stopPropagation(),
@@ -5181,234 +5181,19 @@ var $elm$core$Task$perform = F2(
 			A2($elm$core$Task$map, toMessage, task));
 	});
 var $elm$browser$Browser$application = _Browser_application;
-var $author$project$Vulture$content = _List_fromArray(
-	['\n    Lonny, the giraffe, was worried about lightning. Lightning, Lonnie knew, seeks the shortest path to the ground, and therefore tends to strike the tallest thing around. Lonny, being a giraffe, was often the tallest thing around. This worried him. ', 'And so, when thunderclouds appeared in the distance, Lonny would bend his great long neck to the ground and wait anxiously for the storm to pass. Lonny was kind and friendly and generally well-liked, but when storms came and Lonny put his head down in the grass and stood quivering, unable to move or engage in friendly conversation, it made the other giraffes nervous and confused. In their nervousness and confusion, they would tease him and then run off to play in the pool or with large metal poles which they would hold in their mouths and compete to see who could raise their pole the highest. The other giraffes did not understand lightning. ', 'So it was that on this particular Tuesday, Lonny found himself quite alone in the savannah being pelted by fat, heavy raindrops, as thunder rumbled all around, face-to-face with a crocodile. ', ' "Hello," said Lonny. ', ' "Hello," said Al. "I\'m Al." ', ' "Pleased to meet you," said Lonny, who was in no way going to be so foolish as to share his name with any crocodile, and especially not this one who had scuttled up quite sneakily, and especially not in this rain, and especially, especially not on a Tuesday. ', '"Likewise," said Al, well aware that Lonny had violated the customary exchanging-of-names part of a civilized introduction, but content enough to read Lonny\'s name tag. It was just for lunch, after all. ', '"Lonny, I need your help," Al continued. "In an attempt to better understand the principles governing lightning, I was flying my kite just now in the storm. Alas, the kite has become stuck in the branches of that tall tree. My small crocodile neck prevents me from reaching it. Lonny, in the name of science, would you be so kind as to retrieve my kite?" ', 'Lonny cautiously lifted his head an inch off the ground to look at the tree. Indeed, there was a kite tangled high in its boughs, flapping in the wind wildly, yet weakly, rather like a lanky animal flailing in quicksand. Al\'s story seemed plausible, but crocodiles, Lonny knew, are a shifty bunch. He needed more details. ', ' "What\'s a crocodile studying electromagnetism for? Besides, don\'t you know that Benjamin Franklin did the whole kite thing already?" ', 'This is one well-educated giraffe, thought Al. The gig was up. ', ' "I\'m no crocodile!" he said as he peeled off his fake pointed snout, revealing a rounded one underneath. The name Al, was, of course, short for Alligator. ', ' "Aaaahhh," exclaimed Lonny. His fear of lightning was suddenly replaced by his fear of alligators. Lonny\'s neck sprung upright. ', 'Unfortunately, his head\'s rapid change in altitude caused the blood to drain from his brain, and Lonny, overcome with dizziness, toppled over into the adjacent pool of quicksand. As he sank, he writhed wildly, yet weakly, rather like a certain kite. ', 'The quicksand had just reached his shoulders when a blast of lightning cracked nearby, so close that Lonny could feel its heat. He yelped and ducked his head. Unfortunately, the ducking turned into more of a plunging, a plunging into the oozing quicksand, which happily swallowed Lonny whole. ', 'Al, feeling dejected about his unconvincing disguise, his failed - and apparently unoriginal - science experiment, and his now absent, deceased, and swallowed-whole lunch plan, scuttled home, dropped out of his PhD program, and succumbed to alcoholism, just as his mother had always feared. ', 'Now that the rain had stopped, the other giraffes, meanwhile, were being devoured by a group of vultures who were beginning to wonder if they could maybe capture the wild power of lightning and channel it into some sort of cooking apparatus with a timer, heating coils, and different crispiness settings. Charred giraffe tastes so much better. ']);
-var $author$project$WayOut$content = _List_fromArray(
-	['I can\'t leave the beach. That much is clear. There\'s no boardwalk, sea-wall, or parking lot to turn to. Or run to. There is nothing behind me. It\'s a nothingness that is not void or null, or even nothing. It is unrendered, unimagined. It is not. There\'s nowhere to run. ', 'Each wave swells, curls, and crashes onto the sand, steadily inching closer. As the shore shrinks before me, the slope of the beach grows steeper. Soon, I will lose my footing and slide down the wall of sand to be swallowed whole by the unrelenting sea. ', 'To my left and right lie two jagged jetties protruding far out into the dark swirling waters, like the feelers of some horrid bug. The ocean slams into the jetties\'s pointed rocks, dislodging mollusks and crushing crabs. The water froths and tumbles to shore. ', ' "Come on!" shouts my sister. She bobs up and down and dives under a thrashing crest and pops up on a swell, waving for me. "Come on!" And under again, twisting wretchedly in a cross current. And up again, waving, not for help, but for me, urgently. "Come on!" ', 'What does she see?', 'The waves lap closer and claim an abandoned bucket. The sand shifts beneath me. I scramble up the slope. I can no longer stand. I pull my feet under me, crouching, wound like a spring, but too terrified to spring anywhere. Where\'s Emma? A mountain of water breaks and races toward me, anointing my foot. Where\'s Emma? The water\'s cold shocks me. There! A flash of red hair, a pale arm. "Come on!" she waves. ', 'What does she see?', 'The waves break closer and closer. I feel their spray. They arch and curl and spit on me. The jetties are nearly gone. Devoured. ', 'Don\'t look back. Don\'t look back. Don\'t look back. ', 'I breathe deep, once, twice. I time the breaks, leap up, and, pounding on the damp sand, ankle deep, knee deep, no ankle deep again as the water recedes, priming for the next punch, I plunge headlong into Poseidon\'s halls. ', ' "Gah!" I rise, sputtering. I am towed under, tumbled and twisted. My knee ricochets off the sandy floor. I struggle upwards and outwards, towards my sister. ', 'Don\'t look back. Don\'t look back. ', 'I\'ve almost reached her. She kicks out farther, ducks, dives, and turns. She waves. "Come on!" ', 'Up and down and up again I go. Wiping water from my eyes, I catch her face. She looks back at me, no, behind me. She\'s laughing now, happy, mirthful. Confused, I struggle towards her. She swims away. ', 'Don\'t look back. What does she see? No. Don\'t look back. Look back. Look back. ', 'I turn. The beach is gone, eaten by the sea. The next wave swells. Up, I soar, up and up. It curls, seems to pause, considering for but a moment if it should or should not. Decision made, it does. It and I crash into the nothingness, swallowing the void, its unthought streets, its unimagined homes. I am drowned, flattened, torn, dissolved. The red bucket clatters to a halt against a sign: No Parking. ']);
-var $author$project$What$content = _List_fromArray(
-	['This is, to reiterate the subheader, where I scream\n        into the void. I used to do this on my notes app, but then I\n        realized that I could copy and paste the things on my notes app\n        into a file on my computer, format the file into a webpage, and\n        bother you, dear reader, with my content. Enjoy!']);
-var $author$project$Who$content = _List_fromArray(
-	['I am Willy Unterkoefler. Unless otherwise noted, I write the things on here, which explains their high quality. I also designed this website, which explains its... quality. If you want to know more about me, please read everything I post here and psychoanalyze it. To help you get started, the giraffe is really a metaphor for my healthy relationship with my father and three horrible years of speech therapy in elementary school. Despite my years speech therapy, you should know that I still pronounce water as "woodder". The rest of my life and personality can be derived.']);
-var $pzp1997$assoc_list$AssocList$D = $elm$core$Basics$identity;
-var $elm$core$List$filter = F2(
-	function (isGood, list) {
-		return A3(
-			$elm$core$List$foldr,
-			F2(
-				function (x, xs) {
-					return isGood(x) ? A2($elm$core$List$cons, x, xs) : xs;
-				}),
-			_List_Nil,
-			list);
-	});
-var $elm$core$Basics$neq = _Utils_notEqual;
-var $pzp1997$assoc_list$AssocList$remove = F2(
-	function (targetKey, _v0) {
-		var alist = _v0;
-		return A2(
-			$elm$core$List$filter,
-			function (_v1) {
-				var key = _v1.a;
-				return !_Utils_eq(key, targetKey);
-			},
-			alist);
-	});
-var $pzp1997$assoc_list$AssocList$insert = F3(
-	function (key, value, dict) {
-		var _v0 = A2($pzp1997$assoc_list$AssocList$remove, key, dict);
-		var alteredAlist = _v0;
-		return A2(
-			$elm$core$List$cons,
-			_Utils_Tuple2(key, value),
-			alteredAlist);
-	});
-var $pzp1997$assoc_list$AssocList$fromList = function (alist) {
-	return A3(
-		$elm$core$List$foldl,
-		F2(
-			function (_v0, result) {
-				var key = _v0.a;
-				var value = _v0.b;
-				return A3($pzp1997$assoc_list$AssocList$insert, key, value, result);
-			}),
-		_List_Nil,
-		alist);
+var $mdgriffith$elm_ui$Internal$Model$Describe = function (a) {
+	return {$: 2, a: a};
 };
-var $author$project$Post$all = $pzp1997$assoc_list$AssocList$fromList(
-	_List_fromArray(
-		[
-			_Utils_Tuple2(
-			'vultures-envision-a-toaster',
-			{L: $author$project$Vulture$content, N: 'A story about a giraffe', cX: true, dl: 'Vultures Envision a Toaster'}),
-			_Utils_Tuple2(
-			'two-ways-out',
-			{L: $author$project$WayOut$content, N: 'There was no way out', cX: true, dl: 'Two Ways Out'}),
-			_Utils_Tuple2(
-			'what-is-this',
-			{L: $author$project$What$content, N: '', cX: false, dl: 'What is this?'}),
-			_Utils_Tuple2(
-			'who-am-i',
-			{L: $author$project$Who$content, N: '', cX: false, dl: 'Who am I?'}),
-			_Utils_Tuple2(
-			'contact-me',
-			{
-				L: _List_fromArray(
-					['Please don\'t']),
-				N: '',
-				cX: false,
-				dl: 'Contact me'
-			})
-		]));
-var $pzp1997$assoc_list$AssocList$get = F2(
-	function (targetKey, _v0) {
-		get:
-		while (true) {
-			var alist = _v0;
-			if (!alist.b) {
-				return $elm$core$Maybe$Nothing;
-			} else {
-				var _v2 = alist.a;
-				var key = _v2.a;
-				var value = _v2.b;
-				var rest = alist.b;
-				if (_Utils_eq(key, targetKey)) {
-					return $elm$core$Maybe$Just(value);
-				} else {
-					var $temp$targetKey = targetKey,
-						$temp$_v0 = rest;
-					targetKey = $temp$targetKey;
-					_v0 = $temp$_v0;
-					continue get;
-				}
-			}
-		}
-	});
-var $author$project$Post$fromUrl = F2(
-	function (url, posts) {
-		var slug = A2($elm$core$String$dropLeft, 1, url.cO);
-		return A2($pzp1997$assoc_list$AssocList$get, slug, posts);
-	});
-var $elm$core$Platform$Cmd$batch = _Platform_batch;
-var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
-var $author$project$Main$init = F3(
-	function (_v0, url, key) {
-		return _Utils_Tuple2(
-			{
-				aJ: key,
-				av: A2($author$project$Post$fromUrl, url, $author$project$Post$all),
-				aw: $author$project$Post$all,
-				_: false
-			},
-			$elm$core$Platform$Cmd$none);
-	});
-var $elm$core$Platform$Sub$batch = _Platform_batch;
-var $elm$core$Platform$Sub$none = $elm$core$Platform$Sub$batch(_List_Nil);
-var $author$project$Main$subscriptions = function (model) {
-	return $elm$core$Platform$Sub$none;
-};
-var $author$project$Main$handleUrlChange = F2(
-	function (model, url) {
-		return _Utils_Tuple2(
-			_Utils_update(
-				model,
-				{
-					av: A2($author$project$Post$fromUrl, url, model.aw),
-					_: false
-				}),
-			$elm$core$Platform$Cmd$none);
-	});
-var $elm$browser$Browser$Navigation$load = _Browser_load;
-var $elm$core$Basics$not = _Basics_not;
-var $elm$browser$Browser$Navigation$pushUrl = _Browser_pushUrl;
-var $elm$url$Url$addPort = F2(
-	function (maybePort, starter) {
-		if (maybePort.$ === 1) {
-			return starter;
-		} else {
-			var port_ = maybePort.a;
-			return starter + (':' + $elm$core$String$fromInt(port_));
-		}
-	});
-var $elm$url$Url$addPrefixed = F3(
-	function (prefix, maybeSegment, starter) {
-		if (maybeSegment.$ === 1) {
-			return starter;
-		} else {
-			var segment = maybeSegment.a;
-			return _Utils_ap(
-				starter,
-				_Utils_ap(prefix, segment));
-		}
-	});
-var $elm$url$Url$toString = function (url) {
-	var http = function () {
-		var _v0 = url.bs;
-		if (!_v0) {
-			return 'http://';
-		} else {
-			return 'https://';
-		}
-	}();
-	return A3(
-		$elm$url$Url$addPrefixed,
-		'#',
-		url.a6,
-		A3(
-			$elm$url$Url$addPrefixed,
-			'?',
-			url.bt,
-			_Utils_ap(
-				A2(
-					$elm$url$Url$addPort,
-					url.bp,
-					_Utils_ap(http, url.bb)),
-				url.cO)));
-};
-var $author$project$Main$update = F2(
-	function (msg, model) {
-		switch (msg.$) {
-			case 1:
-				var urlRequest = msg.a;
-				if (!urlRequest.$) {
-					var url = urlRequest.a;
-					return _Utils_Tuple2(
-						model,
-						A2(
-							$elm$browser$Browser$Navigation$pushUrl,
-							model.aJ,
-							$elm$url$Url$toString(url)));
-				} else {
-					var url = urlRequest.a;
-					return _Utils_Tuple2(
-						model,
-						$elm$browser$Browser$Navigation$load(url));
-				}
-			case 0:
-				var url = msg.a;
-				return A2($author$project$Main$handleUrlChange, model, url);
-			default:
-				return _Utils_Tuple2(
-					_Utils_update(
-						model,
-						{_: !model._}),
-					$elm$core$Platform$Cmd$none);
-		}
-	});
-var $author$project$Main$Article = 1;
-var $mdgriffith$elm_ui$Internal$Model$AlignY = function (a) {
-	return {$: 5, a: a};
-};
-var $mdgriffith$elm_ui$Internal$Model$Bottom = 2;
-var $mdgriffith$elm_ui$Element$alignBottom = $mdgriffith$elm_ui$Internal$Model$AlignY(2);
+var $mdgriffith$elm_ui$Internal$Model$Paragraph = {$: 9};
 var $mdgriffith$elm_ui$Internal$Model$Unkeyed = function (a) {
 	return {$: 0, a: a};
 };
-var $mdgriffith$elm_ui$Internal$Model$AsColumn = 1;
-var $mdgriffith$elm_ui$Internal$Model$asColumn = 1;
-var $mdgriffith$elm_ui$Internal$Style$classes = {bM: 'a', az: 'atv', bO: 'ab', bP: 'cx', bQ: 'cy', bR: 'acb', bS: 'accx', bT: 'accy', bU: 'acr', aZ: 'al', a_: 'ar', bV: 'at', aA: 'ah', aB: 'av', bX: 's', b$: 'bh', b0: 'b', b2: 'w7', b4: 'bd', b5: 'bdt', am: 'bn', b6: 'bs', an: 'cpe', cb: 'cp', cc: 'cpx', cd: 'cpy', D: 'c', ap: 'ctr', aq: 'cb', ar: 'ccx', E: 'ccy', af: 'cl', as: 'cr', cf: 'ct', cg: 'cptr', ch: 'ctxt', cn: 'fcs', a5: 'focus-within', co: 'fs', cp: 'g', aG: 'hbh', aH: 'hc', a9: 'he', aI: 'hf', ba: 'hfp', cr: 'hv', ct: 'ic', cv: 'fr', au: 'lbl', cx: 'iml', cy: 'imlf', cz: 'imlp', cA: 'implw', cB: 'it', cC: 'i', bf: 'lnk', Z: 'nb', bi: 'notxt', cG: 'ol', cI: 'or', R: 'oq', cM: 'oh', bm: 'pg', bn: 'p', cN: 'ppe', cQ: 'ui', u: 'r', cS: 'sb', cT: 'sbx', cU: 'sby', cV: 'sbt', cY: 'e', cZ: 'cap', c_: 'sev', c4: 'sk', p: 't', c7: 'tc', c8: 'w8', c9: 'w2', da: 'w9', db: 'tj', ay: 'tja', dc: 'tl', dd: 'w3', de: 'w5', df: 'w4', dg: 'tr', dh: 'w6', di: 'w1', dj: 'tun', bC: 'ts', U: 'clr', $7: 'u', aV: 'wc', bH: 'we', aW: 'wf', bI: 'wfp', aX: 'wrp'};
+var $mdgriffith$elm_ui$Internal$Model$AsParagraph = 4;
+var $mdgriffith$elm_ui$Internal$Model$asParagraph = 4;
 var $mdgriffith$elm_ui$Internal$Model$Generic = {$: 0};
 var $mdgriffith$elm_ui$Internal$Model$div = $mdgriffith$elm_ui$Internal$Model$Generic;
 var $mdgriffith$elm_ui$Internal$Model$NoNearbyChildren = {$: 0};
+var $mdgriffith$elm_ui$Internal$Style$classes = {bM: 'a', az: 'atv', bO: 'ab', bP: 'cx', bQ: 'cy', bR: 'acb', bS: 'accx', bT: 'accy', bU: 'acr', aZ: 'al', a_: 'ar', bV: 'at', aA: 'ah', aB: 'av', bX: 's', b$: 'bh', b0: 'b', b2: 'w7', b4: 'bd', b5: 'bdt', am: 'bn', b6: 'bs', an: 'cpe', cb: 'cp', cc: 'cpx', cd: 'cpy', D: 'c', ap: 'ctr', aq: 'cb', ar: 'ccx', F: 'ccy', af: 'cl', as: 'cr', cf: 'ct', cg: 'cptr', ch: 'ctxt', cn: 'fcs', a5: 'focus-within', co: 'fs', cp: 'g', aG: 'hbh', aH: 'hc', a9: 'he', aI: 'hf', ba: 'hfp', cr: 'hv', ct: 'ic', cv: 'fr', au: 'lbl', cx: 'iml', cy: 'imlf', cz: 'imlp', cA: 'implw', cB: 'it', cC: 'i', bf: 'lnk', Z: 'nb', bi: 'notxt', cG: 'ol', cI: 'or', R: 'oq', cM: 'oh', bm: 'pg', bn: 'p', cN: 'ppe', cQ: 'ui', u: 'r', cS: 'sb', cT: 'sbx', cU: 'sby', cV: 'sbt', cY: 'e', cZ: 'cap', c_: 'sev', c4: 'sk', p: 't', c7: 'tc', c8: 'w8', c9: 'w2', da: 'w9', db: 'tj', ay: 'tja', dc: 'tl', dd: 'w3', de: 'w5', df: 'w4', dg: 'tr', dh: 'w6', di: 'w1', dj: 'tun', bC: 'ts', U: 'clr', $7: 'u', aV: 'wc', bH: 'we', aW: 'wf', bI: 'wfp', aX: 'wrp'};
 var $mdgriffith$elm_ui$Internal$Model$columnClass = $mdgriffith$elm_ui$Internal$Style$classes.bX + (' ' + $mdgriffith$elm_ui$Internal$Style$classes.D);
 var $mdgriffith$elm_ui$Internal$Model$gridClass = $mdgriffith$elm_ui$Internal$Style$classes.bX + (' ' + $mdgriffith$elm_ui$Internal$Style$classes.cp);
 var $mdgriffith$elm_ui$Internal$Model$pageClass = $mdgriffith$elm_ui$Internal$Style$classes.bX + (' ' + $mdgriffith$elm_ui$Internal$Style$classes.bm);
@@ -5507,8 +5292,6 @@ var $mdgriffith$elm_ui$Internal$Model$addKeyedChildren = F3(
 	});
 var $mdgriffith$elm_ui$Internal$Model$AsEl = 2;
 var $mdgriffith$elm_ui$Internal$Model$asEl = 2;
-var $mdgriffith$elm_ui$Internal$Model$AsParagraph = 4;
-var $mdgriffith$elm_ui$Internal$Model$asParagraph = 4;
 var $mdgriffith$elm_ui$Internal$Flag$Flag = function (a) {
 	return {$: 0, a: a};
 };
@@ -6135,7 +5918,7 @@ var $mdgriffith$elm_ui$Internal$Style$contentName = function (desc) {
 			return $mdgriffith$elm_ui$Internal$Style$dot($mdgriffith$elm_ui$Internal$Style$classes.ar);
 		default:
 			var _v6 = desc;
-			return $mdgriffith$elm_ui$Internal$Style$dot($mdgriffith$elm_ui$Internal$Style$classes.E);
+			return $mdgriffith$elm_ui$Internal$Style$dot($mdgriffith$elm_ui$Internal$Style$classes.F);
 	}
 };
 var $mdgriffith$elm_ui$Internal$Style$selfName = function (desc) {
@@ -7915,7 +7698,7 @@ var $elm$core$String$concat = function (strings) {
 var $mdgriffith$elm_ui$Internal$Style$Intermediate = $elm$core$Basics$identity;
 var $mdgriffith$elm_ui$Internal$Style$emptyIntermediate = F2(
 	function (selector, closing) {
-		return {ao: closing, i: _List_Nil, H: _List_Nil, v: selector};
+		return {ao: closing, i: _List_Nil, J: _List_Nil, v: selector};
 	});
 var $mdgriffith$elm_ui$Internal$Style$renderRules = F2(
 	function (_v0, rulesToRender) {
@@ -7929,10 +7712,10 @@ var $mdgriffith$elm_ui$Internal$Style$renderRules = F2(
 						return _Utils_update(
 							rendered,
 							{
-								H: A2(
+								J: A2(
 									$elm$core$List$cons,
 									_Utils_Tuple2(name, val),
-									rendered.H)
+									rendered.J)
 							});
 					case 3:
 						var _v2 = rule.a;
@@ -7944,7 +7727,7 @@ var $mdgriffith$elm_ui$Internal$Style$renderRules = F2(
 							{
 								i: A2(
 									$elm$core$List$cons,
-									{ao: '\n}', i: _List_Nil, H: props, v: '@supports (' + (prop + (':' + (value + (') {' + parent.v))))},
+									{ao: '\n}', i: _List_Nil, J: props, v: '@supports (' + (prop + (':' + (value + (') {' + parent.v))))},
 									rendered.i)
 							});
 					case 5:
@@ -8036,11 +7819,11 @@ var $mdgriffith$elm_ui$Internal$Style$renderCompact = function (styleClasses) {
 				values));
 	};
 	var renderClass = function (rule) {
-		var _v2 = rule.H;
+		var _v2 = rule.J;
 		if (!_v2.b) {
 			return '';
 		} else {
-			return rule.v + ('{' + (renderValues(rule.H) + (rule.ao + '}')));
+			return rule.v + ('{' + (renderValues(rule.J) + (rule.ao + '}')));
 		}
 	};
 	var renderIntermediate = function (_v0) {
@@ -8882,6 +8665,17 @@ var $mdgriffith$elm_ui$Internal$Model$adjust = F3(
 	function (size, height, vertical) {
 		return {a8: height / size, aa: size, bE: vertical};
 	});
+var $elm$core$List$filter = F2(
+	function (isGood, list) {
+		return A3(
+			$elm$core$List$foldr,
+			F2(
+				function (x, xs) {
+					return isGood(x) ? A2($elm$core$List$cons, x, xs) : xs;
+				}),
+			_List_Nil,
+			list);
+	});
 var $elm$core$List$maximum = function (list) {
 	if (list.b) {
 		var x = list.a;
@@ -8902,6 +8696,7 @@ var $elm$core$List$minimum = function (list) {
 		return $elm$core$Maybe$Nothing;
 	}
 };
+var $elm$core$Basics$neq = _Utils_notEqual;
 var $mdgriffith$elm_ui$Internal$Model$convertAdjustment = function (adjustment) {
 	var lines = _List_fromArray(
 		[adjustment.b9, adjustment.b_, adjustment.ci, adjustment.cD]);
@@ -9186,6 +8981,7 @@ var $elm$virtual_dom$VirtualDom$keyedNode = function (tag) {
 	return _VirtualDom_keyedNode(
 		_VirtualDom_noScript(tag));
 };
+var $elm$core$Basics$not = _Basics_not;
 var $elm$html$Html$p = _VirtualDom_node('p');
 var $elm$core$Bitwise$and = _Bitwise_and;
 var $mdgriffith$elm_ui$Internal$Flag$present = F2(
@@ -9295,7 +9091,7 @@ var $mdgriffith$elm_ui$Internal$Model$finalizeNode = F6(
 								$elm$core$String$join,
 								' ',
 								_List_fromArray(
-									[$mdgriffith$elm_ui$Internal$Style$classes.bX, $mdgriffith$elm_ui$Internal$Style$classes.cY, $mdgriffith$elm_ui$Internal$Style$classes.ap, $mdgriffith$elm_ui$Internal$Style$classes.E, $mdgriffith$elm_ui$Internal$Style$classes.bU])))
+									[$mdgriffith$elm_ui$Internal$Style$classes.bX, $mdgriffith$elm_ui$Internal$Style$classes.cY, $mdgriffith$elm_ui$Internal$Style$classes.ap, $mdgriffith$elm_ui$Internal$Style$classes.F, $mdgriffith$elm_ui$Internal$Style$classes.bU])))
 						]),
 					_List_fromArray(
 						[html])) : (A2($mdgriffith$elm_ui$Internal$Flag$present, $mdgriffith$elm_ui$Internal$Flag$centerX, has) ? A2(
@@ -9307,7 +9103,7 @@ var $mdgriffith$elm_ui$Internal$Model$finalizeNode = F6(
 								$elm$core$String$join,
 								' ',
 								_List_fromArray(
-									[$mdgriffith$elm_ui$Internal$Style$classes.bX, $mdgriffith$elm_ui$Internal$Style$classes.cY, $mdgriffith$elm_ui$Internal$Style$classes.ap, $mdgriffith$elm_ui$Internal$Style$classes.E, $mdgriffith$elm_ui$Internal$Style$classes.bS])))
+									[$mdgriffith$elm_ui$Internal$Style$classes.bX, $mdgriffith$elm_ui$Internal$Style$classes.cY, $mdgriffith$elm_ui$Internal$Style$classes.ap, $mdgriffith$elm_ui$Internal$Style$classes.F, $mdgriffith$elm_ui$Internal$Style$classes.bS])))
 						]),
 					_List_fromArray(
 						[html])) : html));
@@ -9491,9 +9287,9 @@ var $mdgriffith$elm_ui$Internal$Model$createElement = F3(
 						$mdgriffith$elm_ui$Internal$Model$finalizeNode,
 						rendered.P,
 						rendered.Q,
-						rendered.J,
+						rendered.L,
 						$mdgriffith$elm_ui$Internal$Model$Keyed(
-							A3($mdgriffith$elm_ui$Internal$Model$addKeyedChildren, 'nearby-element-pls', keyed, rendered.K)),
+							A3($mdgriffith$elm_ui$Internal$Model$addKeyedChildren, 'nearby-element-pls', keyed, rendered.M)),
 						$mdgriffith$elm_ui$Internal$Model$NoStyleSheet));
 			} else {
 				var allStyles = newStyles;
@@ -9503,9 +9299,9 @@ var $mdgriffith$elm_ui$Internal$Model$createElement = F3(
 							$mdgriffith$elm_ui$Internal$Model$finalizeNode,
 							rendered.P,
 							rendered.Q,
-							rendered.J,
+							rendered.L,
 							$mdgriffith$elm_ui$Internal$Model$Keyed(
-								A3($mdgriffith$elm_ui$Internal$Model$addKeyedChildren, 'nearby-element-pls', keyed, rendered.K))),
+								A3($mdgriffith$elm_ui$Internal$Model$addKeyedChildren, 'nearby-element-pls', keyed, rendered.M))),
 						c5: allStyles
 					});
 			}
@@ -9525,9 +9321,9 @@ var $mdgriffith$elm_ui$Internal$Model$createElement = F3(
 						$mdgriffith$elm_ui$Internal$Model$finalizeNode,
 						rendered.P,
 						rendered.Q,
-						rendered.J,
+						rendered.L,
 						$mdgriffith$elm_ui$Internal$Model$Unkeyed(
-							A2($mdgriffith$elm_ui$Internal$Model$addChildren, unkeyed, rendered.K)),
+							A2($mdgriffith$elm_ui$Internal$Model$addChildren, unkeyed, rendered.M)),
 						$mdgriffith$elm_ui$Internal$Model$NoStyleSheet));
 			} else {
 				var allStyles = newStyles;
@@ -9537,9 +9333,9 @@ var $mdgriffith$elm_ui$Internal$Model$createElement = F3(
 							$mdgriffith$elm_ui$Internal$Model$finalizeNode,
 							rendered.P,
 							rendered.Q,
-							rendered.J,
+							rendered.L,
 							$mdgriffith$elm_ui$Internal$Model$Unkeyed(
-								A2($mdgriffith$elm_ui$Internal$Model$addChildren, unkeyed, rendered.K))),
+								A2($mdgriffith$elm_ui$Internal$Model$addChildren, unkeyed, rendered.M))),
 						c5: allStyles
 					});
 			}
@@ -10090,11 +9886,11 @@ var $mdgriffith$elm_ui$Internal$Model$gatherAttrRecursive = F8(
 				var _v1 = $mdgriffith$elm_ui$Internal$Model$transformClass(transform);
 				if (_v1.$ === 1) {
 					return {
-						J: A2(
+						L: A2(
 							$elm$core$List$cons,
 							$elm$html$Html$Attributes$class(classes),
 							attrs),
-						K: children,
+						M: children,
 						P: has,
 						Q: node,
 						c5: styles
@@ -10102,11 +9898,11 @@ var $mdgriffith$elm_ui$Internal$Model$gatherAttrRecursive = F8(
 				} else {
 					var _class = _v1.a;
 					return {
-						J: A2(
+						L: A2(
 							$elm$core$List$cons,
 							$elm$html$Html$Attributes$class(classes + (' ' + _class)),
 							attrs),
-						K: children,
+						M: children,
 						P: has,
 						Q: node,
 						c5: A2(
@@ -10969,6 +10765,342 @@ var $mdgriffith$elm_ui$Internal$Model$element = F4(
 				$mdgriffith$elm_ui$Internal$Model$NoNearbyChildren,
 				$elm$core$List$reverse(attributes)));
 	});
+var $mdgriffith$elm_ui$Internal$Model$Fill = function (a) {
+	return {$: 2, a: a};
+};
+var $mdgriffith$elm_ui$Element$fill = $mdgriffith$elm_ui$Internal$Model$Fill(1);
+var $mdgriffith$elm_ui$Internal$Model$SpacingStyle = F3(
+	function (a, b, c) {
+		return {$: 5, a: a, b: b, c: c};
+	});
+var $mdgriffith$elm_ui$Internal$Model$StyleClass = F2(
+	function (a, b) {
+		return {$: 4, a: a, b: b};
+	});
+var $mdgriffith$elm_ui$Internal$Flag$spacing = $mdgriffith$elm_ui$Internal$Flag$flag(3);
+var $mdgriffith$elm_ui$Internal$Model$spacingName = F2(
+	function (x, y) {
+		return 'spacing-' + ($elm$core$String$fromInt(x) + ('-' + $elm$core$String$fromInt(y)));
+	});
+var $mdgriffith$elm_ui$Element$spacing = function (x) {
+	return A2(
+		$mdgriffith$elm_ui$Internal$Model$StyleClass,
+		$mdgriffith$elm_ui$Internal$Flag$spacing,
+		A3(
+			$mdgriffith$elm_ui$Internal$Model$SpacingStyle,
+			A2($mdgriffith$elm_ui$Internal$Model$spacingName, x, x),
+			x,
+			x));
+};
+var $mdgriffith$elm_ui$Internal$Model$Width = function (a) {
+	return {$: 7, a: a};
+};
+var $mdgriffith$elm_ui$Element$width = $mdgriffith$elm_ui$Internal$Model$Width;
+var $mdgriffith$elm_ui$Element$paragraph = F2(
+	function (attrs, children) {
+		return A4(
+			$mdgriffith$elm_ui$Internal$Model$element,
+			$mdgriffith$elm_ui$Internal$Model$asParagraph,
+			$mdgriffith$elm_ui$Internal$Model$div,
+			A2(
+				$elm$core$List$cons,
+				$mdgriffith$elm_ui$Internal$Model$Describe($mdgriffith$elm_ui$Internal$Model$Paragraph),
+				A2(
+					$elm$core$List$cons,
+					$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+					A2(
+						$elm$core$List$cons,
+						$mdgriffith$elm_ui$Element$spacing(5),
+						attrs))),
+			$mdgriffith$elm_ui$Internal$Model$Unkeyed(children));
+	});
+var $author$project$FourStars$paragraphs = _List_fromArray(
+	['Why do we think we need to review everything that we see?', '\n    Like who the f--- am I?', 'I’m in the museum leaving yelp reviews of Monet. It\'s Monet! There are maybe one or two people with enough expertise to qualify them to give Monet less than five stars. I’m not one of them. Yet I come strolling through and say, “Eh I don\'t really like the huts that much. 3 stars.”', 'It\'s the internet’s fault. These damn websites let people publish their thoughts. An older friend of mine went to a Broadway show that he didn\'t like and posted on Facebook: “The reviews are in, the new West Side Story is a stinkeroo.” What reviews are in? Are you the reviews? This single Facebook post is the reviews?', 'At least Facebook is infiltrated by the Russians.', 'Google Maps, on the other hand, is just full of dumb Americans. Or, as they like to call themselves, Local Guides. Google Maps will let you review anything. The Charles River has 4.8 stars. Local Guide Patrick Peeters thinks it has "nice views". He did not say why he was giving it only 4 stars. Maybe if the river had even nicer views, it could work its way up to a full five.', 'What does “This is a 4 star river” even mean?', 'Restaurant reviews I can somewhat understand. Things like food quality, comfort, service, and atmosphere can be judged in a somewhat objective manner. Restaurant reviews are also helpful. People who eat food can use them to learn where they might find good food and avoid bad food. People who run restaurants might read that Local Guide Patrick Peeters thinks that their plastic green tablecloths are tacky and invest in some more fashionable blue tablecloths.', 'The Charles River, though, can\'t change its tablecloths or views. Nor is a review of a river helpful to anyone. No one should need help from Local Guide Patrick Peeters choosing a river.', 'If you\'re in Boston, you really only have 2 rivers to choose from. The Charles and the Muddy River. Now, which river you want really depends on your needs. Looking at how many stars a river has isn\'t going to answer any questions you might have about the river. Can I kayak in it? Is it home to killer geese? Can I hide a body in it? Local Guide Patrick Peeters says "4 Stars: nice views" which leaves me stuck in my kayak in the Muddy River as the geese close in. Meanwhile, the body I dumped in the Charles is going to get caught in the dam and they\'ll catch me. Thanks a lot, Patrick.', 'So I looked up the rest of Patrick\'s reviews, because I can, and it turns out that he\'s pretty stingy with his 5 stars. Out of 85 reviews, he only gave 11 places the full 5. That\'s about 13% of places. It makes the 4 stars for the Charles seem not so bad.', 'So now you must be asking, what other intriguing reviews has Local Guide Patrick Peeters left, or rather, gifted to the public?', '4 stars to a bowling alley in the Netherlands. "Good place for bowling," advises Peeters. Thanks. I had been considering going bowling in the Charles. God bless you and your reviews Mr. Peeters.', 'I\'ve gotten A\'s most of my life, so it bothers me on a personal level that Patrick gives 4-star reviews without providing actionable feedback. Reminds me of a certain entrepreneurial studies professor... What\'s wrong with the Charles River, Patrick!? Why did we get an 84 on our final group presentation, Lana!?', 'Neither have responded to my emails.', 'When I give reviews, I\'m nice enough to provide actionable feedback. The Charles River, which I have just rated as 3 stars, should be less bendy because I get lost sometimes. Iit should also be warmer. I hate how cold it is when I retrieve my bowling pins. Monet (4 stars) should stop painting so many huts.', 'Unfortunately, the river and Monet have not responded to my emails either. Maybe it\'s the unprofessional husky.neu.edu domain that\'s discouraging them.']);
+var $mdgriffith$elm_ui$Internal$Model$Text = function (a) {
+	return {$: 2, a: a};
+};
+var $mdgriffith$elm_ui$Element$text = function (content) {
+	return $mdgriffith$elm_ui$Internal$Model$Text(content);
+};
+var $author$project$FourStars$content = A2(
+	$elm$core$List$map,
+	function (p) {
+		return A2(
+			$mdgriffith$elm_ui$Element$paragraph,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$mdgriffith$elm_ui$Element$text(p)
+				]));
+	},
+	$author$project$FourStars$paragraphs);
+var $author$project$Vulture$paragraphs = _List_fromArray(
+	['\n    Lonny, the giraffe, was worried about lightning. Lightning, Lonnie knew, seeks the shortest path to the ground, and therefore tends to strike the tallest thing around. Lonny, being a giraffe, was often the tallest thing around. This worried him. ', 'And so, when thunderclouds appeared in the distance, Lonny would bend his great long neck to the ground and wait anxiously for the storm to pass. Lonny was kind and friendly and generally well-liked, but when storms came and Lonny put his head down in the grass and stood quivering, unable to move or engage in friendly conversation, it made the other giraffes nervous and confused. In their nervousness and confusion, they would tease him and then run off to play in the pool or with large metal poles which they would hold in their mouths and compete to see who could raise their pole the highest. The other giraffes did not understand lightning. ', 'So it was that on this particular Tuesday, Lonny found himself quite alone in the savannah being pelted by fat, heavy raindrops, as thunder rumbled all around, face-to-face with a crocodile. ', ' "Hello," said Lonny. ', ' "Hello," said Al. "I\'m Al." ', ' "Pleased to meet you," said Lonny, who was in no way going to be so foolish as to share his name with any crocodile, and especially not this one who had scuttled up quite sneakily, and especially not in this rain, and especially, especially not on a Tuesday. ', '"Likewise," said Al, well aware that Lonny had violated the customary exchanging-of-names part of a civilized introduction, but content enough to read Lonny\'s name tag. It was just for lunch, after all. ', '"Lonny, I need your help," Al continued. "In an attempt to better understand the principles governing lightning, I was flying my kite just now in the storm. Alas, the kite has become stuck in the branches of that tall tree. My small crocodile neck prevents me from reaching it. Lonny, in the name of science, would you be so kind as to retrieve my kite?" ', 'Lonny cautiously lifted his head an inch off the ground to look at the tree. Indeed, there was a kite tangled high in its boughs, flapping in the wind wildly, yet weakly, rather like a lanky animal flailing in quicksand. Al\'s story seemed plausible, but crocodiles, Lonny knew, are a shifty bunch. He needed more details. ', ' "What\'s a crocodile studying electromagnetism for? Besides, don\'t you know that Benjamin Franklin did the whole kite thing already?" ', 'This is one well-educated giraffe, thought Al. The gig was up. ', ' "I\'m no crocodile!" he said as he peeled off his fake pointed snout, revealing a rounded one underneath. The name Al, was, of course, short for Alligator. ', ' "Aaaahhh," exclaimed Lonny. His fear of lightning was suddenly replaced by his fear of alligators. Lonny\'s neck sprung upright. ', 'Unfortunately, his head\'s rapid change in altitude caused the blood to drain from his brain, and Lonny, overcome with dizziness, toppled over into the adjacent pool of quicksand. As he sank, he writhed wildly, yet weakly, rather like a certain kite. ', 'The quicksand had just reached his shoulders when a blast of lightning cracked nearby, so close that Lonny could feel its heat. He yelped and ducked his head. Unfortunately, the ducking turned into more of a plunging, a plunging into the oozing quicksand, which happily swallowed Lonny whole. ', 'Al, feeling dejected about his unconvincing disguise, his failed - and apparently unoriginal - science experiment, and his now absent, deceased, and swallowed-whole lunch plan, scuttled home, dropped out of his PhD program, and succumbed to alcoholism, just as his mother had always feared. ', 'Now that the rain had stopped, the other giraffes, meanwhile, were being devoured by a group of vultures who were beginning to wonder if they could maybe capture the wild power of lightning and channel it into some sort of cooking apparatus with a timer, heating coils, and different crispiness settings. Charred giraffe tastes so much better. ']);
+var $author$project$Vulture$content = A2(
+	$elm$core$List$map,
+	function (p) {
+		return A2(
+			$mdgriffith$elm_ui$Element$paragraph,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$mdgriffith$elm_ui$Element$text(p)
+				]));
+	},
+	$author$project$Vulture$paragraphs);
+var $author$project$WayOut$paragraphs = _List_fromArray(
+	['I can\'t leave the beach. That much is clear. There\'s no boardwalk, sea-wall, or parking lot to turn to. Or run to. There is nothing behind me. It\'s a nothingness that is not void or null, or even nothing. It is unrendered, unimagined. It is not. There\'s nowhere to run. ', 'Each wave swells, curls, and crashes onto the sand, steadily inching closer. As the shore shrinks before me, the slope of the beach grows steeper. Soon, I will lose my footing and slide down the wall of sand to be swallowed whole by the unrelenting sea. ', 'To my left and right lie two jagged jetties protruding far out into the dark swirling waters, like the feelers of some horrid bug. The ocean slams into the jetties\'s pointed rocks, dislodging mollusks and crushing crabs. The water froths and tumbles to shore. ', ' "Come on!" shouts my sister. She bobs up and down and dives under a thrashing crest and pops up on a swell, waving for me. "Come on!" And under again, twisting wretchedly in a cross current. And up again, waving, not for help, but for me, urgently. "Come on!" ', 'What does she see?', 'The waves lap closer and claim an abandoned bucket. The sand shifts beneath me. I scramble up the slope. I can no longer stand. I pull my feet under me, crouching, wound like a spring, but too terrified to spring anywhere. Where\'s Emma? A mountain of water breaks and races toward me, anointing my foot. Where\'s Emma? The water\'s cold shocks me. There! A flash of red hair, a pale arm. "Come on!" she waves. ', 'What does she see?', 'The waves break closer and closer. I feel their spray. They arch and curl and spit on me. The jetties are nearly gone. Devoured. ', 'Don\'t look back. Don\'t look back. Don\'t look back. ', 'I breathe deep, once, twice. I time the breaks, leap up, and, pounding on the damp sand, ankle deep, knee deep, no ankle deep again as the water recedes, priming for the next punch, I plunge headlong into Poseidon\'s halls. ', ' "Gah!" I rise, sputtering. I am towed under, tumbled and twisted. My knee ricochets off the sandy floor. I struggle upwards and outwards, towards my sister. ', 'Don\'t look back. Don\'t look back. ', 'I\'ve almost reached her. She kicks out farther, ducks, dives, and turns. She waves. "Come on!" ', 'Up and down and up again I go. Wiping water from my eyes, I catch her face. She looks back at me, no, behind me. She\'s laughing now, happy, mirthful. Confused, I struggle towards her. She swims away. ', 'Don\'t look back. What does she see? No. Don\'t look back. Look back. Look back. ', 'I turn. The beach is gone, eaten by the sea. The next wave swells. Up, I soar, up and up. It curls, seems to pause, considering for but a moment if it should or should not. Decision made, it does. It and I crash into the nothingness, swallowing the void, its unthought streets, its unimagined homes. I am drowned, flattened, torn, dissolved. The red bucket clatters to a halt against a sign: No Parking. ']);
+var $author$project$WayOut$content = A2(
+	$elm$core$List$map,
+	function (p) {
+		return A2(
+			$mdgriffith$elm_ui$Element$paragraph,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$mdgriffith$elm_ui$Element$text(p)
+				]));
+	},
+	$author$project$WayOut$paragraphs);
+var $author$project$What$paragraphs = _List_fromArray(
+	['This is, to reiterate the subheader, where I scream\n        into the void. I used to do this on my notes app, but then I\n        realized that I could copy and paste the things on my notes app\n        into a file on my computer, format the file into a webpage, and\n        bother you, dear reader, with my content. Enjoy!']);
+var $author$project$What$content = A2(
+	$elm$core$List$map,
+	function (p) {
+		return A2(
+			$mdgriffith$elm_ui$Element$paragraph,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$mdgriffith$elm_ui$Element$text(p)
+				]));
+	},
+	$author$project$What$paragraphs);
+var $author$project$Who$paragraphs = _List_fromArray(
+	['I am Willy Unterkoefler. Unless otherwise noted, I write the things on here, which explains their high quality. I also designed this website, which explains its... quality. If you want to know more about me, please read everything I post here and psychoanalyze it. To help you get started, the giraffe is really a metaphor for my healthy relationship with my father and three horrible years of speech therapy in elementary school. Despite my years speech therapy, you should know that I still pronounce water as "woodder". The rest of my life and personality can be derived.']);
+var $author$project$Who$content = A2(
+	$elm$core$List$map,
+	function (p) {
+		return A2(
+			$mdgriffith$elm_ui$Element$paragraph,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$mdgriffith$elm_ui$Element$text(p)
+				]));
+	},
+	$author$project$Who$paragraphs);
+var $pzp1997$assoc_list$AssocList$D = $elm$core$Basics$identity;
+var $pzp1997$assoc_list$AssocList$remove = F2(
+	function (targetKey, _v0) {
+		var alist = _v0;
+		return A2(
+			$elm$core$List$filter,
+			function (_v1) {
+				var key = _v1.a;
+				return !_Utils_eq(key, targetKey);
+			},
+			alist);
+	});
+var $pzp1997$assoc_list$AssocList$insert = F3(
+	function (key, value, dict) {
+		var _v0 = A2($pzp1997$assoc_list$AssocList$remove, key, dict);
+		var alteredAlist = _v0;
+		return A2(
+			$elm$core$List$cons,
+			_Utils_Tuple2(key, value),
+			alteredAlist);
+	});
+var $pzp1997$assoc_list$AssocList$fromList = function (alist) {
+	return A3(
+		$elm$core$List$foldl,
+		F2(
+			function (_v0, result) {
+				var key = _v0.a;
+				var value = _v0.b;
+				return A3($pzp1997$assoc_list$AssocList$insert, key, value, result);
+			}),
+		_List_Nil,
+		alist);
+};
+var $author$project$Post$all = $pzp1997$assoc_list$AssocList$fromList(
+	_List_fromArray(
+		[
+			_Utils_Tuple2(
+			'vultures-envision-a-toaster',
+			{E: $author$project$Vulture$content, G: 'A story about a giraffe', cX: true, dl: 'Vultures Envision a Toaster'}),
+			_Utils_Tuple2(
+			'two-ways-out',
+			{E: $author$project$WayOut$content, G: 'There was no way out', cX: true, dl: 'Two Ways Out'}),
+			_Utils_Tuple2(
+			'four-stars',
+			{E: $author$project$FourStars$content, G: 'A review of reviews', cX: true, dl: '4 Stars'}),
+			_Utils_Tuple2(
+			'what-is-this',
+			{E: $author$project$What$content, G: '', cX: false, dl: 'What is this?'}),
+			_Utils_Tuple2(
+			'who-am-i',
+			{E: $author$project$Who$content, G: '', cX: false, dl: 'Who am I?'}),
+			_Utils_Tuple2(
+			'contact-me',
+			{
+				E: _List_fromArray(
+					[
+						A2(
+						$mdgriffith$elm_ui$Element$paragraph,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$mdgriffith$elm_ui$Element$text('Please don\'t')
+							]))
+					]),
+				G: '',
+				cX: false,
+				dl: 'Contact me'
+			})
+		]));
+var $pzp1997$assoc_list$AssocList$get = F2(
+	function (targetKey, _v0) {
+		get:
+		while (true) {
+			var alist = _v0;
+			if (!alist.b) {
+				return $elm$core$Maybe$Nothing;
+			} else {
+				var _v2 = alist.a;
+				var key = _v2.a;
+				var value = _v2.b;
+				var rest = alist.b;
+				if (_Utils_eq(key, targetKey)) {
+					return $elm$core$Maybe$Just(value);
+				} else {
+					var $temp$targetKey = targetKey,
+						$temp$_v0 = rest;
+					targetKey = $temp$targetKey;
+					_v0 = $temp$_v0;
+					continue get;
+				}
+			}
+		}
+	});
+var $author$project$Post$fromUrl = F2(
+	function (url, posts) {
+		var slug = A2($elm$core$String$dropLeft, 1, url.cO);
+		return A2($pzp1997$assoc_list$AssocList$get, slug, posts);
+	});
+var $elm$core$Platform$Cmd$batch = _Platform_batch;
+var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
+var $author$project$Main$init = F3(
+	function (_v0, url, key) {
+		return _Utils_Tuple2(
+			{
+				aJ: key,
+				av: A2($author$project$Post$fromUrl, url, $author$project$Post$all),
+				aw: $author$project$Post$all,
+				_: false
+			},
+			$elm$core$Platform$Cmd$none);
+	});
+var $elm$core$Platform$Sub$batch = _Platform_batch;
+var $elm$core$Platform$Sub$none = $elm$core$Platform$Sub$batch(_List_Nil);
+var $author$project$Main$subscriptions = function (model) {
+	return $elm$core$Platform$Sub$none;
+};
+var $author$project$Main$handleUrlChange = F2(
+	function (model, url) {
+		return _Utils_Tuple2(
+			_Utils_update(
+				model,
+				{
+					av: A2($author$project$Post$fromUrl, url, model.aw),
+					_: false
+				}),
+			$elm$core$Platform$Cmd$none);
+	});
+var $elm$browser$Browser$Navigation$load = _Browser_load;
+var $elm$browser$Browser$Navigation$pushUrl = _Browser_pushUrl;
+var $elm$url$Url$addPort = F2(
+	function (maybePort, starter) {
+		if (maybePort.$ === 1) {
+			return starter;
+		} else {
+			var port_ = maybePort.a;
+			return starter + (':' + $elm$core$String$fromInt(port_));
+		}
+	});
+var $elm$url$Url$addPrefixed = F3(
+	function (prefix, maybeSegment, starter) {
+		if (maybeSegment.$ === 1) {
+			return starter;
+		} else {
+			var segment = maybeSegment.a;
+			return _Utils_ap(
+				starter,
+				_Utils_ap(prefix, segment));
+		}
+	});
+var $elm$url$Url$toString = function (url) {
+	var http = function () {
+		var _v0 = url.bs;
+		if (!_v0) {
+			return 'http://';
+		} else {
+			return 'https://';
+		}
+	}();
+	return A3(
+		$elm$url$Url$addPrefixed,
+		'#',
+		url.a6,
+		A3(
+			$elm$url$Url$addPrefixed,
+			'?',
+			url.bt,
+			_Utils_ap(
+				A2(
+					$elm$url$Url$addPort,
+					url.bp,
+					_Utils_ap(http, url.bb)),
+				url.cO)));
+};
+var $author$project$Main$update = F2(
+	function (msg, model) {
+		switch (msg.$) {
+			case 1:
+				var urlRequest = msg.a;
+				if (!urlRequest.$) {
+					var url = urlRequest.a;
+					return _Utils_Tuple2(
+						model,
+						A2(
+							$elm$browser$Browser$Navigation$pushUrl,
+							model.aJ,
+							$elm$url$Url$toString(url)));
+				} else {
+					var url = urlRequest.a;
+					return _Utils_Tuple2(
+						model,
+						$elm$browser$Browser$Navigation$load(url));
+				}
+			case 0:
+				var url = msg.a;
+				return A2($author$project$Main$handleUrlChange, model, url);
+			default:
+				return _Utils_Tuple2(
+					_Utils_update(
+						model,
+						{_: !model._}),
+					$elm$core$Platform$Cmd$none);
+		}
+	});
+var $author$project$Main$Article = 1;
+var $mdgriffith$elm_ui$Internal$Model$AlignY = function (a) {
+	return {$: 5, a: a};
+};
+var $mdgriffith$elm_ui$Internal$Model$Bottom = 2;
+var $mdgriffith$elm_ui$Element$alignBottom = $mdgriffith$elm_ui$Internal$Model$AlignY(2);
+var $mdgriffith$elm_ui$Internal$Model$AsColumn = 1;
+var $mdgriffith$elm_ui$Internal$Model$asColumn = 1;
 var $mdgriffith$elm_ui$Internal$Model$Height = function (a) {
 	return {$: 8, a: a};
 };
@@ -10982,10 +11114,6 @@ var $mdgriffith$elm_ui$Internal$Model$htmlClass = function (cls) {
 };
 var $mdgriffith$elm_ui$Internal$Model$Content = {$: 1};
 var $mdgriffith$elm_ui$Element$shrink = $mdgriffith$elm_ui$Internal$Model$Content;
-var $mdgriffith$elm_ui$Internal$Model$Width = function (a) {
-	return {$: 7, a: a};
-};
-var $mdgriffith$elm_ui$Element$width = $mdgriffith$elm_ui$Internal$Model$Width;
 var $mdgriffith$elm_ui$Element$column = F2(
 	function (attrs, children) {
 		return A4(
@@ -11021,17 +11149,9 @@ var $mdgriffith$elm_ui$Element$el = F2(
 				_List_fromArray(
 					[child])));
 	});
-var $mdgriffith$elm_ui$Internal$Model$Fill = function (a) {
-	return {$: 2, a: a};
-};
-var $mdgriffith$elm_ui$Element$fill = $mdgriffith$elm_ui$Internal$Model$Fill(1);
 var $mdgriffith$elm_ui$Internal$Model$Colored = F3(
 	function (a, b, c) {
 		return {$: 4, a: a, b: b, c: c};
-	});
-var $mdgriffith$elm_ui$Internal$Model$StyleClass = F2(
-	function (a, b) {
-		return {$: 4, a: a, b: b};
 	});
 var $mdgriffith$elm_ui$Internal$Flag$bgColor = $mdgriffith$elm_ui$Internal$Flag$flag(8);
 var $mdgriffith$elm_ui$Internal$Model$formatColorClass = function (_v0) {
@@ -11061,9 +11181,6 @@ var $mdgriffith$elm_ui$Element$Font$color = function (fontColor) {
 			'fc-' + $mdgriffith$elm_ui$Internal$Model$formatColorClass(fontColor),
 			'color',
 			fontColor));
-};
-var $mdgriffith$elm_ui$Internal$Model$Describe = function (a) {
-	return {$: 2, a: a};
 };
 var $mdgriffith$elm_ui$Internal$Model$Heading = function (a) {
 	return {$: 4, a: a};
@@ -11105,7 +11222,7 @@ var $mdgriffith$elm_ui$Element$link = F2(
 							$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$shrink),
 							A2(
 								$elm$core$List$cons,
-								$mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.ar + (' ' + ($mdgriffith$elm_ui$Internal$Style$classes.E + (' ' + $mdgriffith$elm_ui$Internal$Style$classes.bf)))),
+								$mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.ar + (' ' + ($mdgriffith$elm_ui$Internal$Style$classes.F + (' ' + $mdgriffith$elm_ui$Internal$Style$classes.bf)))),
 								attrs))))),
 			$mdgriffith$elm_ui$Internal$Model$Unkeyed(
 				_List_fromArray(
@@ -11192,12 +11309,6 @@ var $author$project$Main$sourceSerifPro = $mdgriffith$elm_ui$Element$Font$family
 			{cF: 'Source Serif Pro', aU: 'https://fonts.googleapis.com/css2?family=Montserrat&family=Source+Serif+Pro&display=swap'}),
 			$mdgriffith$elm_ui$Element$Font$serif
 		]));
-var $mdgriffith$elm_ui$Internal$Model$Text = function (a) {
-	return {$: 2, a: a};
-};
-var $mdgriffith$elm_ui$Element$text = function (content) {
-	return $mdgriffith$elm_ui$Internal$Model$Text(content);
-};
 var $author$project$Main$heading = A2(
 	$mdgriffith$elm_ui$Element$link,
 	_List_fromArray(
@@ -11323,7 +11434,7 @@ var $mdgriffith$elm_ui$Element$Input$button = F2(
 					$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$shrink),
 					A2(
 						$elm$core$List$cons,
-						$mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.ar + (' ' + ($mdgriffith$elm_ui$Internal$Style$classes.E + (' ' + ($mdgriffith$elm_ui$Internal$Style$classes.cV + (' ' + $mdgriffith$elm_ui$Internal$Style$classes.bi)))))),
+						$mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.ar + (' ' + ($mdgriffith$elm_ui$Internal$Style$classes.F + (' ' + ($mdgriffith$elm_ui$Internal$Style$classes.cV + (' ' + $mdgriffith$elm_ui$Internal$Style$classes.bi)))))),
 						A2(
 							$elm$core$List$cons,
 							$mdgriffith$elm_ui$Element$pointer,
@@ -11636,7 +11747,7 @@ var $mdgriffith$elm_ui$Element$row = F2(
 			$mdgriffith$elm_ui$Internal$Model$div,
 			A2(
 				$elm$core$List$cons,
-				$mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.af + (' ' + $mdgriffith$elm_ui$Internal$Style$classes.E)),
+				$mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.af + (' ' + $mdgriffith$elm_ui$Internal$Style$classes.F)),
 				A2(
 					$elm$core$List$cons,
 					$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$shrink),
@@ -11685,45 +11796,7 @@ var $author$project$Main$sideBar = A2(
 	$mdgriffith$elm_ui$Element$text(''));
 var $mdgriffith$elm_ui$Internal$Model$Top = 0;
 var $mdgriffith$elm_ui$Element$alignTop = $mdgriffith$elm_ui$Internal$Model$AlignY(0);
-var $mdgriffith$elm_ui$Internal$Model$SpacingStyle = F3(
-	function (a, b, c) {
-		return {$: 5, a: a, b: b, c: c};
-	});
-var $mdgriffith$elm_ui$Internal$Flag$spacing = $mdgriffith$elm_ui$Internal$Flag$flag(3);
-var $mdgriffith$elm_ui$Internal$Model$spacingName = F2(
-	function (x, y) {
-		return 'spacing-' + ($elm$core$String$fromInt(x) + ('-' + $elm$core$String$fromInt(y)));
-	});
-var $mdgriffith$elm_ui$Element$spacing = function (x) {
-	return A2(
-		$mdgriffith$elm_ui$Internal$Model$StyleClass,
-		$mdgriffith$elm_ui$Internal$Flag$spacing,
-		A3(
-			$mdgriffith$elm_ui$Internal$Model$SpacingStyle,
-			A2($mdgriffith$elm_ui$Internal$Model$spacingName, x, x),
-			x,
-			x));
-};
 var $author$project$Post$directions0 = {aE: 0, be: 0, bw: 0, bB: 0};
-var $mdgriffith$elm_ui$Internal$Model$Paragraph = {$: 9};
-var $mdgriffith$elm_ui$Element$paragraph = F2(
-	function (attrs, children) {
-		return A4(
-			$mdgriffith$elm_ui$Internal$Model$element,
-			$mdgriffith$elm_ui$Internal$Model$asParagraph,
-			$mdgriffith$elm_ui$Internal$Model$div,
-			A2(
-				$elm$core$List$cons,
-				$mdgriffith$elm_ui$Internal$Model$Describe($mdgriffith$elm_ui$Internal$Model$Paragraph),
-				A2(
-					$elm$core$List$cons,
-					$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-					A2(
-						$elm$core$List$cons,
-						$mdgriffith$elm_ui$Element$spacing(5),
-						attrs))),
-			$mdgriffith$elm_ui$Internal$Model$Unkeyed(children));
-	});
 var $mdgriffith$elm_ui$Internal$Model$AsTextColumn = 5;
 var $mdgriffith$elm_ui$Internal$Model$asTextColumn = 5;
 var $mdgriffith$elm_ui$Internal$Model$Max = F2(
@@ -11769,18 +11842,7 @@ var $author$project$Post$viewContent = function (content) {
 					{be: 48})),
 				$mdgriffith$elm_ui$Element$spacing(18)
 			]),
-		A2(
-			$elm$core$List$map,
-			function (p) {
-				return A2(
-					$mdgriffith$elm_ui$Element$paragraph,
-					_List_Nil,
-					_List_fromArray(
-						[
-							$mdgriffith$elm_ui$Element$text(p)
-						]));
-			},
-			content));
+		content);
 };
 var $mdgriffith$elm_ui$Element$Font$underline = $mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.$7);
 var $author$project$Post$viewTitle = function (title) {
@@ -11808,7 +11870,7 @@ var $author$project$Post$view = function (post) {
 		_List_fromArray(
 			[
 				$author$project$Post$viewTitle(post.dl),
-				$author$project$Post$viewContent(post.L)
+				$author$project$Post$viewContent(post.E)
 			]));
 };
 var $author$project$Main$articleBody = F2(
@@ -11908,7 +11970,7 @@ var $author$project$Post$preview = F2(
 			_List_fromArray(
 				[
 					A2($author$project$Post$previewTitle, p.dl, slug),
-					$author$project$Post$viewDescription(p.N)
+					$author$project$Post$viewDescription(p.G)
 				]));
 	});
 var $pzp1997$assoc_list$AssocList$values = function (_v0) {
