@@ -15,13 +15,13 @@ type alias Section msg =
 
 type Body msg
     = Default (List String)
-    | Custom (List (Element msg))
+    | Custom (Length -> List (Element msg))
 
 
-content : List (Element msg)
-content =
+content : Length -> List (Element msg)
+content w =
     centeredImage "fedex logo" "assets/slogan.png"
-        :: (borderBetween <| List.map displaySection sections)
+        :: (borderBetween <| List.map (displaySection w) sections)
 
 
 centeredImage : String -> String -> Element msg
@@ -29,28 +29,28 @@ centeredImage description src =
     el
         [ width fill ]
     <|
-        image [ centerX, width (px 300) ]
+        image [ centerX, width (px 250) ]
             { description = description
             , src = src
             }
 
 
-displaySection : Section msg -> Element msg
-displaySection section =
+displaySection : Length -> Section msg -> Element msg
+displaySection w section =
     let
         body =
             case section.body of
                 Default paragraphs ->
-                    List.map (\p -> paragraph [] [ text p ]) paragraphs
+                    List.map (\p -> paragraph [ width w ] [ text p ]) paragraphs
 
                 Custom els ->
-                    els
+                    els w
     in
     column
-        [ spacing 12 ]
-        [ el [ Region.heading 1, Font.size 28, paddingXY 0 12 ] <| text section.header
+        [ spacingXY 0 12 ]
+        [ paragraph [ Region.heading 1, width w, Font.size 28, paddingXY 0 12 ] [ text section.header ]
         , section.img
-        , column [ spacing 12, paddingXY 0 18 ] body
+        , column [ spacingXY 0 12, paddingXY 0 18, width w ] body
         ]
 
 
@@ -113,41 +113,43 @@ sections =
       , img = centeredImage "A robot" "assets/robot.png"
       , body =
             Custom
-                [ paragraph [] [ text """I went back to the FedEx tracking website. It said "Awaiting additional information from recipient". That's me, I thought. Let me give you additional information. I clicked around their site, created an account, confirmed my account, and clicked some more, but nowhere could I give FedEx additional information. Don't be such a milllennial, I thought. I called their customer support number.""" ]
-                , paragraph [] [ text """I was greeted by a robot. The robot asked me to enter my tracking number. I did so. I was able to enter it verbally and the robot could understand what numbers I had said. What a clever robot. It then read verbatim the information from the tracking page that I was currently reading. Not such a clever robot after all. I needed a person.""" ]
-                , textColumn [ Font.family [ Font.monospace ] ]
-                    [ paragraph [] [ text "> Main menu" ]
-                    , paragraph [] [ text "> Thank you for calling FedEx. Punto nueve para Espanol. What can I help you with today?" ]
-                    , paragraph [] [ text "> Speak to a human" ]
-                    , paragraph [] [ text "> I'm sorry. I didn't catch that. What can I help you with today?" ]
-                    , paragraph [] [ text "> Human being" ]
-                    , paragraph [] [ text "> I think you want to speak to a customer support representative. Is that correct?" ]
-                    , paragraph [] [ text "> Yes." ]
-                    , paragraph [] [ text "> In order to speak with a representative, you must have a tracking number or door tag number. Please enter it now." ]
-                    , paragraph [] [ text "> D T 1 2 3 4 5 6 7 8 9" ]
-                    , paragraph [] [ text "> Did you say D T 1 2 4 4 5 6 7 8 9" ]
-                    , paragraph [] [ text "> No" ]
-                    , paragraph [] [ text "> Please enter your tracking number or door tag number." ]
-                    , paragraph [] [ text "> D T 1 2 3 4 5 6 7 8 9" ]
-                    , paragraph [] [ text "> Did you say D T 1 2 3 4 5 6 7 8 9?" ]
-                    , paragraph [] [ text "> Yes" ]
+                (\w ->
+                    [ paragraph [ width w ] [ text """I went back to the FedEx tracking website. It said "Awaiting additional information from recipient". That's me, I thought. Let me give you additional information. I clicked around their site, created an account, confirmed my account, and clicked some more, but nowhere could I give FedEx additional information. Don't be such a milllennial, I thought. I called their customer support number.""" ]
+                    , paragraph [ width w ] [ text """I was greeted by a robot. The robot asked me to enter my tracking number. I did so. I was able to enter it verbally and the robot could understand what numbers I had said. What a clever robot. It then read verbatim the information from the tracking page that I was currently reading. Not such a clever robot after all. I needed a person.""" ]
+                    , textColumn [ width w, Font.family [ Font.monospace ] ]
+                        [ paragraph [ width w ] [ text "> Main menu" ]
+                        , paragraph [ width w ] [ text "> Thank you for calling FedEx. Punto nueve para Espanol. What can I help you with today?" ]
+                        , paragraph [ width w ] [ text "> Speak to a human" ]
+                        , paragraph [ width w ] [ text "> I'm sorry. I didn't catch that. What can I help you with today?" ]
+                        , paragraph [ width w ] [ text "> Human being" ]
+                        , paragraph [ width w ] [ text "> I think you want to speak to a customer support representative. Is that correct?" ]
+                        , paragraph [ width w ] [ text "> Yes." ]
+                        , paragraph [ width w ] [ text "> In order to speak with a representative, you must have a tracking number or door tag number. Please enter it now." ]
+                        , paragraph [ width w ] [ text "> D T 1 2 3 4 5 6 7 8 9" ]
+                        , paragraph [ width w ] [ text "> Did you say D T 1 2 4 4 5 6 7 8 9" ]
+                        , paragraph [ width w ] [ text "> No" ]
+                        , paragraph [ width w ] [ text "> Please enter your tracking number or door tag number." ]
+                        , paragraph [ width w ] [ text "> D T 1 2 3 4 5 6 7 8 9" ]
+                        , paragraph [ width w ] [ text "> Did you say D T 1 2 3 4 5 6 7 8 9?" ]
+                        , paragraph [ width w ] [ text "> Yes" ]
+                        ]
+                    , paragraph [ width w ] [ text """Finally, I thought. But no. Having entered a tracking number, robot read verbatim the information from the tracking page that I was currently reading. Not such a clever robot after all. I needed a person.""" ]
+                    , textColumn [ width w, Font.family [ Font.monospace ] ]
+                        [ paragraph [ width w ] [ text "> Main menu" ]
+                        , paragraph [ width w ] [ text "> Thank you for calling FedEx. Punto nueve para Espanol. What can I help you with today?" ]
+                        , paragraph [ width w ] [ text "> Speak to a human" ]
+                        , paragraph [ width w ] [ text "> I'm sorry. I didn't catch that. What can I help you with today?" ]
+                        , paragraph [ width w ] [ text "> Human being" ]
+                        , paragraph [ width w ] [ text "> I think you want to speak to a customer support representative. Is that correct?" ]
+                        , paragraph [ width w ] [ text "> Yes." ]
+                        , paragraph [ width w ] [ text "> In order to speak with a representative, you must have a tracking number or door tag number. Please enter it now." ]
+                        , paragraph [ width w ] [ text "> D T 1 2 3 4 5 6 7 8 9" ]
+                        , paragraph [ width w ] [ text "> Did you say D T 1 2 3 4 5 6 7 8 9" ]
+                        , paragraph [ width w ] [ text "> Yes" ]
+                        ]
+                    , paragraph [ width w ] [ text """Maybe this time it will work, I thought. But no. Having entered a tracking number, robot read verbatim the information from the tracking page that I was currently reading. Not such a clever robot after all. I hung up, but not without swearing at the robot first.""" ]
                     ]
-                , paragraph [] [ text """Finally, I thought. But no. Having entered a tracking number, robot read verbatim the information from the tracking page that I was currently reading. Not such a clever robot after all. I needed a person.""" ]
-                , textColumn [ Font.family [ Font.monospace ] ]
-                    [ paragraph [] [ text "> Main menu" ]
-                    , paragraph [] [ text "> Thank you for calling FedEx. Punto nueve para Espanol. What can I help you with today?" ]
-                    , paragraph [] [ text "> Speak to a human" ]
-                    , paragraph [] [ text "> I'm sorry. I didn't catch that. What can I help you with today?" ]
-                    , paragraph [] [ text "> Human being" ]
-                    , paragraph [] [ text "> I think you want to speak to a customer support representative. Is that correct?" ]
-                    , paragraph [] [ text "> Yes." ]
-                    , paragraph [] [ text "> In order to speak with a representative, you must have a tracking number or door tag number. Please enter it now." ]
-                    , paragraph [] [ text "> D T 1 2 3 4 5 6 7 8 9" ]
-                    , paragraph [] [ text "> Did you say D T 1 2 3 4 5 6 7 8 9" ]
-                    , paragraph [] [ text "> Yes" ]
-                    ]
-                , paragraph [] [ text """Maybe this time it will work, I thought. But no. Having entered a tracking number, robot read verbatim the information from the tracking page that I was currently reading. Not such a clever robot after all. I hung up, but not without swearing at the robot first.""" ]
-                ]
+                )
       }
     , { header = "A Mother's Wisdom and the Guardian of Thebes"
       , img = centeredImage "Oedipus encounters the sphinx" "assets/oedipus.jpeg"

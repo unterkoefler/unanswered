@@ -2,6 +2,7 @@ module Main exposing (main)
 
 import AssocList as Dict exposing (Dict)
 import Browser exposing (Document)
+import Browser.Events exposing (onResize)
 import Browser.Navigation as Nav
 import Element exposing (..)
 import Element.Background as Background
@@ -33,12 +34,13 @@ main =
 -- INIT
 
 
-init : () -> Url -> Nav.Key -> ( Model, Cmd Msg )
-init _ url key =
+init : { width : Int } -> Url -> Nav.Key -> ( Model, Cmd Msg )
+init { width } url key =
     ( { posts = Post.all
       , post = Post.fromUrl url Post.all
       , key = key
       , showMenu = False
+      , width = width
       }
     , Cmd.none
     )
@@ -53,6 +55,7 @@ type alias Model =
     , post : Maybe (Post.Post Msg)
     , key : Nav.Key
     , showMenu : Bool
+    , width : Int
     }
 
 
@@ -69,6 +72,7 @@ type Msg
     = UrlChanged Url
     | LinkClicked Browser.UrlRequest
     | MenuToggled
+    | WindowResized Int
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -94,6 +98,11 @@ update msg model =
             , Cmd.none
             )
 
+        WindowResized newWidth ->
+            ( { model | width = newWidth }
+            , Cmd.none
+            )
+
 
 handleUrlChange : Model -> Url -> ( Model, Cmd Msg )
 handleUrlChange model url =
@@ -104,7 +113,7 @@ handleUrlChange model url =
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
-    Sub.none
+    onResize (\w h -> WindowResized w)
 
 
 
@@ -137,7 +146,7 @@ homeBody posts model =
             [ header Home model
             , subheader
             ]
-        , homeContent posts
+        , content model.width 90 <| homeContent model.width posts
         ]
 
 
@@ -148,16 +157,26 @@ articleBody post model =
         , height fill
         ]
         [ row [ width fill, height fill ]
-            [ Post.view post
-            , sideBar
+            [ el [ width fill ] <| content model.width 70 <| Post.view (pct model.width 70) post
+            , sideBar model.width
             ]
         , el [ width fill, alignBottom ] <| header Article model
         ]
 
 
-sideBar =
+content : Int -> Int -> Element Msg -> Element Msg
+content w percent l =
     el
-        [ width (px 96)
+        [ centerX
+        , width (pct w percent)
+        ]
+        l
+
+
+sideBar : Int -> Element Msg
+sideBar w =
+    el
+        [ width (pct w 5 |> maximum 96)
         , Background.color teal
         , alignRight
         , height fill
@@ -288,15 +307,21 @@ subheader =
         [ text "Where I type and scream my thoughts into the void, unanswered" ]
 
 
-homeContent : Dict String (Post.Post Msg) -> Element Msg
-homeContent posts =
+homeContent : Int -> Dict String (Post.Post Msg) -> Element Msg
+homeContent w posts =
     column
-        [ paddingXY 96 24
-        , spacing 48
-        , Border.widthEach { directions0 | left = 1, right = 1 }
+        [ Border.widthEach { directions0 | left = 1, right = 1 }
+        , spacing 24
+        , width (fill |> maximum 450)
+        , padding (w * 3 // 100)
         , centerX
         ]
     <|
         Dict.values <|
             Dict.map Post.preview <|
                 Dict.filter (\_ post -> post.showOnHomePage) posts
+
+
+pct : Int -> Int -> Length
+pct w percent =
+    px (percent * w // 100)

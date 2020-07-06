@@ -6,7 +6,7 @@ import Element exposing (..)
 content : List (Element msg)
 content =
     List.map
-        (\p -> paragraph [] [ text p ])
+        (\p -> paragraph [ width shrink ] [ text p ])
         paragraphs
 
 

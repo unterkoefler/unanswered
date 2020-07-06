@@ -21,7 +21,7 @@ import Who
 type alias Post msg =
     { title : String
     , description : String
-    , content : List (Element msg)
+    , content : Length -> List (Element msg)
     , showOnHomePage : Bool
     }
 
@@ -43,42 +43,42 @@ all =
         , ( "vultures-envision-a-toaster"
           , { title = "Vultures Envision a Toaster"
             , description = "A story about a giraffe"
-            , content = Vulture.content
+            , content = \_ -> Vulture.content
             , showOnHomePage = True
             }
           )
         , ( "two-ways-out"
           , { title = "Two Ways Out"
             , description = "There was no way out"
-            , content = WayOut.content
+            , content = \_ -> WayOut.content
             , showOnHomePage = True
             }
           )
         , ( "four-stars"
           , { title = "4 Stars"
             , description = "A review of reviews"
-            , content = FourStars.content
+            , content = \_ -> FourStars.content
             , showOnHomePage = True
             }
           )
         , ( "what-is-this"
           , { title = "What is this?"
             , description = ""
-            , content = What.content
+            , content = \_ -> What.content
             , showOnHomePage = False
             }
           )
         , ( "who-am-i"
           , { title = "Who am I?"
             , description = ""
-            , content = Who.content
+            , content = \_ -> Who.content
             , showOnHomePage = False
             }
           )
         , ( "contact-me"
           , { title = "Contact me"
             , description = ""
-            , content = [ paragraph [] [ text "Please don't" ] ]
+            , content = \_ -> [ paragraph [] [ text "Please don't" ] ]
             , showOnHomePage = False
             }
           )
@@ -102,34 +102,34 @@ fromUrl url posts =
 -- VIEW
 
 
-view : Post msg -> Element msg
-view post =
-    column [ spacing 24, width fill, padding 24, alignTop ]
+view : Length -> Post msg -> Element msg
+view w post =
+    column [ spacingXY 0 24, width w, paddingXY 0 48, alignTop ]
         [ viewTitle post.title
-        , viewContent post.content
+        , viewContent w post.content
         ]
 
 
 viewTitle : String -> Element msg
 viewTitle title =
-    el
+    paragraph
         [ Region.heading 1
         , Font.size 36
         , Font.underline
-        , padding 24
+        , paddingXY 0 24
         ]
-    <|
-        text title
+        [ text title ]
 
 
-viewContent : List (Element msg) -> Element msg
-viewContent content =
+viewContent : Length -> (Length -> List (Element msg)) -> Element msg
+viewContent w content =
     textColumn
-        [ paddingEach { directions0 | left = 48 }
-        , spacing 18
+        [ spacingXY 0 18
+        , Font.size 16
+        , width w
         ]
     <|
-        content
+        content w
 
 
 preview : String -> Post msg -> Element msg
@@ -144,8 +144,8 @@ preview slug p =
 previewTitle : String -> String -> Element msg
 previewTitle title slug =
     link
-        [ Font.size 24 ]
-        { label = text title
+        [ Font.size 18 ]
+        { label = paragraph [] [ text title ]
         , url = "/" ++ slug
         }
 
