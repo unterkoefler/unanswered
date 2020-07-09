@@ -6,6 +6,8 @@ import Element.Font as Font
 import Element.Region as Region
 import Fedex
 import FourStars
+import MarkdownSample
+import Renderer exposing (renderPost)
 import Url as Url exposing (Url)
 import Utils exposing (directions0)
 import Vulture
@@ -79,6 +81,13 @@ all =
           , { title = "Contact me"
             , description = ""
             , content = \_ -> [ paragraph [] [ text "Please don't" ] ]
+            , showOnHomePage = False
+            }
+          )
+        , ( "test"
+          , { title = "Test"
+            , description = ""
+            , content = \_ -> renderPost MarkdownSample.content
             , showOnHomePage = False
             }
           )
