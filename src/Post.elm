@@ -1,4 +1,4 @@
-module Post exposing (Post, all, fromUrl, preview, view)
+module Post exposing (Post, all, fromSlug, preview, view)
 
 import AssocList as Dict exposing (Dict)
 import Element exposing (..)
@@ -9,8 +9,7 @@ import FourStars
 import Hell
 import MarkdownSample
 import Renderer exposing (renderPost)
-import Url as Url exposing (Url)
-import Utils exposing (directions0)
+import Utils exposing (directions0, rootUrl)
 import Vulture
 import WayOut
 import What
@@ -106,12 +105,8 @@ all =
 -- UPDATE
 
 
-fromUrl : Url -> Dict String Post -> Maybe Post
-fromUrl url posts =
-    let
-        slug =
-            String.dropLeft 1 url.path
-    in
+fromSlug : String -> Dict String Post -> Maybe Post
+fromSlug slug posts =
     Dict.get slug posts
 
 
@@ -163,7 +158,7 @@ previewTitle title slug =
     link
         [ Font.size 18 ]
         { label = paragraph [] [ text title ]
-        , url = "/" ++ slug
+        , url = rootUrl ++ "/" ++ slug
         }
 
 

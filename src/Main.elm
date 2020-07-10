@@ -12,7 +12,7 @@ import Element.Input as Input
 import Element.Region as Region
 import Post
 import Url as Url exposing (Url)
-import Utils exposing (borderBetween, directions0)
+import Utils exposing (borderBetween, directions0, relativePath, rootUrl)
 
 
 
@@ -37,7 +37,7 @@ main =
 init : { width : Int } -> Url -> Nav.Key -> ( Model, Cmd Msg )
 init { width } url key =
     ( { posts = Post.all
-      , post = Post.fromUrl url Post.all
+      , post = Post.fromSlug (relativePath url) Post.all
       , key = key
       , showMenu = False
       , width = width
@@ -106,7 +106,7 @@ update msg model =
 
 handleUrlChange : Model -> Url -> ( Model, Cmd Msg )
 handleUrlChange model url =
-    ( { model | post = Post.fromUrl url model.posts, showMenu = False }
+    ( { model | post = Post.fromSlug (relativePath url) model.posts, showMenu = False }
     , Cmd.none
     )
 
@@ -222,7 +222,7 @@ heading =
         , sourceSerifPro
         ]
         { label = text "Unanswered"
-        , url = "/"
+        , url = rootUrl
         }
 
 
@@ -294,7 +294,7 @@ menuOption slug lbl =
     link
         [ paddingEach { directions0 | top = 24, bottom = 24 }
         ]
-        { url = "/" ++ slug
+        { url = rootUrl ++ "/" ++ slug
         , label = text lbl
         }
 

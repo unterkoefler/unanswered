@@ -5539,20 +5539,29 @@ var $pzp1997$assoc_list$AssocList$get = F2(
 			}
 		}
 	});
-var $author$project$Post$fromUrl = F2(
-	function (url, posts) {
-		var slug = A2($elm$core$String$dropLeft, 1, url.dx);
+var $author$project$Post$fromSlug = F2(
+	function (slug, posts) {
 		return A2($pzp1997$assoc_list$AssocList$get, slug, posts);
 	});
 var $elm$core$Platform$Cmd$batch = _Platform_batch;
 var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
+var $author$project$Utils$rootUrl = '/unanswered';
+var $author$project$Utils$relativePath = function (url) {
+	return A2(
+		$elm$core$String$dropLeft,
+		1 + $elm$core$String$length($author$project$Utils$rootUrl),
+		url.dx);
+};
 var $author$project$Main$init = F3(
 	function (_v0, url, key) {
 		var width = _v0.J;
 		return _Utils_Tuple2(
 			{
 				a_: key,
-				aK: A2($author$project$Post$fromUrl, url, $author$project$Post$all),
+				aK: A2(
+					$author$project$Post$fromSlug,
+					$author$project$Utils$relativePath(url),
+					$author$project$Post$all),
 				aL: $author$project$Post$all,
 				aj: false,
 				J: width
@@ -5990,7 +5999,10 @@ var $author$project$Main$handleUrlChange = F2(
 			_Utils_update(
 				model,
 				{
-					aK: A2($author$project$Post$fromUrl, url, model.aL),
+					aK: A2(
+						$author$project$Post$fromSlug,
+						$author$project$Utils$relativePath(url),
+						model.aL),
 					aj: false
 				}),
 			$elm$core$Platform$Cmd$none);
@@ -11785,7 +11797,7 @@ var $author$project$Main$heading = A2(
 		]),
 	{
 		a$: $mdgriffith$elm_ui$Element$text('Unanswered'),
-		b3: '/'
+		b3: $author$project$Utils$rootUrl
 	});
 var $author$project$Main$MenuToggled = {$: 2};
 var $mdgriffith$elm_ui$Internal$Model$Right = 2;
@@ -12076,7 +12088,7 @@ var $author$project$Main$menuOption = F2(
 				]),
 			{
 				a$: $mdgriffith$elm_ui$Element$text(lbl),
-				b3: '/' + slug
+				b3: $author$project$Utils$rootUrl + ('/' + slug)
 			});
 	});
 var $author$project$Main$menuOptions = A2(
@@ -18820,7 +18832,7 @@ var $author$project$Post$previewTitle = F2(
 						[
 							$mdgriffith$elm_ui$Element$text(title)
 						])),
-				b3: '/' + slug
+				b3: $author$project$Utils$rootUrl + ('/' + slug)
 			});
 	});
 var $author$project$Post$viewDescription = function (description) {
