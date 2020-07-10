@@ -51,8 +51,8 @@ init { width } url key =
 
 
 type alias Model =
-    { posts : Dict String (Post.Post Msg)
-    , post : Maybe (Post.Post Msg)
+    { posts : Dict String Post.Post
+    , post : Maybe Post.Post
     , key : Nav.Key
     , showMenu : Bool
     , width : Int
@@ -133,12 +133,12 @@ view model =
     in
     { title = "Unanswered"
     , body =
-        [ layout [] <| body
+        [ layout [ montserrat ] <| body
         ]
     }
 
 
-homeBody : Dict String (Post.Post Msg) -> Model -> Element Msg
+homeBody : Dict String Post.Post -> Model -> Element Msg
 homeBody posts model =
     column
         [ width fill, spacing 24 ]
@@ -150,14 +150,14 @@ homeBody posts model =
         ]
 
 
-articleBody : Post.Post Msg -> Model -> Element Msg
+articleBody : Post.Post -> Model -> Element Msg
 articleBody post model =
     column
         [ width fill
         , height fill
         ]
         [ row [ width fill, height fill ]
-            [ el [ width fill ] <| content model.width 70 <| Post.view (pct model.width 70) post
+            [ el [ width fill, alignTop ] <| content model.width 65 <| Post.view (pct model.width 65) post
             , sideBar model.width
             ]
         , el [ width fill, alignBottom ] <| header Article model
@@ -228,11 +228,15 @@ heading =
 
 sourceSerifPro =
     Font.family
-        [ Font.external
-            { name = "Source Serif Pro"
-            , url = "https://fonts.googleapis.com/css2?family=Montserrat&family=Source+Serif+Pro&display=swap"
-            }
+        [ Font.typeface "SourceSerifPro"
         , Font.serif
+        ]
+
+
+montserrat =
+    Font.family
+        [ Font.typeface "Montserrat"
+        , Font.sansSerif
         ]
 
 
@@ -307,7 +311,7 @@ subheader =
         [ text "Where I type and scream my thoughts into the void, unanswered" ]
 
 
-homeContent : Int -> Dict String (Post.Post Msg) -> Element Msg
+homeContent : Int -> Dict String Post.Post -> Element Msg
 homeContent w posts =
     column
         [ Border.widthEach { directions0 | left = 1, right = 1 }

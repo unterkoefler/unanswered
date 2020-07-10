@@ -25,7 +25,7 @@ renderer : Renderer (Element msg)
 renderer =
     { heading = renderHeading
     , paragraph = renderParagraph
-    , blockQuote = renderBlockQuote
+    , blockQuote = \_ -> Element.none
     , html = Markdown.Html.oneOf []
     , text = \t -> text t
     , codeSpan = renderCodeSpan
@@ -36,7 +36,7 @@ renderer =
     , image = renderImage
     , unorderedList = \_ -> Element.none
     , orderedList = \_ _ -> Element.none
-    , codeBlock = \_ -> Element.none
+    , codeBlock = renderCodeBlock
     , thematicBreak = hr
     , table = \_ -> Element.none
     , tableHeader = \_ -> Element.none
@@ -86,12 +86,7 @@ renderHeading { level, rawText, children } =
 
 renderParagraph : List (Element msg) -> Element msg
 renderParagraph =
-    paragraph []
-
-
-renderBlockQuote : List (Element msg) -> Element msg
-renderBlockQuote strings =
-    Element.none
+    paragraph [ spacing 8 ]
 
 
 renderCodeSpan : String -> Element msg
@@ -153,3 +148,17 @@ renderImage { alt, src, title } =
             { description = alt
             , src = src
             }
+
+
+renderCodeBlock : { body : String, language : Maybe String } -> Element msg
+renderCodeBlock { body } =
+    let
+        paragraphs =
+            body
+                |> String.split "\n"
+                |> List.map
+                    (\t -> paragraph [] [ text t ])
+    in
+    column
+        [ Font.family [ Font.monospace ] ]
+        paragraphs

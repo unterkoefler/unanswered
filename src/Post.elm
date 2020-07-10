@@ -6,6 +6,7 @@ import Element.Font as Font
 import Element.Region as Region
 import Fedex
 import FourStars
+import Hell
 import MarkdownSample
 import Renderer exposing (renderPost)
 import Url as Url exposing (Url)
@@ -20,10 +21,10 @@ import Who
 -- MODEL
 
 
-type alias Post msg =
+type alias Post =
     { title : String
     , description : String
-    , content : Length -> List (Element msg)
+    , content : String
     , showOnHomePage : Bool
     }
 
@@ -32,7 +33,7 @@ type alias Post msg =
 -- INIT
 
 
-all : Dict String (Post msg)
+all : Dict String Post
 all =
     Dict.fromList
         [ ( "fedex"
@@ -45,49 +46,56 @@ all =
         , ( "vultures-envision-a-toaster"
           , { title = "Vultures Envision a Toaster"
             , description = "A story about a giraffe"
-            , content = \_ -> Vulture.content
+            , content = Vulture.content
             , showOnHomePage = True
             }
           )
         , ( "two-ways-out"
           , { title = "Two Ways Out"
             , description = "There was no way out"
-            , content = \_ -> WayOut.content
+            , content = WayOut.content
             , showOnHomePage = True
             }
           )
         , ( "four-stars"
           , { title = "4 Stars"
             , description = "A review of reviews"
-            , content = \_ -> FourStars.content
+            , content = FourStars.content
+            , showOnHomePage = True
+            }
+          )
+        , ( "hell"
+          , { title = "Circle Three and One Half"
+            , description = "My personal Dantean hell"
+            , content = Hell.content
             , showOnHomePage = True
             }
           )
         , ( "what-is-this"
           , { title = "What is this?"
             , description = ""
-            , content = \_ -> What.content
+            , content = What.content
             , showOnHomePage = False
             }
           )
         , ( "who-am-i"
           , { title = "Who am I?"
             , description = ""
-            , content = \_ -> Who.content
+            , content = Who.content
             , showOnHomePage = False
             }
           )
         , ( "contact-me"
           , { title = "Contact me"
             , description = ""
-            , content = \_ -> [ paragraph [] [ text "Please don't" ] ]
+            , content = "Please don't."
             , showOnHomePage = False
             }
           )
         , ( "test"
           , { title = "Test"
             , description = ""
-            , content = \_ -> renderPost MarkdownSample.content
+            , content = MarkdownSample.content
             , showOnHomePage = False
             }
           )
@@ -98,7 +106,7 @@ all =
 -- UPDATE
 
 
-fromUrl : Url -> Dict String (Post msg) -> Maybe (Post msg)
+fromUrl : Url -> Dict String Post -> Maybe Post
 fromUrl url posts =
     let
         slug =
@@ -111,7 +119,7 @@ fromUrl url posts =
 -- VIEW
 
 
-view : Length -> Post msg -> Element msg
+view : Length -> Post -> Element msg
 view w post =
     column [ spacingXY 0 24, width w, paddingXY 0 48, alignTop ]
         [ viewTitle post.title
@@ -130,7 +138,7 @@ viewTitle title =
         [ text title ]
 
 
-viewContent : Length -> (Length -> List (Element msg)) -> Element msg
+viewContent : Length -> String -> Element msg
 viewContent w content =
     textColumn
         [ spacingXY 0 18
@@ -138,10 +146,10 @@ viewContent w content =
         , width w
         ]
     <|
-        content w
+        renderPost content
 
 
-preview : String -> Post msg -> Element msg
+preview : String -> Post -> Element msg
 preview slug p =
     column
         [ spacing 12 ]
