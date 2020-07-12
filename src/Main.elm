@@ -157,7 +157,7 @@ articleBody post model =
         , height fill
         ]
         [ row [ width fill, height fill ]
-            [ el [ width fill, alignTop ] <| content model.width 65 <| Post.view (pct model.width 65) post
+            [ el [ width fill, alignTop ] <| content model.width 70 <| Post.view (pct model.width 70) post
             , sideBar model.width
             ]
         , el [ width fill, alignBottom ] <| header Article model
@@ -294,7 +294,7 @@ menuOption slug lbl =
     link
         [ paddingEach { directions0 | top = 24, bottom = 24 }
         ]
-        { url = rootUrl ++ "/" ++ slug
+        { url = rootUrl ++ slug
         , label = text lbl
         }
 
@@ -315,7 +315,7 @@ homeContent : Int -> Dict String Post.Post -> Element Msg
 homeContent w posts =
     column
         [ Border.widthEach { directions0 | left = 1, right = 1 }
-        , spacing 24
+        , spacing 36
         , width (fill |> maximum 450)
         , padding (w * 3 // 100)
         , centerX

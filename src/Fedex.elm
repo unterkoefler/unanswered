@@ -4,6 +4,8 @@ module Fedex exposing (content)
 content : String
 content =
     """
+###### ![The fedex logo](assets/slogan.png)
+
 ## Preface
 
 This is the story of how it took FedEx two weeks to deliver a package to me,
@@ -15,6 +17,8 @@ depends entirely on your perspective and your position within the FedEx Ground S
 ---
 
 ## Call to Adventure 
+
+###### ![Frodo embarking on a grand adventure](assets/adventure.jpg)
 
 On Saturday, February 15th, I attempted to give a presentation from my 2011 MacBook Pro to an audience of
 approximately 100. Before the presentation, I was frantically charging the computer, hoping its
@@ -99,6 +103,8 @@ attend to and would wait home for the package the next day.
 
 ## A Friend Gained, A Friend Lost
 
+###### ![A broken heart](assets/heart.png)
+
 On Wednesday, March 4th, I informed my manager that I would be working from home to sign for a package
 and be in later that afternoon. I waited, somewhat patiently, for my laptop. At 3:17 PM, I still did not
 have my package. I checked the tracking website, and saw that at 2:12 PM, a third delivery attempt had been
@@ -127,6 +133,8 @@ me my package.
 --- 
 
 ## Robots
+
+###### ![A robot](assets/robot.png)
 
 I went back to the FedEx tracking website. It said "Awaiting additional information from recipient". That's
 me, I thought. Let me give you additional information. I clicked around their site, created an account, confirmed
@@ -181,6 +189,8 @@ tracking page that I was currently reading. Not such a clever robot after all. I
 
 ## A Mother's Wisdom and the Guardian of Thebes
 
+###### ![Oedipus encounters the Sphinx](assets/oedipus.jpeg)
+
 I called my mom to complain. She told me to call Dell. Sometimes she gives good advice. It's hard not to when you give so much.
 Sometimes, it's going to be cold enough for a coat. Sometimes, it's a good idea to call Dell. This was one of those times.
 
@@ -221,6 +231,8 @@ says otherwise.
 ---
 
 ## Ghost Town
+
+###### ![A spooky ghost](assets/ghost.jpeg)
 
 On Tuesday, March 10th, I went in to work. The office was empty. It was eerie. I might have enjoyed it more, but
 I felt like I couldn't take my eyes off the main door for too long. At around 1:15 PM, Kevin arrived at the office.

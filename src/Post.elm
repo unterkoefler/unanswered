@@ -158,7 +158,7 @@ previewTitle title slug =
     link
         [ Font.size 18 ]
         { label = paragraph [] [ text title ]
-        , url = rootUrl ++ "/" ++ slug
+        , url = rootUrl ++ slug
         }
 
 

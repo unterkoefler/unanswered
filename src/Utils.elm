@@ -30,9 +30,13 @@ borderBetween elements =
 
 
 rootUrl =
-    "/unanswered"
+    "/unanswered/"
+
+
+
+--    "/"
 
 
 relativePath : Url -> String
 relativePath url =
-    String.dropLeft (1 + String.length rootUrl) url.path
+    String.dropLeft (String.length rootUrl) url.path

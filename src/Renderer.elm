@@ -9,7 +9,7 @@ import Markdown.Block as Block exposing (HeadingLevel(..))
 import Markdown.Html
 import Markdown.Parser exposing (deadEndToString)
 import Markdown.Renderer exposing (..)
-import Utils exposing (directions0)
+import Utils exposing (directions0, rootUrl)
 
 
 renderPost : String -> List (Element msg)
@@ -25,7 +25,7 @@ renderer : Renderer (Element msg)
 renderer =
     { heading = renderHeading
     , paragraph = renderParagraph
-    , blockQuote = \_ -> Element.none
+    , blockQuote = \els -> row [ width fill ] els
     , html = Markdown.Html.oneOf []
     , text = \t -> text t
     , codeSpan = renderCodeSpan
@@ -80,8 +80,14 @@ renderHeading { level, rawText, children } =
                 H6 ->
                     ( 6, 12 )
     in
-    paragraph [ Region.heading levelNumber, Font.size fontSize ]
-        children
+    case level of
+        H6 ->
+            row [ width fill ] children
+
+        -- HACK to center images
+        _ ->
+            paragraph [ Region.heading levelNumber, Font.size fontSize ]
+                children
 
 
 renderParagraph : List (Element msg) -> Element msg
@@ -141,13 +147,10 @@ renderImage :
     }
     -> Element msg
 renderImage { alt, src, title } =
-    el
-        [ width fill ]
-    <|
-        image [ centerX, width (px 250) ]
-            { description = alt
-            , src = src
-            }
+    image [ width (px 260), centerX ]
+        { description = alt
+        , src = rootUrl ++ src
+        }
 
 
 renderCodeBlock : { body : String, language : Maybe String } -> Element msg
