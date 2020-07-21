@@ -23,4 +23,4 @@ jobs:
       uses: JorelAli/setup-elm@v2
       with:
         elm-version: 0.19.1
-      run: elm make src/Main.elm --output main.js
+    - run: elm make src/Main.elm --output main.js
