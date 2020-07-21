@@ -1,6 +1,7 @@
 module Post exposing (Post, all, fromSlug, preview, view)
 
 import AssocList as Dict exposing (Dict)
+import Colonial
 import Element exposing (..)
 import Element.Font as Font
 import Element.Region as Region
@@ -96,6 +97,13 @@ all =
             , description = ""
             , content = MarkdownSample.content
             , showOnHomePage = False
+            }
+          )
+        , ( "colonial"
+          , { title = "Getting in Touch with My Inner Colonial Housewife"
+            , description = "or househusband"
+            , content = Colonial.content
+            , showOnHomePage = True
             }
           )
         ]
