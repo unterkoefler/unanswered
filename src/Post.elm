@@ -10,6 +10,7 @@ import FourStars
 import Hell
 import MarkdownSample
 import Renderer exposing (renderPost)
+import Raspberries
 import Utils exposing (directions0, rootUrl)
 import Vulture
 import WayOut
@@ -99,6 +100,13 @@ all =
             , showOnHomePage = False
             }
           )
+        , ( "raspberries"
+          , { title = "Raspberries"
+            , description = "It's about a box of raspberries"
+            , content = Raspberries.content
+            , showOnHomePage = True
+            }
+        )
         , ( "colonial"
           , { title = "Getting in Touch with My Inner Colonial Housewife"
             , description = "or househusband"
