@@ -1,7 +1,8 @@
 module Colonial exposing (content)
 
-content: String
-content = 
+
+content : String
+content =
     """
 Or househusband.
 
