@@ -1,9 +1,11 @@
-module Colonial exposing (content)
-
-
-content : String
-content =
-    """
+<!---
+--- !Metadata
+slug: colonial-woman
+title: Getting in Touch with My Inner Colonial Housewife
+description: ... or househusband
+show_on_home_page: True
+filename: Colonial
+--->
 
 ... or househusband.
 
@@ -41,4 +43,3 @@ should order from Etsy. Did they have running water
 in colonial America? Did they wash their clothes in the sink,
 or did they need to lug them to the river?
 Let me know in the comments!
-    """

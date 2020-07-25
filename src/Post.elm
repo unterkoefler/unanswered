@@ -1,21 +1,13 @@
 module Post exposing (Post, all, fromSlug, preview, view)
 
 import AssocList as Dict exposing (Dict)
-import Colonial
 import Element exposing (..)
 import Element.Font as Font
 import Element.Region as Region
-import Fedex
-import FourStars
-import Hell
-import MarkdownSample
+import Env exposing (rootUrl)
+import PostList
 import Renderer exposing (renderPost)
-import Raspberries
-import Utils exposing (directions0, rootUrl)
-import Vulture
-import WayOut
-import What
-import Who
+import Utils exposing (directions0)
 
 
 
@@ -36,85 +28,7 @@ type alias Post =
 
 all : Dict String Post
 all =
-    Dict.fromList
-        [ ( "fedex"
-          , { title = "Incorrect Address"
-            , description = "A post-modern Odyssey"
-            , content = Fedex.content
-            , showOnHomePage = True
-            }
-          )
-        , ( "vultures-envision-a-toaster"
-          , { title = "Vultures Envision a Toaster"
-            , description = "A story about a giraffe"
-            , content = Vulture.content
-            , showOnHomePage = True
-            }
-          )
-        , ( "two-ways-out"
-          , { title = "Two Ways Out"
-            , description = "There was no way out"
-            , content = WayOut.content
-            , showOnHomePage = True
-            }
-          )
-        , ( "four-stars"
-          , { title = "4 Stars"
-            , description = "A review of reviews"
-            , content = FourStars.content
-            , showOnHomePage = True
-            }
-          )
-        , ( "hell"
-          , { title = "Circle Three and One Half"
-            , description = "My personal Dantean hell"
-            , content = Hell.content
-            , showOnHomePage = True
-            }
-          )
-        , ( "what-is-this"
-          , { title = "What is this?"
-            , description = ""
-            , content = What.content
-            , showOnHomePage = False
-            }
-          )
-        , ( "who-am-i"
-          , { title = "Who am I?"
-            , description = ""
-            , content = Who.content
-            , showOnHomePage = False
-            }
-          )
-        , ( "contact-me"
-          , { title = "Contact me"
-            , description = ""
-            , content = "Please don't."
-            , showOnHomePage = False
-            }
-          )
-        , ( "test"
-          , { title = "Test"
-            , description = ""
-            , content = MarkdownSample.content
-            , showOnHomePage = False
-            }
-          )
-        , ( "raspberries"
-          , { title = "Raspberries"
-            , description = "It's about a box of raspberries"
-            , content = Raspberries.content
-            , showOnHomePage = True
-            }
-        )
-        , ( "colonial"
-          , { title = "Getting in Touch with My Inner Colonial Housewife"
-            , description = "or househusband"
-            , content = Colonial.content
-            , showOnHomePage = True
-            }
-          )
-        ]
+    Dict.fromList PostList.all
 
 
 

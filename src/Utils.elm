@@ -1,7 +1,8 @@
-module Utils exposing (borderBetween, directions0, relativePath, rootUrl)
+module Utils exposing (borderBetween, directions0, relativePath)
 
 import Element exposing (..)
 import Element.Border as Border
+import Env exposing (rootUrl)
 import Url exposing (Url)
 
 
@@ -22,19 +23,6 @@ borderBetween elements =
             el [ Border.widthEach { directions0 | bottom = 1 } ]
                 element
                 :: borderBetween rest
-
-
-
--- kinda hacky but helpful for github pages since
--- everything is prefixed with /unanswered
-
-
-rootUrl =
---    "/unanswered/"
-
-
-
-    "/"
 
 
 relativePath : Url -> String

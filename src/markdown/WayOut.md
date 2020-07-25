@@ -1,9 +1,11 @@
-module WayOut exposing (content)
-
-
-content : String
-content =
-    """
+<!---
+--- !Metadata
+slug: two-ways-out
+title: Two Ways Out
+description: There was no way out
+show_on_home_page: True
+filename: WayOut
+--->
 
 I can't leave the beach. That much is clear. There's no boardwalk, sea-wall, or parking lot to turn to. Or run to. There is nothing behind me. It's a nothingness that is not void or null, or even nothing. It is unrendered, unimagined. It is not. There's nowhere to run.
 
@@ -37,4 +39,3 @@ Don't look back. What does she see? No. Don't look back. Look back. Look back.
 
 I turn. The beach is gone, eaten by the sea. The next wave swells. Up, I soar, up and up. It curls, seems to pause, considering for but a moment if it should or should not. Decision made, it does. It and I crash into the nothingness, swallowing the void, its unthought streets, its unimagined homes. I am drowned, flattened, torn, dissolved. The red bucket clatters to a halt against a sign: No Parking.
 
-    """

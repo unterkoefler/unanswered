@@ -1,0 +1,113 @@
+import glob
+import subprocess
+import sys
+import yaml
+
+class Metadata(yaml.YAMLObject):
+    yaml_tag = u'!Metadata'
+    yaml_loader = yaml.SafeLoader
+    def __init__(self, filename, title, description, show_on_home_page, slug):
+        self.filename = filename
+        self.title = title
+        self.description = description
+        self.show_on_home_page = show_on_home_page
+        self.slug = slug
+
+    def __repr__(self):
+        return "%s(title=%r, filename=%r, description=%r, show_on_home_page=%r, slug=%r)" % (
+            self.__class__.__name__,
+            self.title,
+            self.filename,
+            self.description,
+            self.show_on_home_page,
+            self.slug,
+        )
+
+    def to_elm(self):
+        return f"""
+            ( "{self.slug}",
+              {{ title = "{self.title}"
+              , description = "{self.description}"
+              , content = {self.filename}.content
+              , showOnHomePage = {self.show_on_home_page}
+              }}
+            )
+            """
+
+def create_elm_file(filename, body):
+    filepath = 'src/' + filename + '.elm'
+    elm_code = f"""
+module {filename} exposing (content)
+
+content : String
+content =
+    \"\"\"
+{body}
+    \"\"\"
+"""
+    with open(filepath, 'w') as file_handler:
+        file_handler.write(elm_code)
+
+
+def create_post_list_elm_file(posts):
+    filepath = 'src/PostList.elm'
+    with open(filepath, 'w') as file_handler:
+        file_handler.write('module PostList exposing (all)\n')
+        for post in posts:
+            file_handler.write(f"import {post.filename}\n")
+
+        file_handler.write("all = \n    [")
+        file_handler.write(','.join([p.to_elm() for p in posts]))
+        file_handler.write('   ]')
+
+def process_file(filename, posts):
+    with open(filename) as file_handler:
+        lines = [l.rstrip() for l in file_handler]
+        metadata_start = lines.index('<!---')
+        metadata_end = lines.index('--->')
+        metadata = '\n'.join(lines[metadata_start + 1 :metadata_end])
+        metadata = yaml.safe_load(metadata)
+        body = '\n'.join(lines[metadata_end + 1:])
+        create_elm_file(metadata.filename, body)
+        posts.append(metadata)
+
+def compile_elm(production):
+    args = ['elm', 'make', 'src/Main.elm', '--output=main.js']
+    if production:
+        args.append('--optimize')
+
+    subprocess.run(args, check=True)
+
+def create_env_file(production):
+    root_url = '/unanswered/' if production else '/'
+    env_file = 'src/Env.elm'
+    with open(env_file, 'w') as file_handler:
+        file_handler.write(f"""
+module Env exposing (..)
+
+rootUrl = "{root_url}"
+""")
+
+
+def main(*, production=False):
+    posts = []
+    markdown_files = glob.glob('src/markdown/*.md')
+
+    for filename in sorted(markdown_files):
+        print('Processing ' + filename)
+        process_file(filename, posts)
+
+    create_post_list_elm_file(posts)
+
+    create_env_file(production)
+    compile_elm(production)
+    subprocess.run(["elm-format", "src", "--yes"], check=True)
+
+    print('Build complete!')
+
+
+if __name__ == '__main__':
+    if len(sys.argv) >= 2 and sys.argv[1] == '--productionize':
+        main(production=True)
+    else:
+        main()

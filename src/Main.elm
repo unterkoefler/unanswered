@@ -10,9 +10,10 @@ import Element.Border as Border
 import Element.Font as Font
 import Element.Input as Input
 import Element.Region as Region
+import Env exposing (rootUrl)
 import Post
 import Url as Url exposing (Url)
-import Utils exposing (borderBetween, directions0, relativePath, rootUrl)
+import Utils exposing (borderBetween, directions0, relativePath)
 
 
 

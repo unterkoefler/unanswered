@@ -1,9 +1,11 @@
-module Fedex exposing (content)
-
-
-content : String
-content =
-    """
+<!---
+--- !Metadata
+slug: fedex
+title: Incorrect Address
+description: A post-modern Odyssey
+show_on_home_page: true
+filename: Fedex
+--->
 ###### ![The fedex logo](assets/slogan.png)
 
 ## Preface
@@ -297,4 +299,3 @@ delivering your package when they say they will. Yet, if we all extend a little 
 to pay for my laptop even after they started shipping it, we might waste less time confirming our identities to
 legions of customer service representatives. We might even be able to leave a package outside the door and not
 bother signing for it. Sure, it might get stolen, but this is America. We can trust the police to get it back asap.
-    """

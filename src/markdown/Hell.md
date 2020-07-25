@@ -1,9 +1,11 @@
-module Hell exposing (content)
-
-
-content : String
-content =
-    """
+<!---
+--- !Metadata
+slug: hell
+title: Circle Three and One Half
+description: My personal Dantean hell
+show_on_home_page: True
+filename: Hell
+--->
 
 Having descended from Circle 3.25 of hell, the tortuous home of the nail pickers and nail biters with their bleeding stumps of fingers, I squinted through the mist to see an even more ghastly scene than the last. Illuminated by hellfire on either side, a long ornate table made of ice stretched before my eyes extending towards the dark pit of Satan. The horrid stench of human flatulence mixed with the cloyingly sweet scent of chocolate and filled my nose. I turned to my Guide, wondering aloud, “What cruel ring of hell is this? How did these poor souls stray in life to deserve such a fate?”
 
@@ -26,4 +28,3 @@ Having said this, Willy began to sob. His speech and weeping had struck close to
 When I awoke, Mr. Wonka pulled me to my feet and motioned for me to watch. It was close to midnight, and now Willy Unterkoefler was able to hold his spoon without a flinch. Still weeping, he lowered his spoon to the bowl, reached in, and pulled out with the most beautiful spoonful of the most divine double fudge brownie ice cream. Mr. Wonka saw me start to salivate and gave me a stern look of reprisal. Humbled, I looked on. Willy brought the spoon to his lips and just as he opened his mouth, the ice cream turned to vanilla! Disgusting! The damnèd spirit dropped his spoon piteously.
 
 I looked on in horror, appalled that any god or devil could devise such a cruel and evil punishment. I could not look away. At last, Mr. Wonka urged me along, saying, “Such is the fate of those who resist their nature, or don’t take Lactaid pills.”
-    """

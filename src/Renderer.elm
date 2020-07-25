@@ -5,11 +5,12 @@ import Element.Background as Background
 import Element.Border as Border
 import Element.Font as Font
 import Element.Region as Region
+import Env exposing (rootUrl)
 import Markdown.Block as Block exposing (HeadingLevel(..))
 import Markdown.Html
 import Markdown.Parser exposing (deadEndToString)
 import Markdown.Renderer exposing (..)
-import Utils exposing (directions0, rootUrl)
+import Utils exposing (directions0)
 
 
 renderPost : String -> List (Element msg)
