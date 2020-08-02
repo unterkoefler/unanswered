@@ -271,7 +271,7 @@ menuModal =
         , Border.color teal
         , Border.width 1
         , Border.rounded 6
-        , paddingXY 30 5
+        , paddingXY 45 5
         ]
         menuOptions
 
@@ -287,6 +287,7 @@ menuOptions =
             [ menuOption "what-is-this" "What is this?"
             , menuOption "who-am-i" "Who am I?"
             , menuOption "contact-me" "Contact me"
+            , subscribeLink
             ]
 
 
@@ -297,6 +298,16 @@ menuOption slug lbl =
         ]
         { url = rootUrl ++ slug
         , label = text lbl
+        }
+
+
+subscribeLink : Element msg
+subscribeLink =
+    newTabLink
+        [ paddingEach { directions0 | top = 24, bottom = 24 }
+        ]
+        { url = "http://eepurl.com/g_Wf8D"
+        , label = text "Subscribe"
         }
 
 
