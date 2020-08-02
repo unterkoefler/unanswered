@@ -5,6 +5,7 @@ import Contact
 import Fedex
 import FourStars
 import Hell
+import Lost
 import Raspberry
 import Vulture
 import WayOut
@@ -13,24 +14,10 @@ import Who
 
 
 all =
-    [ ( "colonial-woman"
-      , { title = "Getting in Touch with My Inner Colonial Housewife"
-        , description = "... or househusband"
-        , content = Colonial.content
-        , showOnHomePage = True
-        }
-      )
-    , ( "contact-me"
-      , { title = "Contact me"
-        , description = ""
-        , content = Contact.content
-        , showOnHomePage = False
-        }
-      )
-    , ( "fedex"
-      , { title = "Incorrect Address"
-        , description = "A post-modern Odyssey"
-        , content = Fedex.content
+    [ ( "hell"
+      , { title = "Circle Three and One Half"
+        , description = "My personal Dantean hell"
+        , content = Hell.content
         , showOnHomePage = True
         }
       )
@@ -41,10 +28,31 @@ all =
         , showOnHomePage = True
         }
       )
-    , ( "hell"
-      , { title = "Circle Three and One Half"
-        , description = "My personal Dantean hell"
-        , content = Hell.content
+    , ( "vultures-envision-a-toaster"
+      , { title = "Vultures Envision a Toaster"
+        , description = "A story about a giraffe"
+        , content = Vulture.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "fedex"
+      , { title = "Incorrect Address"
+        , description = "A post-modern Odyssey"
+        , content = Fedex.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "two-ways-out"
+      , { title = "Two Ways Out"
+        , description = "There was no way out"
+        , content = WayOut.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "colonial-woman"
+      , { title = "Getting in Touch with My Inner Colonial Housewife"
+        , description = "... or househusband"
+        , content = Colonial.content
         , showOnHomePage = True
         }
       )
@@ -55,18 +63,18 @@ all =
         , showOnHomePage = True
         }
       )
-    , ( "vultures-envision-a-toaster"
-      , { title = "Vultures Envision a Toaster"
-        , description = "A story about a giraffe"
-        , content = Vulture.content
+    , ( "lost-and-not-found"
+      , { title = "How to get lost and not find yourself"
+        , description = "A scientific approach"
+        , content = Lost.content
         , showOnHomePage = True
         }
       )
-    , ( "two-ways-out"
-      , { title = "Two Ways Out"
-        , description = "There was no way out"
-        , content = WayOut.content
-        , showOnHomePage = True
+    , ( "contact-me"
+      , { title = "Contact me"
+        , description = ""
+        , content = Contact.content
+        , showOnHomePage = False
         }
       )
     , ( "what-is-this"
