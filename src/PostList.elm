@@ -15,14 +15,7 @@ import Who
 
 
 all =
-    [ ( "flicker"
-      , { title = "The Importance of A Well Made Bed"
-        , description = "Cleanliness is next to godliness"
-        , content = Flicker.content
-        , showOnHomePage = True
-        }
-      )
-    , ( "hell"
+    [ ( "hell"
       , { title = "Circle Three and One Half"
         , description = "My personal Dantean hell"
         , content = Hell.content

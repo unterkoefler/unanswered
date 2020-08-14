@@ -142,7 +142,10 @@ view model =
 homeBody : Dict String Post.Post -> Model -> Element Msg
 homeBody posts model =
     column
-        [ width fill, spacing 24 ]
+        [ width fill
+        , spacing 24
+        , paddingEach { left = 0, right = 0, top = 0, bottom = 36 }
+        ]
         [ column [ width fill ]
             [ header Home model
             , subheader
