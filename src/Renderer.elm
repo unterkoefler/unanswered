@@ -93,7 +93,7 @@ renderHeading { level, rawText, children } =
 
 renderParagraph : List (Element msg) -> Element msg
 renderParagraph =
-    paragraph [ spacing 8 ]
+    paragraph [ spacing 12 ]
 
 
 renderCodeSpan : String -> Element msg

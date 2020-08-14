@@ -3,6 +3,7 @@ module PostList exposing (all)
 import Colonial
 import Contact
 import Fedex
+import Flicker
 import FourStars
 import Hell
 import Lost
@@ -14,7 +15,14 @@ import Who
 
 
 all =
-    [ ( "hell"
+    [ ( "flicker"
+      , { title = "The Importance of A Well Made Bed"
+        , description = "Cleanliness is next to godliness"
+        , content = Flicker.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "hell"
       , { title = "Circle Three and One Half"
         , description = "My personal Dantean hell"
         , content = Hell.content
@@ -67,6 +75,13 @@ all =
       , { title = "How to get lost and not find yourself"
         , description = "A scientific approach"
         , content = Lost.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "flicker"
+      , { title = "The Importance of A Well Made Bed"
+        , description = "Cleanliness is next to godliness"
+        , content = Flicker.content
         , showOnHomePage = True
         }
       )
