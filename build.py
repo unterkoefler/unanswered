@@ -28,16 +28,16 @@ class Metadata(yaml.YAMLObject):
             ( "{self.slug}",
               {{ title = "{self.title}"
               , description = "{self.description}"
-              , content = {self.filename}.content
+              , content = Generated.{self.filename}.content
               , showOnHomePage = {self.show_on_home_page}
               }}
             )
             """
 
 def create_elm_file(filename, body):
-    filepath = 'src/' + filename + '.elm'
+    filepath = 'src/Generated/' + filename + '.elm'
     elm_code = f"""
-module {filename} exposing (content)
+module Generated.{filename} exposing (content)
 
 content : String
 content =
@@ -54,7 +54,7 @@ def create_post_list_elm_file(posts):
     with open(filepath, 'w') as file_handler:
         file_handler.write('module PostList exposing (all)\n')
         for post in posts:
-            file_handler.write(f"import {post.filename}\n")
+            file_handler.write(f"import Generated.{post.filename}\n")
 
         file_handler.write("all = \n    [")
         file_handler.write(','.join([p.to_elm() for p in posts]))
