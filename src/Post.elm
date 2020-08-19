@@ -46,7 +46,7 @@ fromSlug slug posts =
 
 view : Length -> Post -> Element msg
 view w post =
-    column [ spacingXY 0 24, width w, paddingXY 0 48, alignTop ]
+    column [ centerX, spacingXY 0 24, width w, paddingXY 0 48, alignTop ]
         [ viewTitle post.title
         , viewContent w post.content
         ]

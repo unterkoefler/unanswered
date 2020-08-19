@@ -7,6 +7,7 @@ import Generated.Flicker
 import Generated.FourStars
 import Generated.Hell
 import Generated.Lost
+import Generated.Metaphor
 import Generated.Raspberry
 import Generated.Vulture
 import Generated.WayOut
@@ -75,6 +76,13 @@ all =
       , { title = "The Importance of A Well Made Bed"
         , description = "Cleanliness is next to godliness"
         , content = Generated.Flicker.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "metaphor"
+      , { title = "There's Other Metaphors in the Sea"
+        , description = "A love story"
+        , content = Generated.Metaphor.content
         , showOnHomePage = True
         }
       )

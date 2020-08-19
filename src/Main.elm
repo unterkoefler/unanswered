@@ -161,7 +161,11 @@ articleBody post model =
         , height fill
         ]
         [ row [ width fill, height fill ]
-            [ el [ width fill, alignTop ] <| content model.width 70 <| Post.view (pct model.width 70) post
+            [ el [ width fill, alignTop ] <|
+                content model.width 70 <|
+                    Post.view
+                        (pct model.width 70 |> maximum 800)
+                        post
             , sideBar model.width
             ]
         , el [ width fill, alignBottom ] <| header Article model
@@ -331,8 +335,8 @@ homeContent w posts =
     column
         [ Border.widthEach { directions0 | left = 1, right = 1 }
         , spacing 36
-        , width (fill |> maximum 450)
-        , padding (w * 3 // 100)
+        , width (fill |> maximum 800)
+        , paddingXY (w * 6 // 100) 20
         , centerX
         ]
     <|
