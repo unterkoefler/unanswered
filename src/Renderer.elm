@@ -13,17 +13,17 @@ import Markdown.Renderer exposing (..)
 import Utils exposing (directions0)
 
 
-renderPost : String -> List (Element msg)
-renderPost md =
+renderPost : String -> Length -> List (Element msg)
+renderPost md imageWidth =
     md
         |> Markdown.Parser.parse
         |> Result.mapError (\deadEnds -> deadEnds |> List.map deadEndToString |> String.join "\n")
-        |> Result.andThen (\ast -> render renderer ast)
+        |> Result.andThen (\ast -> render (renderer imageWidth) ast)
         |> Result.withDefault [ text "parse failed" ]
 
 
-renderer : Renderer (Element msg)
-renderer =
+renderer : Length -> Renderer (Element msg)
+renderer imageWidth =
     { heading = renderHeading
     , paragraph = renderParagraph
     , blockQuote = \els -> row [ width fill ] els
@@ -34,7 +34,7 @@ renderer =
     , emphasis = renderEmphasis
     , hardLineBreak = Element.none
     , link = renderLink
-    , image = renderImage
+    , image = \args -> renderImage args imageWidth
     , unorderedList = \_ -> Element.none
     , orderedList = \_ _ -> Element.none
     , codeBlock = renderCodeBlock
@@ -146,9 +146,10 @@ renderImage :
     , src : String
     , title : Maybe String
     }
+    -> Length
     -> Element msg
-renderImage { alt, src, title } =
-    image [ width (px 260), centerX ]
+renderImage { alt, src, title } imageWidth =
+    image [ width imageWidth, centerX, paddingXY 0 20 ]
         { description = alt
         , src = rootUrl ++ src
         }

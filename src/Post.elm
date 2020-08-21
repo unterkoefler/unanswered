@@ -71,7 +71,7 @@ viewContent w content =
         , width w
         ]
     <|
-        renderPost content
+        renderPost content w
 
 
 preview : String -> Post -> Element msg
