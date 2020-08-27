@@ -36,7 +36,7 @@ renderer imageWidth =
     , link = renderLink
     , image = \args -> renderImage args imageWidth
     , unorderedList = \_ -> Element.none
-    , orderedList = \_ _ -> Element.none
+    , orderedList = renderList
     , codeBlock = renderCodeBlock
     , thematicBreak = hr
     , table = \_ -> Element.none
@@ -116,6 +116,29 @@ renderEmphasis : List (Element msg) -> Element msg
 renderEmphasis =
     row
         [ Font.italic ]
+
+
+renderList : Int -> List (List (Element msg)) -> Element msg
+renderList _ items =
+    column
+        [ spacing 18 ]
+    <|
+        List.indexedMap
+            renderListItem
+            items
+
+
+renderListItem : Int -> List (Element msg) -> Element msg
+renderListItem i els =
+    let
+        number =
+            text <| String.fromInt (i + 1) ++ ".\t\t\t\t\t "
+    in
+    paragraph
+        [ spacing 12 ]
+    <|
+        number
+            :: els
 
 
 renderLink :

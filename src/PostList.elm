@@ -1,5 +1,6 @@
 module PostList exposing (all)
 
+import Generated.Bell
 import Generated.Colonial
 import Generated.Contact
 import Generated.Fedex
@@ -83,6 +84,13 @@ all =
       , { title = "There's Other Metaphors in the Sea"
         , description = "A love story"
         , content = Generated.Metaphor.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "bells"
+      , { title = "For Who Tolls the Bell"
+        , description = "A parable of sorts"
+        , content = Generated.Bell.content
         , showOnHomePage = True
         }
       )
