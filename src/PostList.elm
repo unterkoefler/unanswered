@@ -14,6 +14,7 @@ import Generated.Vulture
 import Generated.WayOut
 import Generated.What
 import Generated.Who
+import Generated.Zip
 
 
 all =
@@ -91,6 +92,13 @@ all =
       , { title = "For Who Tolls the Bell"
         , description = "A parable of sorts"
         , content = Generated.Bell.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "zip"
+      , { title = "Zip"
+        , description = "A scary story to read with your brightness all the way down"
+        , content = Generated.Zip.content
         , showOnHomePage = True
         }
       )
