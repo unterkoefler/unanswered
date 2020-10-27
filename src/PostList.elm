@@ -10,6 +10,7 @@ import Generated.Hell
 import Generated.Lost
 import Generated.Metaphor
 import Generated.Raspberry
+import Generated.Recipe
 import Generated.Vulture
 import Generated.WayOut
 import Generated.What
@@ -99,6 +100,13 @@ all =
       , { title = "Zip"
         , description = "A scary story to read with your brightness all the way down"
         , content = Generated.Zip.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "recipe"
+      , { title = "A Family Recipe"
+        , description = "Yum"
+        , content = Generated.Recipe.content
         , showOnHomePage = True
         }
       )
