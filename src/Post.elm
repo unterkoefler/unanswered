@@ -94,9 +94,9 @@ previewTitle title slug =
 
 viewDescription : String -> Element msg
 viewDescription description =
-    el
+    paragraph
         [ Font.size 14
         , Font.italic
         ]
     <|
-        text description
+        [ text description ]

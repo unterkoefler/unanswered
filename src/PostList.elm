@@ -11,6 +11,7 @@ import Generated.Lost
 import Generated.Metaphor
 import Generated.Raspberry
 import Generated.Recipe
+import Generated.Squirrel
 import Generated.Vulture
 import Generated.WayOut
 import Generated.What
@@ -107,6 +108,13 @@ all =
       , { title = "A Family Recipe"
         , description = "Yum"
         , content = Generated.Recipe.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "squirrel"
+      , { title = "A Critique of the American Healthcare System"
+        , description = "From the perspective of a squirrel"
+        , content = Generated.Squirrel.content
         , showOnHomePage = True
         }
       )
