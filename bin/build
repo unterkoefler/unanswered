@@ -81,7 +81,7 @@ def compile_elm(production):
     subprocess.run(args, check=True)
 
 def create_env_file(production):
-    root_url = '/unanswered/' if production else '/'
+    root_url = '/'
     env_file = 'src/Env.elm'
     with open(env_file, 'w') as file_handler:
         file_handler.write(f"""
