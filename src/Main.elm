@@ -2,6 +2,7 @@ module Main exposing (main)
 
 import AssocList as Dict exposing (Dict)
 import Browser exposing (Document)
+import Browser.Dom as Dom
 import Browser.Events exposing (onResize)
 import Browser.Navigation as Nav
 import Element exposing (..)
@@ -11,7 +12,9 @@ import Element.Font as Font
 import Element.Input as Input
 import Element.Region as Region
 import Env exposing (rootUrl)
+import FeatherIcons
 import Post
+import Task
 import Url as Url exposing (Url)
 import Utils exposing (borderBetween, directions0, relativePath)
 
@@ -74,6 +77,8 @@ type Msg
     | LinkClicked Browser.UrlRequest
     | MenuToggled
     | WindowResized Int
+    | ResetViewport
+    | NoOp
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -92,11 +97,16 @@ update msg model =
                     )
 
         UrlChanged url ->
-            handleUrlChange model url
+            update ResetViewport <| handleUrlChange model url
 
         MenuToggled ->
             ( { model | showMenu = not model.showMenu }
             , Cmd.none
+            )
+
+        ResetViewport ->
+            ( model
+            , resetViewport
             )
 
         WindowResized newWidth ->
@@ -104,12 +114,18 @@ update msg model =
             , Cmd.none
             )
 
+        NoOp ->
+            ( model, Cmd.none )
 
-handleUrlChange : Model -> Url -> ( Model, Cmd Msg )
+
+resetViewport : Cmd Msg
+resetViewport =
+    Task.perform (\_ -> NoOp) (Dom.setViewport 0 0)
+
+
+handleUrlChange : Model -> Url -> Model
 handleUrlChange model url =
-    ( { model | post = Post.fromSlug (relativePath url) model.posts, showMenu = False }
-    , Cmd.none
-    )
+    { model | post = Post.fromSlug (relativePath url) model.posts, showMenu = False }
 
 
 subscriptions : Model -> Sub Msg
@@ -184,7 +200,7 @@ content w percent l =
 sideBar : Int -> Element Msg
 sideBar w =
     el
-        [ width (pct w 5 |> maximum 96)
+        [ width <| px (sidebarWidth w)
         , Background.color teal
         , alignRight
         , height fill
@@ -193,12 +209,79 @@ sideBar w =
         text ""
 
 
+sidebarWidth : Int -> Int
+sidebarWidth w =
+    w * 5 // 100 |> min 96
+
+
 teal =
     rgb255 103 201 207
 
 
+gray =
+    rgb255 80 80 80
+
+
 darkTeal =
     rgb255 64 124 128
+
+
+arrowRight : Model -> Element Msg
+arrowRight =
+    arrow FeatherIcons.arrowRight nextSlug
+
+
+arrowLeft : Model -> Element Msg
+arrowLeft =
+    arrow FeatherIcons.arrowLeft prevSlug
+
+
+arrow : FeatherIcons.Icon -> (Model -> Maybe String) -> Model -> Element Msg
+arrow ic slugf model =
+    let
+        next =
+            slugf model
+    in
+    case next of
+        Nothing ->
+            icon [ Font.color gray ] ic
+
+        Just s ->
+            link []
+                { url = s
+                , label = icon [] ic
+                }
+
+
+nextSlug : Model -> Maybe String
+nextSlug model =
+    nextSlugHelp (Dict.toList (Dict.filter (\_ post -> post.showOnHomePage) model.posts)) model.post
+
+
+prevSlug : Model -> Maybe String
+prevSlug model =
+    nextSlugHelp (List.reverse (Dict.toList (Dict.filter (\_ post -> post.showOnHomePage) model.posts))) model.post
+
+
+nextSlugHelp : List ( String, Post.Post ) -> Maybe Post.Post -> Maybe String
+nextSlugHelp posts target =
+    case posts of
+        [] ->
+            Nothing
+
+        _ :: [] ->
+            Nothing
+
+        ( _, post ) :: ( nxtSlug, nxtPost ) :: rest ->
+            if Just post == target then
+                Just nxtSlug
+
+            else
+                nextSlugHelp (( nxtSlug, nxtPost ) :: rest) target
+
+
+icon attrs i =
+    el attrs (i |> FeatherIcons.toHtml [] |> html)
 
 
 header : Page -> Model -> Element Msg
@@ -210,7 +293,7 @@ header page model =
                     menu model.showMenu
 
                 Article ->
-                    Element.none
+                    navButtons model
     in
     row
         [ Background.color teal
@@ -228,6 +311,7 @@ heading =
         [ Region.heading 1
         , Font.size 36
         , sourceSerifPro
+        , paddingEach { directions0 | right = 12 }
         ]
         { label = text "Unanswered"
         , url = rootUrl
@@ -267,6 +351,18 @@ menu showMenu =
             { label = text "⋮"
             , onPress = Just MenuToggled
             }
+
+
+navButtons : Model -> Element Msg
+navButtons model =
+    row
+        [ alignRight
+        , paddingEach { directions0 | right = sidebarWidth model.width }
+        , spacing 12
+        ]
+        [ arrowLeft model
+        , arrowRight model
+        ]
 
 
 menuModal : Element Msg
@@ -324,7 +420,7 @@ subheader =
         , Font.size 18
         , width fill
         , paddingXY 24 12
-        , Background.color <| rgb255 80 80 80
+        , Background.color <| gray
         , Font.color <| rgb255 255 255 255
         ]
         [ text "Where I type and scream my thoughts into the void, unanswered" ]
