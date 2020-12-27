@@ -5,6 +5,7 @@ import Generated.Colonial
 import Generated.Contact
 import Generated.Fedex
 import Generated.Flicker
+import Generated.ForArnold
 import Generated.FourStars
 import Generated.Hell
 import Generated.Lost
@@ -115,6 +116,13 @@ all =
       , { title = "A Critique of the American Healthcare System"
         , description = "From the perspective of a squirrel"
         , content = Generated.Squirrel.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "arnold"
+      , { title = "For Arnold"
+        , description = "This one is for Arnold"
+        , content = Generated.ForArnold.content
         , showOnHomePage = True
         }
       )
