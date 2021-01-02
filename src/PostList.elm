@@ -1,6 +1,7 @@
 module PostList exposing (all)
 
 import Generated.Bell
+import Generated.ClockworkOrange
 import Generated.Colonial
 import Generated.Contact
 import Generated.Fedex
@@ -123,6 +124,13 @@ all =
       , { title = "For Arnold"
         , description = "This one is for Arnold"
         , content = Generated.ForArnold.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "orange"
+      , { title = "A Clockwork Orange (Revised and Re-imagined for Younger Audiences)"
+        , description = "All rights reserved"
+        , content = Generated.ClockworkOrange.content
         , showOnHomePage = True
         }
       )
