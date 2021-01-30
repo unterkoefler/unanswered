@@ -1,6 +1,7 @@
 module PostList exposing (all)
 
 import Generated.Bell
+import Generated.Cleveland
 import Generated.ClockworkOrange
 import Generated.Colonial
 import Generated.Contact
@@ -131,6 +132,13 @@ all =
       , { title = "A Clockwork Orange (Revised and Re-imagined for Younger Audiences)"
         , description = "All rights reserved"
         , content = Generated.ClockworkOrange.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "cleveland"
+      , { title = "New Cleveland Mascot More Geographically Accurate, Racist"
+        , description = ""
+        , content = Generated.Cleveland.content
         , showOnHomePage = True
         }
       )
