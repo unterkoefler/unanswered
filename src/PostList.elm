@@ -14,6 +14,7 @@ import Generated.Lost
 import Generated.Metaphor
 import Generated.Raspberry
 import Generated.Recipe
+import Generated.SimpleTrick
 import Generated.Squirrel
 import Generated.Vulture
 import Generated.WayOut
@@ -139,6 +140,13 @@ all =
       , { title = "New Cleveland Mascot More Geographically Accurate, Racist"
         , description = ""
         , content = Generated.Cleveland.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "simple-trick"
+      , { title = "Realtors Hate Him! This One Simple Trick Will Make You Think You've Moved, But You Haven't!"
+        , description = "You won't believe it!"
+        , content = Generated.SimpleTrick.content
         , showOnHomePage = True
         }
       )
