@@ -5,6 +5,7 @@ import Generated.Cleveland
 import Generated.ClockworkOrange
 import Generated.Colonial
 import Generated.Contact
+import Generated.Crust
 import Generated.Fedex
 import Generated.Flicker
 import Generated.ForArnold
@@ -147,6 +148,13 @@ all =
       , { title = "Realtors Hate Him! This One Simple Trick Will Make You Think You've Moved, But You Haven't!"
         , description = "You won't believe it!"
         , content = Generated.SimpleTrick.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "crust"
+      , { title = "The Importance of Crust"
+        , description = "Another love story"
+        , content = Generated.Crust.content
         , showOnHomePage = True
         }
       )
