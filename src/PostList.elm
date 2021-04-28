@@ -11,6 +11,7 @@ import Generated.Flicker
 import Generated.ForArnold
 import Generated.FourStars
 import Generated.Hell
+import Generated.HelmetSalad
 import Generated.Lost
 import Generated.Metaphor
 import Generated.Raspberry
@@ -155,6 +156,13 @@ all =
       , { title = "The Importance of Crust"
         , description = "Another love story"
         , content = Generated.Crust.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "helmet-salad"
+      , { title = "Eco-Warrior Cyclist Eschews Single-Use Salad Bowls"
+        , description = "\"Uh yeah can you just put it in my helmet\""
+        , content = Generated.HelmetSalad.content
         , showOnHomePage = True
         }
       )
