@@ -5445,6 +5445,7 @@ var $author$project$Generated$Hell$content = '\n\nHaving descended from Circle 3
 var $author$project$Generated$HelmetSalad$content = '\n\n_"Uh yeah can you just put it in my helmet?"_\n\n###### ![cyclist ordering a salad in his helmet](assets/salad-man.jpg)\n\n    ';
 var $author$project$Generated$Lost$content = '\n\nFirst, you should plan your journey as a loop, rather than an out-and-back. Out-and-backs are simple, intuitive, and boring. Second, you should not plan any more than two-thirds of your journey, less if possible. One way to not plan at all is to make instinctive, independent and irrational decisions at every intersection. If you are hopelessly inclined towards rationality, consider delegating decision-making to a friend or dog.\n\nNow that you have wound and looped for about two-thirds of your total allotted adventure time, and have arrived in a less-traveled stretch of woods, uncharted territory of the mall, or an unfamiliar part of an unfamiliar city, and have only a vague notion of which direction gets you home, now would be a good time to take a break. Have a seat, stretch, and eat a snack. I hope you brought snacks. You\'ll need the energy; you\'re barely halfway there.\n\nIt is time to get lost. You have gone in a somewhat curved, loopy path thus far, so it stands to reason that the fastest way back is not back, but forwards.\n\n###### ![A map](assets/map.png)\n\nStrike out in the direction you believe is towards your starting point. This will fail because 1) you have twisted and turned quite a bit, your sense of direction isn\'t great, and the moss on half the trees grows on the northwest rather than north, so you really have no idea which way the shortest path home is, and 2) even if you are blessed with the navigational prowess of Pacman and know exactly which direction to head, there will not be a path in that direction. Proceed, therefore, with great confidence. You will soon be truly lost.\n\nYou will soon be thinking such things as _I think I\'ve passed that mannequin before_ (you haven\'t), _that tree looks awfully familiar_ (it doesn\'t), or _I\'m pretty sure Elm St intersects with Gould Ave eventually_ (it does, but you\'re actually on Helm St; the city department of roads is sitting on a stack of hundreds of requests to replace the "H", which fell off seven years ago, but the mayor has yet to approve the budget item, possibly because of her long held grudge against a certain resident of Helm St.). These are all good signs that you are lost. Now, idiotic transcendentalists might urge you to reflect. Thoreau, for example, said, "Not till we are lost, in other words not till we have lost the world, do we begin to find ourselves, and realize where we are and the infinite extent of our relations."\n\nYou, hopefully, have more important things to worry about than your infinite relations. It\'s getting dark, your stomach is beginning to rumble (or is that a growling bear?), and you can\'t be late to Aunt Sue\'s surprise party. Don\'t reflect, get home! You have time enough to reflect in your daily life. Why else would you so constantly attempt to distract yourself? Reflection is overrated and, in the infinite extent of your relations, most of them are probably bad. You\'ve worked hard to get this lost, to create real sources of fear. This is a more meaningful problem than anything your boss has ever assigned you. Don\'t waste it.\n\n    ';
 var $author$project$Generated$Metaphor$content = '\n\nThe balloon floated away metaphorically.\n\n"You know," he said, squinting into the afternoon sun, "sometimes I worry about you drifting away like that."\n\nHe had a good eye for metaphor and she liked that about him. She squeezed his hand and laughed lightly. "It\'s just a balloon babe."\n\n"Yeah. Yeah," he said. "You\'re right."\n\nShe wasn\'t.\n\n"I love you too," she said. With a happy sigh, she leaned into his arm, nestling her head on his shoulder. They sat there quietly for some time, so content with each other, their love, the way her hair gently tickled his neck, the way his clavicle gently dug into her cheek, so content that they did not notice the darkening sky until the first fat drops fell splat on their outstretched legs. In their mad race to pack up the leftover cherries and Oreo\'s and fold the blanket and cram everything into his bag and peddle madly for home before the storm broke in earnest, he completely missed this second metaphor.\n\nOver the next few months, she slowly drifted away. At last, he confronted her about it: the un-returned calls, the postponed date nights, the whole birthday episode. "What happened?" he asked. "We were so happy."\n\nShe didn\'t know. It was as if, as if the force that had held them together for so long had been severed, snapped, let go of. As if there had been some sort of string binding them as one and that now that it was gone, she felt freer and, as much as she wanted to lift him up with her, she didn\'t feel strong enough to do so. Although she felt all these things, she had a hard time expressing them. She wished there was some apt metaphor for the situation, but metaphors were always his thing. And so instead, she said something pretty hurtful about him being a burden on her life. Their words grew bitter and louder. His bony clavicle was mentioned. He countered that her hair was far too ticklish.\n\n"Oh, yeah?! Ticklishiness is a perfectly acceptable quality of perfectly good hair and who are _you_ to comment on _my_ hair, Mr. 7-in-1 Old Spice?!"\n\n"It\'s 10-in-1 you illiterate sponge! I brush my teeth with it too. And ticklishiness isn\'t even a real word!"\n\n"We should see other people!"\n\n"I\'m blind!" he lied.\n\n"Get out! Leave!"\n\nHe left.\n\nIn the days that followed, dark clouds rumbled over his thoughts and like a summer storm on a sunny picnic, his eyes would pour tears suddenly and uncontrollably. "Hey," said his brother, whose apartment he had slunk to that night and whose couch had been generously offered, but now whose supply of tissues, ice cream and patience was running desperately low. "Hey," his brother said, "we should go fishing."\n    ';
+var $author$project$Generated$Rambling1$content = '\n\nWhen I went home to New Jersey for the last time to say goodbye to the house and rescue any of my cherished possessions before they got Kondo-ed to the curb by my mother\'s frenetic packing, I discovered my old iPod Touch tucked away in a drawer full of useless crap (read: love letters). It was long dead, but I had a charger back home (Boston home, the only one now).\n\nThe evening before I left, on my way back inside from taking the trash out, I sat on the front steps and wallowed for a while in my memories. Since my parents had (cruelly) uprooted the great Japanese maple (our climbing tree, pirate ship, spy fort, insurance liability, property value detractor) from the front yard, I had a clear view down the hill to the Duck Pond. I thought of all the times I had circled it for Fourth of July parades, bike rides, middle school gym classes, track practices, and dog walks. Beyond the pond, I could see a train pulling into the station. I\'d miss that too: all those trips to the city, visiting dad after work, going with friends unsupervised for the first time in high school, going to concerts, tennis tournaments, that one bull riding competition...\n\nAt some point, the sun set and I went back inside to warm up.\n\nAnyway, I was still feeling melancholy a couple days later, so I decided to lean into it. After work, I docked my iPod into my iHome (the best and only radio I have ever owned), waited for it to charge up, and then, ditching my phone, took a nice long walk through the Emerald Necklace, bopping along to some ancient tunes on my wired earbuds. I\'m no luddite (okay, fine, maybe I am), but it was really nice to not be able to check twitter for an hour or so.\n\nWhen I got home (to the Boston one - I don\'t need to disambiguate anymore!) and back to my phone, I deleted the Instagram, Twitter and Facebook apps. I also resolved to not tell anyone. There\'s nothing worse than some enlightened asshole telling you how much better he is than you because he can think in sentences longer than 140 characters because he hasn\'t seen a meme in two months. Whoops.\n\nAnyway, here are some of the things I\'ve thunked have been temporarily freed from the shackles of social media\'s unshakable allure, distilled into short bullet points that you can hopefully pay attention to long enough before your next notification:\n\n- I might have missed your birthday. Sorry.\n- I followed a bunch of cartoonists on Instagram and I miss it. Haven\'t gotten around to getting the New Yorker app or some other alternative, but I probably will soon.\n- I\'m still always on that damn phone. I\'ve mostly been reading articles from HackerNews or NYT or WSJ. These articles are arguably better for me than memes, but comment sections are equally stimulating and toxic everywhere.\n- I feel a real physical pang of longing when I catch sight of someone scrolling through Instagram. This sort of scares me, but not in a very scary way.\n- I thought getting off Twitter would help me be more creative. I\'m not sure if it has, but it\'s certainly nice to not spend time thinking of tweetable thoughts.\n-  I still don\'t understand or want to understand TikTok trends.\n-  When my friends ask me if I\'ve seen one meme or another, it\'s easy to say no. The hard part is trying to hide the fact that I haven\'t seen it because I\'m on a social media cleanse because I have such a huge brain and am getting such a unique insight on life in the modern era and please let me tell you about all the deep revelations I\'ve had, or better yet, go read my blog post about it. Shit. There I go again.\n\nI haven\'t re- downloaded any of those apps, nor have I taken any more melancholy iPod walks. We\'ll see what crazy thing I decide to do on the next one. Maybe I\'ll stop using the toaster. Yeah, that\'s a good idea. I\'ll start microwaving my eggos. It\'ll build character.\n    ';
 var $author$project$Generated$Raspberry$content = '\n\n###### ![four raspberries](assets/raspberries.jpg)\n\nI arrived panting and damp with sweat. I slid off my bike, and, fumbling a moment with the keys, locked it to the rack. I checked the time. 7:56. I heaved a sigh of relief; it would all be worth it soon.\n\nI hurried through the parking lot, past the flowers and through the automatic doors. The line at the checkout looked long enough to buy me all the time I needed. I hadn\'t been there in over a year and the layout, or my memory of it, had changed. Funny I how things do. that snaked around the display stands and refrigerator cases, eyes darting madly about, searching for my grail.\n\nIt eluded me. I was Galahad, Ahab, the Cowardly Lion, the object of my quest no less thwarting. I turned towards the registers. The rest of the clientèle was older and looked on with suspicion as I grew more frantic. They had forgotten what it meant to live, to want! To set your mind\'s eye on a prize and seek it out, no matter the cost! They had lost their passion.\n\nBut where was it? Where?!\n\nThere! A large sign dangled from the ceiling which read, in a gentle cursive font, maybe Lucia or Dancing Script, "Berries". And there they were. Rows upon rows of small containers of fresh raspberries. My holy chalice, my whale, my heart, my under-wrought metaphor!\n\nI picked up a container in the second row, inspected it, replaced it, and grabbed a container in the third row. Never take the first fruit. Someone might realize that you have no idea what you\'re looking for. If someone you admire is watching, it is often prudent to take the third, or even fourth fruit.\n\nI paid, in cash. The cashier gave me a weird look, like "Dude, you look like you just biked fifteen miles for a box of raspberries from a store that\'s closing in one minute. Are you nuts? We don\'t even grow these here. You could have gotten the exact same berries from Stop & Shop."\n\nHe had expressive eyes.\n\nThere was a short wooden fence in the parking lot, so I sat on it and watched the sun set over the neat rows of crops in the fields before me. I ate the entire box of raspberries in less than five minutes. I tossed the box into the recycling bin, unlocked my bike, and headed home. The pollen on the unwashed raspberries started to itch the roof of my mouth. Then, my throat began to tighten. I struggled home, gasping for air.\n\nSometimes when we find the things we most desire, they consume us instead.\n\n...\n\n\nOr they give us a mild allergic reaction, in which case a benadryl and cold glass of water do the trick.\n    ';
 var $author$project$Generated$Recipe$content = '\n\nMy grandmother, Mumsie, as we called her, was a terrible cook. When I was about 10, my cousins and I visited Mumsie for dinner once. This was the first and last time that we had dinner at Mumsie\'s. We were served lukewarm piles of microwaved Hamburger Helper on paper plates. Now, I have nothing against Hamburger Helper. Well, I have a few things against Hamburger Helper. But, regardless, it should be served hot, and maybe not when you\'re hosting guests. We picked at it and pushed it around and then tossed the plates face down in trash, hoping Mumsie wouldn\'t notice. We were never invited back for dinner, so it\'s possible that she noticed.\n\nMy mother, unfortunately, inherited Mumsie\'s talents in the kitchen. With this in mind, I would like to share _A Curley Family Special Recipe: Mom\'s Infamous, Drier Than A Cactus On A Wednesday, So Chewy They\'ll Break Your Jaw, Unseasoned Pork Tenderloin_. Hope you\'re hungry.\n\n**Step 1** -- To start, preheat the oven to 625 degrees Fahrenheit. Yes, that\'s a bit warm, but my mom grew up eating under cooked and raw meat, so give her a break, alright?\n\n**Step 2** -- Next, slice and season the pork. Actually just slice it. If the kids want some flavor, they can dip it in ketchup.\n\n**Step 3** -- Now that the tenderloin is nicely sliced and the oven is nice and hot, put it (the pork) on some tinfoil and throw it in there (the oven).\n\n**Step 4** -- While the tenderloin cooks, maybe throw some corn in the microwave. You can toss it next to the meat to give the plate some color or something. That\'s a thing, right?\n\n(My family is very athletic and everything always involved a great deal of throwing. If you ask, "Pass the salt, please," you better have your hands up, receiving position, thumbs together, and eyes on the ball, er, salt. We got our own knives.)\n\n**Step 5** -- When the smoke alarm goes off, it\'s almost time to take the pork out. Remove the batteries from the alarm and unplug it. That damn thing is always going off. Take the pork out of the oven and toss a couple slices on each plate. Throw some corn on there too, leaving room for ketchup.\n\n**Step 6** -- Finally, before serving, remind your guests to leave room for dessert. Ice cream. It\'s always ice cream.\n    ';
 var $author$project$Generated$SimpleTrick$content = '\n\n![smart man](assets/smart-man.jpg)\n\nAre you stuck in a year-long lease for a tiny bedroom in a tiny apartment that you figured would be totally worth the slightly less ridiculous rent because hey, it\'s not like you spent that much time in your room anyway what with work and the gym and seeing friends, but now, but now you\'re in there all day, every day and it\'s cold and the wifi keeps cutting out and you really, really, desperately want to move, but you can\'t afford a security deposit, first and last month\'s rent -- and the broker fee -- don\'t forget about the broker fee! -- so you\'re stuck, totally stuck?!\n\nOr did you lose your job and decide to cut costs and move back in to your childhood bedroom with the racecar bed -- really? A racecar bed? All the way through high school? -- and your insufferable mother won\'t stop calling you podgekins and tucking you in at night and making you biscuits -- you hate biscuits! -- and you really, really, desperately want to move out to have your own place again, but you\'re absolutely broke and unemployed and you\'re certainly not asking Dad for money -- not after last time -- so you\'re stuck, totally stuck?!\n\nDon\'t despair! With this simple trick from the esteemed Dave Dunmer, Ph.D., you\'ll soon trick yourself into thinking you\'ve moved out, but you haven\'t! Ever since Harvard educated Dr. Dunmer invented this quick trick, he has been the scourge of realtors everywhere. They hate him!\n\nThe trick has been scientifically proven to reduce or even stop your fervent desires to get the hell out, all at no cost to you! No broker fee!\n\nHear it from the world-renowned, Ivy Leaguer, peer reviewed psychologist himself! Dr. Dunmer says, "Yeah, uh, just like move all your furniture around every six months. Makes the place look like new."\n\nIncredible! Amazing! Thank you Dr. Dunmer!\n    ';
@@ -5516,6 +5517,9 @@ var $author$project$PostList$all = _List_fromArray(
 		_Utils_Tuple2(
 		'helmet-salad',
 		{bu: $author$project$Generated$HelmetSalad$content, bw: '\"Uh yeah can you just put it in my helmet\"', bf: true, el: 'Eco-Warrior Cyclist Eschews Single-Use Salad Bowls'}),
+		_Utils_Tuple2(
+		'rambling-1',
+		{bu: $author$project$Generated$Rambling1$content, bw: 'Or why I haven\'t liked your Instagram photo', bf: true, el: 'Rambling Reflections Part 1'}),
 		_Utils_Tuple2(
 		'contact-me',
 		{bu: $author$project$Generated$Contact$content, bw: '', bf: false, el: 'Contact me'}),
@@ -18984,19 +18988,27 @@ var $author$project$Renderer$renderLink = F2(
 				]),
 			{ar: label, aU: destination});
 	});
+var $mdgriffith$elm_ui$Internal$Flag$fontWeight = $mdgriffith$elm_ui$Internal$Flag$flag(13);
+var $mdgriffith$elm_ui$Element$Font$bold = A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$fontWeight, $mdgriffith$elm_ui$Internal$Style$classes.cF);
 var $author$project$Renderer$renderListItem = F2(
-	function (i, els) {
-		var number = $mdgriffith$elm_ui$Element$text(
-			$elm$core$String$fromInt(i + 1) + '.\t\t\t\t\t ');
+	function (marker, els) {
 		return A2(
-			$mdgriffith$elm_ui$Element$paragraph,
+			$mdgriffith$elm_ui$Element$row,
 			_List_fromArray(
 				[
 					$mdgriffith$elm_ui$Element$spacing(12)
 				]),
-			A2($elm$core$List$cons, number, els));
+			_List_fromArray(
+				[
+					A2(
+					$mdgriffith$elm_ui$Element$el,
+					_List_fromArray(
+						[$mdgriffith$elm_ui$Element$alignTop, $mdgriffith$elm_ui$Element$Font$bold]),
+					$mdgriffith$elm_ui$Element$text(marker)),
+					A2($mdgriffith$elm_ui$Element$paragraph, _List_Nil, els)
+				]));
 	});
-var $author$project$Renderer$renderList = F2(
+var $author$project$Renderer$renderOrderedList = F2(
 	function (_v0, items) {
 		return A2(
 			$mdgriffith$elm_ui$Element$column,
@@ -19004,18 +19016,37 @@ var $author$project$Renderer$renderList = F2(
 				[
 					$mdgriffith$elm_ui$Element$spacing(18)
 				]),
-			A2($elm$core$List$indexedMap, $author$project$Renderer$renderListItem, items));
+			A2(
+				$elm$core$List$indexedMap,
+				function (i) {
+					return $author$project$Renderer$renderListItem(
+						$elm$core$String$fromInt(i + 1) + '.');
+				},
+				items));
 	});
 var $author$project$Renderer$renderParagraph = $mdgriffith$elm_ui$Element$paragraph(
 	_List_fromArray(
 		[
 			$mdgriffith$elm_ui$Element$spacing(12)
 		]));
-var $mdgriffith$elm_ui$Internal$Flag$fontWeight = $mdgriffith$elm_ui$Internal$Flag$flag(13);
-var $mdgriffith$elm_ui$Element$Font$bold = A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$fontWeight, $mdgriffith$elm_ui$Internal$Style$classes.cF);
 var $author$project$Renderer$renderStrong = $mdgriffith$elm_ui$Element$row(
 	_List_fromArray(
 		[$mdgriffith$elm_ui$Element$Font$bold]));
+var $author$project$Renderer$renderUnorderedList = function (items) {
+	return A2(
+		$mdgriffith$elm_ui$Element$column,
+		_List_fromArray(
+			[
+				$mdgriffith$elm_ui$Element$spacing(18)
+			]),
+		A2(
+			$elm$core$List$map,
+			function (_v0) {
+				var els = _v0.b;
+				return A2($author$project$Renderer$renderListItem, '-', els);
+			},
+			items));
+};
 var $author$project$Renderer$renderer = function (imageWidth) {
 	return {
 		cD: function (els) {
@@ -19037,7 +19068,7 @@ var $author$project$Renderer$renderer = function (imageWidth) {
 			return A2($author$project$Renderer$renderImage, args, imageWidth);
 		},
 		dp: $author$project$Renderer$renderLink,
-		dA: $author$project$Renderer$renderList,
+		dA: $author$project$Renderer$renderOrderedList,
 		dC: $author$project$Renderer$renderParagraph,
 		dY: $author$project$Renderer$renderStrong,
 		d$: function (_v0) {
@@ -19063,9 +19094,7 @@ var $author$project$Renderer$renderer = function (imageWidth) {
 			return $mdgriffith$elm_ui$Element$text(t);
 		},
 		ej: $author$project$Renderer$hr,
-		ep: function (_v7) {
-			return $mdgriffith$elm_ui$Element$none;
-		}
+		ep: $author$project$Renderer$renderUnorderedList
 	};
 };
 var $author$project$Renderer$renderPost = F2(

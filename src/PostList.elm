@@ -14,6 +14,7 @@ import Generated.Hell
 import Generated.HelmetSalad
 import Generated.Lost
 import Generated.Metaphor
+import Generated.Rambling1
 import Generated.Raspberry
 import Generated.Recipe
 import Generated.SimpleTrick
@@ -163,6 +164,13 @@ all =
       , { title = "Eco-Warrior Cyclist Eschews Single-Use Salad Bowls"
         , description = "\"Uh yeah can you just put it in my helmet\""
         , content = Generated.HelmetSalad.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "rambling-1"
+      , { title = "Rambling Reflections Part 1"
+        , description = "Or why I haven't liked your Instagram photo"
+        , content = Generated.Rambling1.content
         , showOnHomePage = True
         }
       )

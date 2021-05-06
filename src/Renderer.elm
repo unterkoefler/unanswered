@@ -6,7 +6,7 @@ import Element.Border as Border
 import Element.Font as Font
 import Element.Region as Region
 import Env exposing (rootUrl)
-import Markdown.Block as Block exposing (HeadingLevel(..))
+import Markdown.Block as Block exposing (HeadingLevel(..), ListItem(..))
 import Markdown.Html
 import Markdown.Parser exposing (deadEndToString)
 import Markdown.Renderer exposing (..)
@@ -35,8 +35,8 @@ renderer imageWidth =
     , hardLineBreak = Element.none
     , link = renderLink
     , image = \args -> renderImage args imageWidth
-    , unorderedList = \_ -> Element.none
-    , orderedList = renderList
+    , unorderedList = renderUnorderedList
+    , orderedList = renderOrderedList
     , codeBlock = renderCodeBlock
     , thematicBreak = hr
     , table = \_ -> Element.none
@@ -118,27 +118,30 @@ renderEmphasis =
         [ Font.italic ]
 
 
-renderList : Int -> List (List (Element msg)) -> Element msg
-renderList _ items =
+renderUnorderedList : List (ListItem (Element msg)) -> Element msg
+renderUnorderedList items =
+    column
+        [ spacing 18 ]
+    <|
+        List.map (\(ListItem _ els) -> renderListItem "-" els) items
+
+
+renderOrderedList : Int -> List (List (Element msg)) -> Element msg
+renderOrderedList _ items =
     column
         [ spacing 18 ]
     <|
         List.indexedMap
-            renderListItem
+            (\i -> renderListItem (String.fromInt (i + 1) ++ "."))
             items
 
 
-renderListItem : Int -> List (Element msg) -> Element msg
-renderListItem i els =
-    let
-        number =
-            text <| String.fromInt (i + 1) ++ ".\t\t\t\t\t "
-    in
-    paragraph
-        [ spacing 12 ]
-    <|
-        number
-            :: els
+renderListItem : String -> List (Element msg) -> Element msg
+renderListItem marker els =
+    row [ spacing 12 ]
+        [ el [ alignTop, Font.bold ] <| text marker
+        , paragraph [] els
+        ]
 
 
 renderLink :
