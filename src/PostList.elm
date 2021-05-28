@@ -17,6 +17,7 @@ import Generated.Metaphor
 import Generated.Rambling1
 import Generated.Raspberry
 import Generated.Recipe
+import Generated.SillyHatCeremony
 import Generated.SimpleTrick
 import Generated.Squirrel
 import Generated.Vulture
@@ -171,6 +172,13 @@ all =
       , { title = "Rambling Reflections Part 1"
         , description = "Or why I haven't liked your Instagram photo"
         , content = Generated.Rambling1.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "silly-hat-ceremony"
+      , { title = "The Silly Hat Ceremony"
+        , description = "Look, Mom! They gave me a hat!"
+        , content = Generated.SillyHatCeremony.content
         , showOnHomePage = True
         }
       )
