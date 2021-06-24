@@ -17,6 +17,7 @@ import Generated.Metaphor
 import Generated.Rambling1
 import Generated.Raspberry
 import Generated.Recipe
+import Generated.RoomForLet
 import Generated.SillyHatCeremony
 import Generated.SimpleTrick
 import Generated.Squirrel
@@ -179,6 +180,13 @@ all =
       , { title = "The Silly Hat Ceremony"
         , description = "Look, Mom! They gave me a hat!"
         , content = Generated.SillyHatCeremony.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "room-for-let"
+      , { title = "Room for Let"
+        , description = "I'm subletting a room in my apartment"
+        , content = Generated.RoomForLet.content
         , showOnHomePage = True
         }
       )
