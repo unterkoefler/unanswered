@@ -14,6 +14,7 @@ import Generated.Hell
 import Generated.HelmetSalad
 import Generated.Lost
 import Generated.Metaphor
+import Generated.ModernCommerce
 import Generated.Rambling1
 import Generated.Raspberry
 import Generated.Recipe
@@ -187,6 +188,13 @@ all =
       , { title = "Room for Let"
         , description = "I'm subletting a room in my apartment"
         , content = Generated.RoomForLet.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "modern-commerce"
+      , { title = "Modern Commerce"
+        , description = "Adventures in Refurnishing"
+        , content = Generated.ModernCommerce.content
         , showOnHomePage = True
         }
       )

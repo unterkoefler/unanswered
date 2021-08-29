@@ -191,5 +191,5 @@ renderCodeBlock { body } =
                     (\t -> paragraph [] [ text t ])
     in
     column
-        [ Font.family [ Font.monospace ] ]
+        [ Font.family [ Font.monospace ], spacing 12 ]
         paragraphs
