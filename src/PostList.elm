@@ -15,6 +15,7 @@ import Generated.HelmetSalad
 import Generated.Lost
 import Generated.Metaphor
 import Generated.ModernCommerce
+import Generated.Radicalized
 import Generated.Rambling1
 import Generated.Raspberry
 import Generated.Recipe
@@ -195,6 +196,13 @@ all =
       , { title = "Modern Commerce"
         , description = "Adventures in Refurnishing"
         , content = Generated.ModernCommerce.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "facebook-radicalized-me"
+      , { title = "I Was Radicalized by Facebook and I Liked It"
+        , description = "How Zucc sucked me in"
+        , content = Generated.Radicalized.content
         , showOnHomePage = True
         }
       )
