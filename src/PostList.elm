@@ -1,6 +1,7 @@
 module PostList exposing (all)
 
 import Generated.Bell
+import Generated.Chicken
 import Generated.Cleveland
 import Generated.ClockworkOrange
 import Generated.Colonial
@@ -203,6 +204,13 @@ all =
       , { title = "I Was Radicalized by Facebook and I Liked It"
         , description = "How Zucc sucked me in"
         , content = Generated.Radicalized.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "kkkfc-chicken"
+      , { title = "Vegans Endorse The Colonel's New KKKFC Sandwich"
+        , description = "\"It's okay to eat racist chickens\""
+        , content = Generated.Chicken.content
         , showOnHomePage = True
         }
       )
