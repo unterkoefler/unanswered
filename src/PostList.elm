@@ -24,6 +24,7 @@ import Generated.RoomForLet
 import Generated.SillyHatCeremony
 import Generated.SimpleTrick
 import Generated.Squirrel
+import Generated.ThinkLikeASquirrel
 import Generated.Vulture
 import Generated.WayOut
 import Generated.What
@@ -211,6 +212,13 @@ all =
       , { title = "Vegans Endorse The Colonel's New KKKFC Sandwich"
         , description = "\"It's okay to eat racist chickens\""
         , content = Generated.Chicken.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "think-like-a-squirrel"
+      , { title = "Think Like a Squirrel"
+        , description = "Wisdom from our tree-dwelling rodent friends"
+        , content = Generated.ThinkLikeASquirrel.content
         , showOnHomePage = True
         }
       )
