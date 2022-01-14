@@ -1,5 +1,6 @@
 module PostList exposing (all)
 
+import Generated.ADangerousHobby
 import Generated.Bell
 import Generated.Chicken
 import Generated.Cleveland
@@ -219,6 +220,13 @@ all =
       , { title = "Think Like a Squirrel"
         , description = "Wisdom from our tree-dwelling rodent friends"
         , content = Generated.ThinkLikeASquirrel.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "a-dangerous-hobby"
+      , { title = "A Dangerous Hobby"
+        , description = "Or, Ten First Date Doompadee Do's and Doompadee Don't's"
+        , content = Generated.ADangerousHobby.content
         , showOnHomePage = True
         }
       )
