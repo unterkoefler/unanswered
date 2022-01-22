@@ -25,6 +25,7 @@ import Generated.RoomForLet
 import Generated.SillyHatCeremony
 import Generated.SimpleTrick
 import Generated.Squirrel
+import Generated.StupidConvo1
 import Generated.ThinkLikeASquirrel
 import Generated.Vulture
 import Generated.WayOut
@@ -227,6 +228,13 @@ all =
       , { title = "A Dangerous Hobby"
         , description = "Or, Ten First Date Doompadee Do's and Doompadee Don't's"
         , content = Generated.ADangerousHobby.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "stupid-convos-1"
+      , { title = "Stupid Conversations Part 1"
+        , description = "I struggle to receive a food delivery"
+        , content = Generated.StupidConvo1.content
         , showOnHomePage = True
         }
       )
