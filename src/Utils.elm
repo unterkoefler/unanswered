@@ -20,7 +20,7 @@ borderBetween elements =
             [ element ]
 
         element :: rest ->
-            el [ Border.widthEach { directions0 | bottom = 1 } ]
+            el [ Border.widthEach { directions0 | bottom = 1 }, width fill ]
                 element
                 :: borderBetween rest
 

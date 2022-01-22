@@ -1,4 +1,4 @@
-module Post exposing (Post, all, fromSlug, preview, view)
+module Post exposing (Post, SearchOptions, all, fromSlug, matchesSearch, preview, view)
 
 import AssocList as Dict exposing (Dict)
 import Element exposing (..)
@@ -20,6 +20,34 @@ type alias Post =
     , content : String
     , showOnHomePage : Bool
     }
+
+
+type alias SearchOptions =
+    { searchFullText : Bool }
+
+
+matchesSearch : String -> Post -> SearchOptions -> Bool
+matchesSearch searchTerm post { searchFullText } =
+    let
+        needle =
+            searchTerm |> String.trim |> String.toLower
+
+        haystack =
+            (if searchFullText then
+                post.title ++ " " ++ post.description ++ post.content
+
+             else
+                post.title ++ " " ++ post.description
+            )
+                |> String.trim
+                |> String.toLower
+    in
+    case searchTerm of
+        "" ->
+            True
+
+        _ ->
+            String.contains needle haystack
 
 
 

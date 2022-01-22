@@ -46,6 +46,9 @@ init { width } url key =
     ( { posts = Post.all
       , key = key
       , showMenu = False
+      , showSearch = False
+      , searchTerm = ""
+      , searchFullText = False
       , width = width
       , route = routeFromUrl url
       }
@@ -61,6 +64,9 @@ type alias Model =
     { posts : Dict String Post.Post
     , key : Nav.Key
     , showMenu : Bool
+    , showSearch : Bool
+    , searchTerm : String
+    , searchFullText : Bool
     , width : Int
     , route : Route
     }
@@ -105,6 +111,9 @@ type Msg
     | MenuToggled
     | WindowResized Int
     | ResetViewport
+    | ShowSearch
+    | SearchChanged String
+    | ToggleFullTextSearch Bool
     | NoOp
 
 
@@ -138,6 +147,21 @@ update msg model =
 
         WindowResized newWidth ->
             ( { model | width = newWidth }
+            , Cmd.none
+            )
+
+        ShowSearch ->
+            ( { model | showSearch = True, showMenu = False }
+            , Cmd.none
+            )
+
+        SearchChanged term ->
+            ( { model | searchTerm = term }
+            , Nav.replaceUrl model.key (Url.Builder.absolute [] [])
+            )
+
+        ToggleFullTextSearch val ->
+            ( { model | searchFullText = val }
             , Cmd.none
             )
 
@@ -195,6 +219,16 @@ view model =
 
 homeBody : Dict String Post.Post -> Int -> Model -> Element Msg
 homeBody posts pageNumber model =
+    let
+        search : Element Msg
+        search =
+            case model.showSearch of
+                False ->
+                    Element.none
+
+                True ->
+                    content model.width 70 <| searchUI model
+    in
     column
         [ width fill
         , spacing 24
@@ -204,7 +238,9 @@ homeBody posts pageNumber model =
             [ header model Nothing
             , subheader
             ]
-        , content model.width 90 <| homeContent model.width posts pageNumber
+        , search
+        , content model.width 90 <|
+            homeContent model.width posts pageNumber model.searchTerm { searchFullText = model.searchFullText }
         ]
 
 
@@ -251,12 +287,11 @@ notFound model =
 
 
 content : Int -> Int -> Element Msg -> Element Msg
-content w percent l =
+content w percent =
     el
         [ centerX
         , width (pct w percent)
         ]
-        l
 
 
 sideBar : Int -> Element Msg
@@ -452,6 +487,7 @@ menuOptions =
             [ menuOption "what-is-this" "What is this?"
             , menuOption "who-am-i" "Who am I?"
             , menuOption "contact-me" "Contact me"
+            , showSearch
             , subscribeLink
             ]
 
@@ -476,6 +512,16 @@ subscribeLink =
         }
 
 
+showSearch : Element Msg
+showSearch =
+    Input.button
+        [ paddingEach { directions0 | top = 24, bottom = 24 }
+        ]
+        { label = text "Search"
+        , onPress = Just ShowSearch
+        }
+
+
 subheader =
     paragraph
         [ Region.heading 2
@@ -488,14 +534,41 @@ subheader =
         [ text "Where I type and scream my thoughts into the void, unanswered" ]
 
 
-homeContent : Int -> Dict String Post.Post -> Int -> Element Msg
-homeContent w posts pageNumber =
+searchUI : Model -> Element Msg
+searchUI model =
+    column
+        [ width fill
+        , spacing 12
+        ]
+        [ Input.text
+            [ width fill
+            , Input.focusedOnLoad
+            ]
+            { label = Input.labelAbove [] <| text "Search the blog:"
+            , placeholder = Just <| Input.placeholder [] <| text "What dost thou seeketh?"
+            , text = model.searchTerm
+            , onChange = SearchChanged
+            }
+        , Input.checkbox
+            []
+            { onChange = ToggleFullTextSearch
+            , icon = Input.defaultCheckbox
+            , checked = model.searchFullText
+            , label = Input.labelRight [ Font.size 14 ] <| text "search full text"
+            }
+        ]
+
+
+homeContent : Int -> Dict String Post.Post -> Int -> String -> Post.SearchOptions -> Element Msg
+homeContent w posts pageNumber searchTerm searchOpts =
     let
         postList : List (Element Msg)
         postList =
-            Dict.values <|
-                Dict.map Post.preview <|
-                    Dict.filter (\_ post -> post.showOnHomePage) posts
+            posts
+                |> Dict.filter (\_ post -> post.showOnHomePage)
+                |> Dict.filter (\_ post -> Post.matchesSearch searchTerm post searchOpts)
+                |> Dict.map Post.preview
+                |> Dict.values
     in
     column
         [ Border.widthEach { directions0 | left = 1, right = 1 }
@@ -505,16 +578,21 @@ homeContent w posts pageNumber =
         , centerX
         ]
     <|
-        itemsForPage
-            { itemsPerPage = postsPerPage
-            , pageNumber = pageNumber
-            }
-            postList
-            ++ [ paginationControls
-                    { numPosts = List.length <| Dict.keys posts
-                    , currentPage = pageNumber
+        case postList of
+            [] ->
+                [ paragraph [ Font.italic ] [ text "No posts found" ] ]
+
+            _ ->
+                itemsForPage
+                    { itemsPerPage = postsPerPage
+                    , pageNumber = pageNumber
                     }
-               ]
+                    postList
+                    ++ [ paginationControls
+                            { numPosts = List.length postList
+                            , currentPage = pageNumber
+                            }
+                       ]
 
 
 postsPerPage : Int
@@ -527,7 +605,7 @@ paginationControls { numPosts, currentPage } =
     let
         numPages : Int
         numPages =
-            numPosts // postsPerPage
+            (numPosts // postsPerPage) + 1
 
         currentPageInfo : String
         currentPageInfo =
