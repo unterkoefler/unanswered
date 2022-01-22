@@ -1,9 +1,12 @@
 #!/usr/bin/python3
 
 import glob
+import os
 import subprocess
 import sys
 import yaml
+
+GENERATED_DIR = 'src/Generated'
 
 class Metadata(yaml.YAMLObject):
     yaml_tag = u'!Metadata'
@@ -36,8 +39,11 @@ class Metadata(yaml.YAMLObject):
             )
             """
 
+def ensure_generated_dir_exists():
+    os.makedirs(GENERATED_DIR, exist_ok=True)
+
 def create_elm_file(filename, body):
-    filepath = 'src/Generated/' + filename + '.elm'
+    filepath = GENERATED_DIR + '/'  + filename + '.elm'
     elm_code = f"""
 module Generated.{filename} exposing (content)
 
@@ -95,6 +101,7 @@ def main(*, production=False):
     posts = []
     markdown_files = glob.glob('src/markdown/*.md')
 
+    ensure_generated_dir_exists()
     for filename in sorted(markdown_files):
         print('Processing ' + filename)
         process_file(filename, posts)
