@@ -16,6 +16,9 @@ import FeatherIcons
 import Post
 import Task
 import Url as Url exposing (Url)
+import Url.Builder
+import Url.Parser as Parser exposing ((<?>))
+import Url.Parser.Query as Query
 import Utils exposing (borderBetween, directions0, relativePath)
 
 
@@ -41,10 +44,10 @@ main =
 init : { width : Int } -> Url -> Nav.Key -> ( Model, Cmd Msg )
 init { width } url key =
     ( { posts = Post.all
-      , post = Post.fromSlug (relativePath url) Post.all
       , key = key
       , showMenu = False
       , width = width
+      , route = routeFromUrl url
       }
     , Cmd.none
     )
@@ -56,16 +59,40 @@ init { width } url key =
 
 type alias Model =
     { posts : Dict String Post.Post
-    , post : Maybe Post.Post
     , key : Nav.Key
     , showMenu : Bool
     , width : Int
+    , route : Route
     }
 
 
-type Page
-    = Home
-    | Article
+type Route
+    = HomeRoute (Maybe Int)
+    | ArticleRoute String
+    | NotFound
+
+
+route : Parser.Parser (Route -> a) a
+route =
+    Parser.oneOf
+        [ Parser.map HomeRoute (Parser.query <| Query.int "page")
+        , Parser.map ArticleRoute Parser.string
+        ]
+
+
+routeFromString : String -> Route
+routeFromString string =
+    case Url.fromString string of
+        Nothing ->
+            NotFound
+
+        Just url ->
+            routeFromUrl url
+
+
+routeFromUrl : Url -> Route
+routeFromUrl url =
+    Maybe.withDefault NotFound (Parser.parse route url)
 
 
 
@@ -125,7 +152,10 @@ resetViewport =
 
 handleUrlChange : Model -> Url -> Model
 handleUrlChange model url =
-    { model | post = Post.fromSlug (relativePath url) model.posts, showMenu = False }
+    { model
+        | showMenu = False
+        , route = routeFromUrl url
+    }
 
 
 subscriptions : Model -> Sub Msg
@@ -141,12 +171,20 @@ view : Model -> Document Msg
 view model =
     let
         body =
-            case model.post of
-                Nothing ->
-                    homeBody model.posts model
+            case model.route of
+                HomeRoute pageNumber ->
+                    homeBody model.posts (Maybe.withDefault 0 pageNumber) model
 
-                Just post ->
-                    articleBody post model
+                NotFound ->
+                    notFound model
+
+                ArticleRoute slug ->
+                    case Post.fromSlug slug model.posts of
+                        Nothing ->
+                            notFound model
+
+                        Just post ->
+                            articleBody post model
     in
     { title = "Unanswered"
     , body =
@@ -155,18 +193,18 @@ view model =
     }
 
 
-homeBody : Dict String Post.Post -> Model -> Element Msg
-homeBody posts model =
+homeBody : Dict String Post.Post -> Int -> Model -> Element Msg
+homeBody posts pageNumber model =
     column
         [ width fill
         , spacing 24
         , paddingEach { left = 0, right = 0, top = 0, bottom = 36 }
         ]
         [ column [ width fill ]
-            [ header Home model
+            [ header model Nothing
             , subheader
             ]
-        , content model.width 90 <| homeContent model.width posts
+        , content model.width 90 <| homeContent model.width posts pageNumber
         ]
 
 
@@ -184,7 +222,31 @@ articleBody post model =
                         post
             , sideBar model.width
             ]
-        , el [ width fill, alignBottom ] <| header Article model
+        , el [ width fill, alignBottom ] <| header model (Just post)
+        ]
+
+
+notFound : Model -> Element Msg
+notFound model =
+    column
+        [ width fill
+        , spacing 24
+        , paddingEach { left = 0, right = 0, top = 0, bottom = 36 }
+        ]
+        [ column [ width fill ]
+            [ header model Nothing
+            , subheader
+            ]
+        , content model.width 70 <|
+            paragraph
+                [ width fill ]
+                [ text "Hmm. What you're looking for does not exist. "
+                , text "Maybe someone sent you the wrong link. "
+                , link [ Font.color darkTeal ]
+                    { label = text "Let's go back home."
+                    , url = Url.Builder.absolute [] []
+                    }
+                ]
         ]
 
 
@@ -226,21 +288,21 @@ darkTeal =
     rgb255 64 124 128
 
 
-arrowRight : Model -> Element Msg
+arrowRight : Model -> Post.Post -> Element Msg
 arrowRight =
     arrow FeatherIcons.arrowRight nextSlug
 
 
-arrowLeft : Model -> Element Msg
+arrowLeft : Model -> Post.Post -> Element Msg
 arrowLeft =
     arrow FeatherIcons.arrowLeft prevSlug
 
 
-arrow : FeatherIcons.Icon -> (Model -> Maybe String) -> Model -> Element Msg
-arrow ic slugf model =
+arrow : FeatherIcons.Icon -> (Model -> Post.Post -> Maybe String) -> Model -> Post.Post -> Element Msg
+arrow ic slugf model post =
     let
         next =
-            slugf model
+            slugf model post
     in
     case next of
         Nothing ->
@@ -253,17 +315,17 @@ arrow ic slugf model =
                 }
 
 
-nextSlug : Model -> Maybe String
-nextSlug model =
-    nextSlugHelp (Dict.toList (Dict.filter (\_ post -> post.showOnHomePage) model.posts)) model.post
+nextSlug : Model -> Post.Post -> Maybe String
+nextSlug model post =
+    nextSlugHelp (Dict.toList (Dict.filter (\_ p -> p.showOnHomePage) model.posts)) post
 
 
-prevSlug : Model -> Maybe String
-prevSlug model =
-    nextSlugHelp (List.reverse (Dict.toList (Dict.filter (\_ post -> post.showOnHomePage) model.posts))) model.post
+prevSlug : Model -> Post.Post -> Maybe String
+prevSlug model post =
+    nextSlugHelp (List.reverse (Dict.toList (Dict.filter (\_ p -> p.showOnHomePage) model.posts))) post
 
 
-nextSlugHelp : List ( String, Post.Post ) -> Maybe Post.Post -> Maybe String
+nextSlugHelp : List ( String, Post.Post ) -> Post.Post -> Maybe String
 nextSlugHelp posts target =
     case posts of
         [] ->
@@ -273,7 +335,7 @@ nextSlugHelp posts target =
             Nothing
 
         ( _, post ) :: ( nxtSlug, nxtPost ) :: rest ->
-            if Just post == target then
+            if post == target then
                 Just nxtSlug
 
             else
@@ -284,16 +346,16 @@ icon attrs i =
     el attrs (i |> FeatherIcons.toHtml [] |> html)
 
 
-header : Page -> Model -> Element Msg
-header page model =
+header : Model -> Maybe Post.Post -> Element Msg
+header model post =
     let
         maybeMenu =
-            case page of
-                Home ->
+            case post of
+                Nothing ->
                     menu model.showMenu
 
-                Article ->
-                    navButtons model
+                Just p ->
+                    navButtons model p
     in
     row
         [ Background.color teal
@@ -353,15 +415,15 @@ menu showMenu =
             }
 
 
-navButtons : Model -> Element Msg
-navButtons model =
+navButtons : Model -> Post.Post -> Element Msg
+navButtons model post =
     row
         [ alignRight
         , paddingEach { directions0 | right = sidebarWidth model.width }
         , spacing 12
         ]
-        [ arrowLeft model
-        , arrowRight model
+        [ arrowLeft model post
+        , arrowRight model post
         ]
 
 
@@ -426,8 +488,15 @@ subheader =
         [ text "Where I type and scream my thoughts into the void, unanswered" ]
 
 
-homeContent : Int -> Dict String Post.Post -> Element Msg
-homeContent w posts =
+homeContent : Int -> Dict String Post.Post -> Int -> Element Msg
+homeContent w posts pageNumber =
+    let
+        postList : List (Element Msg)
+        postList =
+            Dict.values <|
+                Dict.map Post.preview <|
+                    Dict.filter (\_ post -> post.showOnHomePage) posts
+    in
     column
         [ Border.widthEach { directions0 | left = 1, right = 1 }
         , spacing 36
@@ -436,9 +505,93 @@ homeContent w posts =
         , centerX
         ]
     <|
-        Dict.values <|
-            Dict.map Post.preview <|
-                Dict.filter (\_ post -> post.showOnHomePage) posts
+        itemsForPage
+            { itemsPerPage = postsPerPage
+            , pageNumber = pageNumber
+            }
+            postList
+            ++ [ paginationControls
+                    { numPosts = List.length <| Dict.keys posts
+                    , currentPage = pageNumber
+                    }
+               ]
+
+
+postsPerPage : Int
+postsPerPage =
+    15
+
+
+paginationControls : { numPosts : Int, currentPage : Int } -> Element Msg
+paginationControls { numPosts, currentPage } =
+    let
+        numPages : Int
+        numPages =
+            numPosts // postsPerPage
+
+        currentPageInfo : String
+        currentPageInfo =
+            "Page " ++ String.fromInt (currentPage + 1) ++ " of " ++ String.fromInt numPages
+
+        hasPrevious : Bool
+        hasPrevious =
+            currentPage > 0
+
+        hasNext : Bool
+        hasNext =
+            -- (- 1) to account for 0-indexed page numbers
+            currentPage < numPages - 1
+
+        previousEl =
+            case hasPrevious of
+                True ->
+                    link
+                        [ Font.color darkTeal ]
+                        { label = text "Previous"
+                        , url = Url.Builder.absolute [] [ Url.Builder.int "page" (currentPage - 1) ]
+                        }
+
+                False ->
+                    el [ Font.color gray ] <|
+                        text "Previous"
+
+        nextEl =
+            case hasNext of
+                True ->
+                    link
+                        [ Font.color darkTeal ]
+                        { label = text "Next"
+                        , url = Url.Builder.absolute [] [ Url.Builder.int "page" (currentPage + 1) ]
+                        }
+
+                False ->
+                    el [ Font.color gray ] <|
+                        text "Next"
+    in
+    row
+        [ width fill, Font.size 14 ]
+        [ el [ alignLeft ] previousEl
+        , el [ centerX ] <|
+            text currentPageInfo
+        , el [ alignRight ] nextEl
+        ]
+
+
+itemsForPage : { itemsPerPage : Int, pageNumber : Int } -> List a -> List a
+itemsForPage { itemsPerPage, pageNumber } items =
+    case compare pageNumber 0 of
+        LT ->
+            List.take itemsPerPage items
+
+        EQ ->
+            List.take itemsPerPage items
+
+        GT ->
+            itemsForPage
+                { itemsPerPage = itemsPerPage
+                , pageNumber = pageNumber - 1
+                }
+                (List.drop itemsPerPage items)
 
 
 pct : Int -> Int -> Length
