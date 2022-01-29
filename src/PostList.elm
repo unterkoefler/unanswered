@@ -26,6 +26,7 @@ import Generated.SillyHatCeremony
 import Generated.SimpleTrick
 import Generated.Squirrel
 import Generated.StupidConvo1
+import Generated.StupidConvo2
 import Generated.ThinkLikeASquirrel
 import Generated.Vulture
 import Generated.WayOut
@@ -235,6 +236,13 @@ all =
       , { title = "Stupid Conversations Part 1"
         , description = "I struggle to receive a food delivery"
         , content = Generated.StupidConvo1.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "stupid-convos-2"
+      , { title = "Stupid Conversations Part 2"
+        , description = "I struggle to buy avocados"
+        , content = Generated.StupidConvo2.content
         , showOnHomePage = True
         }
       )

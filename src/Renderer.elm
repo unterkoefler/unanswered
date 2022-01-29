@@ -87,7 +87,7 @@ renderHeading { level, rawText, children } =
 
         -- HACK to center images
         _ ->
-            paragraph [ Region.heading levelNumber, Font.size fontSize ]
+            paragraph [ Region.heading levelNumber, Font.size fontSize, paddingEach { directions0 | top = 12 } ]
                 children
 
 
@@ -140,7 +140,7 @@ renderListItem : String -> List (Element msg) -> Element msg
 renderListItem marker els =
     row [ spacing 12 ]
         [ el [ alignTop, Font.bold ] <| text marker
-        , paragraph [] els
+        , paragraph [ spacing 12 ] els
         ]
 
 
