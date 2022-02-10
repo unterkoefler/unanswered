@@ -28,6 +28,7 @@ import Generated.Squirrel
 import Generated.StupidConvo1
 import Generated.StupidConvo2
 import Generated.ThinkLikeASquirrel
+import Generated.Upsilon
 import Generated.Vulture
 import Generated.WayOut
 import Generated.What
@@ -243,6 +244,13 @@ all =
       , { title = "Stupid Conversations Part 2"
         , description = "I struggle to buy avocados"
         , content = Generated.StupidConvo2.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "hope-and-upsilon"
+      , { title = "Long Forgotten Feeling of Optimism and Upsilon Variant Begin to Emerge"
+        , description = ""
+        , content = Generated.Upsilon.content
         , showOnHomePage = True
         }
       )
