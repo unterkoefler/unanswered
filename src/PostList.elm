@@ -2,6 +2,7 @@ module PostList exposing (all)
 
 import Generated.ADangerousHobby
 import Generated.Bell
+import Generated.Bipartisan
 import Generated.Chicken
 import Generated.Cleveland
 import Generated.ClockworkOrange
@@ -251,6 +252,13 @@ all =
       , { title = "Long Forgotten Feeling of Optimism and Upsilon Variant Begin to Emerge"
         , description = ""
         , content = Generated.Upsilon.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "bipartisan"
+      , { title = "Bipartisan Legislation Criminalizes Abortion, But Exempts EV Drivers"
+        , description = "Compromise at last"
+        , content = Generated.Bipartisan.content
         , showOnHomePage = True
         }
       )
