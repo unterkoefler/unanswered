@@ -23,6 +23,7 @@ import Generated.Rambling1
 import Generated.Raspberry
 import Generated.Recipe
 import Generated.RoomForLet
+import Generated.RoommateAgreement
 import Generated.SillyHatCeremony
 import Generated.SimpleTrick
 import Generated.Squirrel
@@ -259,6 +260,13 @@ all =
       , { title = "Bipartisan Legislation Criminalizes Abortion, But Exempts EV Drivers"
         , description = "Compromise at last"
         , content = Generated.Bipartisan.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "roommate-agreement"
+      , { title = "Roommate Agreement"
+        , description = "Attn.: My Roommates"
+        , content = Generated.RoommateAgreement.content
         , showOnHomePage = True
         }
       )
