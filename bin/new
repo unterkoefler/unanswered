@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+DATE=$(date +%Y-%m-%d)
+SLUG=$1
+
+cat > src/markdown/$DATE-$SLUG.md << EOF
+<!---
+--- !Metadata
+slug: $SLUG
+title: TODO
+description: TODO
+show_on_home_page: True
+filename: TODO
+--->
+
+EOF

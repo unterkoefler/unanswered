@@ -29,6 +29,7 @@ import Generated.SimpleTrick
 import Generated.Squirrel
 import Generated.StupidConvo1
 import Generated.StupidConvo2
+import Generated.TechSupport
 import Generated.ThinkLikeASquirrel
 import Generated.Upsilon
 import Generated.Vulture
@@ -267,6 +268,13 @@ all =
       , { title = "Roommate Agreement"
         , description = "Attn.: My Roommates"
         , content = Generated.RoommateAgreement.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "tech-support"
+      , { title = "On Technology"
+        , description = "blah, blah, blah internet bad, or at least, not so good"
+        , content = Generated.TechSupport.content
         , showOnHomePage = True
         }
       )
