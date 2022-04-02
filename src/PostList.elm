@@ -30,6 +30,7 @@ import Generated.Squirrel
 import Generated.StupidConvo1
 import Generated.StupidConvo2
 import Generated.TechSupport
+import Generated.TheHearse
 import Generated.ThinkLikeASquirrel
 import Generated.Upsilon
 import Generated.Vulture
@@ -275,6 +276,13 @@ all =
       , { title = "On Technology"
         , description = "blah, blah, blah internet bad, or at least, not so good"
         , content = Generated.TechSupport.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "the-hearse"
+      , { title = "The Hearse"
+        , description = "A story about love, loss and redemption"
+        , content = Generated.TheHearse.content
         , showOnHomePage = True
         }
       )
