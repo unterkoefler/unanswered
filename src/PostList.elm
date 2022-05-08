@@ -24,6 +24,7 @@ import Generated.Raspberry
 import Generated.Recipe
 import Generated.RoomForLet
 import Generated.RoommateAgreement
+import Generated.SilentPodcast
 import Generated.SillyHatCeremony
 import Generated.SimpleTrick
 import Generated.Squirrel
@@ -283,6 +284,13 @@ all =
       , { title = "The Hearse"
         , description = "A story about love, loss and redemption"
         , content = Generated.TheHearse.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "silent-podcast"
+      , { title = "Stop Reading This: A Silent Meditation Podcast"
+        , description = "A meditation journey for good sleep"
+        , content = Generated.SilentPodcast.content
         , showOnHomePage = True
         }
       )
