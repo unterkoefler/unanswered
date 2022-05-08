@@ -605,7 +605,7 @@ paginationControls { numPosts, currentPage } =
     let
         numPages : Int
         numPages =
-            (numPosts // postsPerPage) + 1
+            ceiling (toFloat numPosts / toFloat postsPerPage)
 
         currentPageInfo : String
         currentPageInfo =

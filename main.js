@@ -20216,7 +20216,7 @@ var $author$project$Main$postsPerPage = 15;
 var $author$project$Main$paginationControls = function (_v0) {
 	var numPosts = _v0.bV;
 	var currentPage = _v0.bz;
-	var numPages = ((numPosts / $author$project$Main$postsPerPage) | 0) + 1;
+	var numPages = $elm$core$Basics$ceiling(numPosts / $author$project$Main$postsPerPage);
 	var hasPrevious = currentPage > 0;
 	var previousEl = function () {
 		if (hasPrevious) {
