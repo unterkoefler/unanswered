@@ -9,6 +9,7 @@ import Generated.ClockworkOrange
 import Generated.Colonial
 import Generated.Contact
 import Generated.Crust
+import Generated.Europe
 import Generated.Fedex
 import Generated.Flicker
 import Generated.ForArnold
@@ -300,6 +301,13 @@ all =
       , { title = "1 question science still can't answer"
         , description = "Unanswered.blog begins its quest for the Truth"
         , content = Generated.GooseQuestion.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "europe"
+      , { title = "My Trip to Europe: The Insignificant Details"
+        , description = "The parts you didn't think you didn't want to hear about"
+        , content = Generated.Europe.content
         , showOnHomePage = True
         }
       )
