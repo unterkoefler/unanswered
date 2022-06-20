@@ -32,6 +32,7 @@ import Generated.Squirrel
 import Generated.StupidConvo1
 import Generated.StupidConvo2
 import Generated.TechSupport
+import Generated.TheBoys
 import Generated.TheHearse
 import Generated.ThinkLikeASquirrel
 import Generated.Upsilon
@@ -299,6 +300,13 @@ all =
       , { title = "1 question science still can't answer"
         , description = "Unanswered.blog begins its quest for the Truth"
         , content = Generated.GooseQuestion.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "the-boys-and-amazon"
+      , { title = "How \"The Boys\" Captures and then Completely Misses the Danger of Amazon"
+        , description = "An amateur analysis"
+        , content = Generated.TheBoys.content
         , showOnHomePage = True
         }
       )
