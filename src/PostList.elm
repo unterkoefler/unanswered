@@ -1,6 +1,7 @@
 module PostList exposing (all)
 
 import Generated.ADangerousHobby
+import Generated.Beantown
 import Generated.Bell
 import Generated.Bipartisan
 import Generated.Chicken
@@ -315,6 +316,13 @@ all =
       , { title = "How \"The Boys\" Captures and then Completely Misses the Danger of Amazon"
         , description = "An amateur analysis"
         , content = Generated.TheBoys.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "beantown"
+      , { title = "Building a Better Boston: A 3-Step Plan for Urban Superiority"
+        , description = "A political proposal for the prosperity of posterity"
+        , content = Generated.Beantown.content
         , showOnHomePage = True
         }
       )
