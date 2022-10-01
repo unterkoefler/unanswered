@@ -27,7 +27,7 @@ renderer imageWidth =
     { heading = renderHeading
     , paragraph = renderParagraph
     , blockQuote = \els -> row [ width fill ] els
-    , html = Markdown.Html.oneOf []
+    , html = Markdown.Html.oneOf [ captionRenderer ]
     , text = \t -> text t
     , codeSpan = renderCodeSpan
     , strong = renderStrong
@@ -46,6 +46,25 @@ renderer imageWidth =
     , tableCell = \_ -> Element.none
     , tableHeaderCell = \_ _ -> Element.none
     }
+
+
+captionRenderer : Markdown.Html.Renderer (List (Element msg) -> Element msg)
+captionRenderer =
+    Markdown.Html.tag "caption" (\caption children -> renderCaption caption)
+        |> Markdown.Html.withAttribute "text"
+
+
+renderCaption : String -> Element msg
+renderCaption caption =
+    paragraph
+        [ width fill
+        , Font.italic
+        , Font.size 11
+        , centerX
+        , Font.center
+        , paddingEach { directions0 | bottom = 5 }
+        ]
+        [ text caption ]
 
 
 hr : Element msg
@@ -83,9 +102,9 @@ renderHeading { level, rawText, children } =
     in
     case level of
         H6 ->
+            -- HACK to center images
             row [ width fill ] children
 
-        -- HACK to center images
         _ ->
             paragraph [ Region.heading levelNumber, Font.size fontSize, paddingEach { directions0 | top = 12 } ]
                 children
@@ -93,7 +112,7 @@ renderHeading { level, rawText, children } =
 
 renderParagraph : List (Element msg) -> Element msg
 renderParagraph =
-    paragraph [ spacing 12 ]
+    paragraph [ spacing 12, paddingEach { directions0 | top = 5 } ]
 
 
 renderCodeSpan : String -> Element msg
@@ -175,10 +194,11 @@ renderImage :
     -> Length
     -> Element msg
 renderImage { alt, src, title } imageWidth =
-    image [ width imageWidth, centerX, paddingXY 0 20 ]
-        { description = alt
-        , src = rootUrl ++ src
-        }
+    el [ width imageWidth, paddingXY 0 5 ] <|
+        image [ width imageWidth, height (fill |> maximum 800), centerX, scrollbarY ]
+            { description = alt
+            , src = rootUrl ++ src
+            }
 
 
 renderCodeBlock : { body : String, language : Maybe String } -> Element msg

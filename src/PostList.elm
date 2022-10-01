@@ -42,6 +42,7 @@ import Generated.Vulture
 import Generated.WayOut
 import Generated.What
 import Generated.Who
+import Generated.XcuseMe
 import Generated.Zip
 
 
@@ -323,6 +324,13 @@ all =
       , { title = "Building a Better Boston: A 3-Step Plan for Urban Superiority"
         , description = "A political proposal for the prosperity of posterity"
         , content = Generated.Beantown.content
+        , showOnHomePage = True
+        }
+      )
+    , ( "xcuseme"
+      , { title = "Notes on Building \"XcuseMe: Exercise tracking for real people\""
+        , description = "What I learned from making and re-making an app"
+        , content = Generated.XcuseMe.content
         , showOnHomePage = True
         }
       )

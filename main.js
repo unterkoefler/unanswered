@@ -5473,6 +5473,7 @@ var $author$project$Generated$Vulture$content = '\nLonny, the giraffe, was worri
 var $author$project$Generated$WayOut$content = '\n\nI can\'t leave the beach. That much is clear. There\'s no boardwalk, sea-wall, or parking lot to turn to. Or run to. There is nothing behind me. It\'s a nothingness that is not void or null, or even nothing. It is unrendered, unimagined. It is not. There\'s nowhere to run.\n\nEach wave swells, curls, and crashes onto the sand, steadily inching closer. As the shore shrinks before me, the slope of the beach grows steeper. Soon, I will lose my footing and slide down the wall of sand to be swallowed whole by the unrelenting sea.\n\nTo my left and right lie two jagged jetties protruding far out into the dark swirling waters, like the feelers of some horrid bug. The ocean slams into the jetties\'s pointed rocks, dislodging mollusks and crushing crabs. The water froths and tumbles to shore.\n\n "Come on!" shouts my sister. She bobs up and down and dives under a thrashing crest and pops up on a swell, waving for me. "Come on!" And under again, twisting wretchedly in a cross current. And up again, waving, not for help, but for me, urgently. "Come on!"\n\nWhat does she see?\n\nThe waves lap closer and claim an abandoned bucket. The sand shifts beneath me. I scramble up the slope. I can no longer stand. I pull my feet under me, crouching, wound like a spring, but too terrified to spring anywhere. Where\'s Emma? A mountain of water breaks and races toward me, anointing my foot. Where\'s Emma? The water\'s cold shocks me. There! A flash of red hair, a pale arm. "Come on!" she waves.\n\nWhat does she see?\n\nThe waves break closer and closer. I feel their spray. They arch and curl and spit on me. The jetties are nearly gone. Devoured.\n\nDon\'t look back. Don\'t look back. Don\'t look back.\n\nI breathe deep, once, twice. I time the breaks, leap up, and, pounding on the damp sand, ankle deep, knee deep, no ankle deep again as the water recedes, priming for the next punch, I plunge headlong into Poseidon\'s halls.\n\n "Gah!" I rise, sputtering. I am towed under, tumbled and twisted. My knee ricochets off the sandy floor. I struggle upwards and outwards, towards my sister.\n\nDon\'t look back. Don\'t look back.\n\nI\'ve almost reached her. She kicks out farther, ducks, dives, and turns. She waves. "Come on!"\n\nUp and down and up again I go. Wiping water from my eyes, I catch her face. She looks back at me, no, behind me. She\'s laughing now, happy, mirthful. Confused, I struggle towards her. She swims away.\n\nDon\'t look back. What does she see? No. Don\'t look back. Look back. Look back.\n\nI turn. The beach is gone, eaten by the sea. The next wave swells. Up, I soar, up and up. It curls, seems to pause, considering for but a moment if it should or should not. Decision made, it does. It and I crash into the nothingness, swallowing the void, its unthought streets, its unimagined homes. I am drowned, flattened, torn, dissolved. The red bucket clatters to a halt against a sign: No Parking.\n\n    ';
 var $author$project$Generated$What$content = '\n\nThis is, to reiterate the subheader, where I scream\ninto the void. I used to do this on my notes app, but then I\nrealized that I could copy and paste the things on my notes app\ninto a file on my computer, format the file into a webpage, and\nbother you, dear reader, with my content. Enjoy!\n    ';
 var $author$project$Generated$Who$content = '\n\nI am Willy Unterkoefler. Unless otherwise noted, I write the things on here, which explains their high quality. I also designed this website, which explains its... quality. If you want to know more about me, please read everything I post here and psychoanalyze it. To help you get started, the giraffe is really a metaphor for my healthy relationship with my father and the lightning is a stand-in for my three horrible years of speech therapy in elementary school. Despite my years of speech therapy, you should know that I still pronounce water as "woodder". The rest of my life and personality can be derived.\n    ';
+var $author$project$Generated$XcuseMe$content = '\n\n###### ![The old XcuseMe logo for android](assets/xcuseme/play-store-logo.png)\n<caption text="The old XcuseMe logo that I made for the Play store. I stopped capitalizing the c at some point." />\n\nI have worked on XcuseMe on and off for about two years now. I have very little to show for it: there are several bugs, there are no advanced features, there are very few basic features, there is no user base and there are no venture capitalists at my door (yet). But all is not in vain. I learned a lot about myself and about modern software development, some of which I will share here.\n\n## Background\n\nDuring the beginning of the pandemic, I downloaded a home workout app, called something like “30 Day Full Body Workout.” You were supposed to do one workout a day for 30 days. It took me four months to complete it. Some days I ran or biked or hiked or did some other exercise. Other days, it was raining or I was hungover or I had to watch *Tiger King* instead. I wanted to know where those four months had gone. I needed some way to track my various exercises — and my excuses! Thus, XcuseMe was born: “Exercise tracking for real people.”\n\nI envisioned it as a Strava for sane people, with optional social sharing and integrations with Garmin for exercises and GrubHub for excuses. I imagined a sophisticated ML algorithm that would offer non-judgmental advice and encouragement, like “Your last eight excuses have been about waking up too late. Maybe try exercising in the evening instead, you doorknob.”\n\nToday, it is just a two-table CRUD app, but I use it almost every day. I can tell you exactly how many miles I ran in February, how long my cold lasted in March or how many times in the last year I was planning on working out right after work, but was too hungry  and then too full and then too high to do anything more than ten push-ups and one downward dog before bed (thirteen).\n\nYes, I could have used Excel for this or even just a notebook and a pen. But coding and learning new things is fun. Also, I still want to add some fancy algorithms one day, which would be a bit harder to do on a notebook.\n\n## Version 1\n\n###### ![A calendar with excuses marked in red and exercises in green](assets/xcuseme/calendar.jpg)\n<caption text="Disclaimer: this is not actually a screenshot of version 1. It\'s version 4." />\n\nInitially, I wanted XcuseMe to a) work offline, b) send daily reminder notifications and c) be optimized for mobile devices. Due to these “requirements,” I decided to make an app. Back then, I used an Android while most of my friends used iPhones. I would later guilt them into being beta testers, so I needed it to be cross-platform. I had read somewhere that React Native is slow, so I excitedly decided to learn how to use Flutter.\n\nV1 turned out pretty okay. The Flutter docs were good. The development experience was good. Deploying to Google’s Play Store was okay. Deploying to Apple’s App Store was hell. I had to rope my Mac-using roommate into the whole endeavour to test, build and sign the app. There was a whole debacle trying to sign into my old Apple account without access to any of my old Apple products. They also have this weird beta release system that I submitted my app to, but the review process took so long that I released the app publicly instead. I still haven’t been approved for the beta system.\n\nAnyway, I got ten or so of my friends to use it for a week or so. I conducted user research interviews and learned a lot. Some people wanted a social feed, some would hate a social feed. Some wanted to categorize their exercises, others wanted to track other goals besides exercising. Almost everyone wanted a daily reminder.\n\nThe main lesson that I learned was that the app was too damn simple. Very few people had any criticism to share about the app or user experience itself. All their feedback focused on things that were missing. As someone who doesn’t take criticism well, this was tough to hear. I had poured hours and hours and hours into this, from designing the flow and layout to learning a new language to wrangling with our tech overlords’ deployment platforms. It was my child and it was perfect. How dare you suggest it needs more features! Don’t you understand how complex everything is!\n\n## Version 2\n\n###### ![A user interface for adding an excuse with the text of "Saw a cloud in the distance"](assets/xcuseme/add-excuse.png)\n<caption text="Sometimes the weather outside is frightful." />\n\nAfter the incredibly successful beta release and enlightening user feedback, I got to work on V2. Well, I may have taken a long break to brood. Regardless, I realized that any of these fancy advanced features would need a backend. (V1 used only on-device storage.) I decided to use Google’s Firebase and Firestore cloud platform things because they were tightly integrated with Flutter, offered offline support by default, and supported sending notifications\n\nThis refactor started out pretty well. I built some pretty snazzy signup and login flows. But the documentation definitely became more confusing. I felt like I was constantly jumping between Firestore docs and Flutter docs and Flutter-Firestore docs. Then Flutter 2 was released. It touted that it now had null safety. I like null safety,  so I spent a couple weekends trying to upgrade all my dependencies. This did not go smoothly at all. I feel like I was wasting my time trying to keep up with Google’s release cadence. I also feel like not building Dart with null safety from the very beginning was a massive oversight. Whatever.\n\nMeanwhile, I had a bug. The details are unimportant, but it was essentially a state management problem. I’m a big fan of Elm and The Elm Architecture for managing state. I attempted to replicate this pattern in Flutter by using “Stateless Widgets” everywhere possible and using Streams and Providers and Consumers to pass around state between child Widgets. This mostly worked out, until I needed a Widget with a text box. A text box in Flutter needs to be inside a Stateful Widget to keep track of the state of the text input. I was also passing an EventStream into this Widget, but since it was Stateful, it was not re-rendering when the stream was updated, meaning that this widget always had an empty list of events.\n\nA smarter person might have figured it out or told me to use some other state management strategy, but I’m an idiot and prefer to be treated that way when I’m writing code. Flutter’s Stateless and Stateful Widget dichotomy is like colored async/sync functions, but 100 times worse.\n\n(After this attempted debugging, I began to understand why so many Android apps are so frustratingly buggy. See, for example, the one where the keyboard won’t show up in Google’s texting app.)\n\nSo I was frustrated with this bug, bored by the null safety upgrade mess, and daunted by having to go through the release process again. I, if you will, fluttered away.\n\n## Version 3\n\n###### ![A pie chart showing the proportion of excuses and exercises](assets/xcuseme/pie-chart.jpg)\n\nLike any savvy entrepreneur, I decided to re-write the entire thing, this time as a web application. I would lose the built-in offline support, but I was the only user at this point and I never really needed to use the app when I was deep in the woods. I would also lose convenient notifications, but I figured not paying Apple’s $125 annual developer fee would be worth it. I would use Elm for the front-end, of course, but I shopped around a bit for backends. After some deliberation, I decided to give Phoenix a shot. It seemed easy and powerful enough and it would be cool to learn, I thought.\n\nI built V3 to be roughly on par with V1 and then didn’t touch it for months and months. I was really dragging my feet about re-creating the signup and login flows. I kept thinking that I should abandon the Phoenix framework and use Django instead to get that stuff out of the box. I wasn’t all too impressed with Phoenix in general and had no use for its killer LiveView feature. But I also know Django and Python fairly well, and I had accepted that if this side project wasn’t going to make me a millionaire, I should at least use it to learn new technologies. That’s what would keep me interested and motivated. Phoenix clearly didn’t, though I have nothing really bad to say about it.\n\n## Version 4\n\n###### ![A wordcloud showing the author\'s most frequent excuses](assets/xcuseme/wordcloud.jpg)\n<caption text="I\'m thinking about supporting frequent n-grams here too, but it\'s also fun to figure out why certain words like \'took\' appear a lot. Hint: \'nap\' is about the same size." />\n\nMonths later, I again re-wrote the entire application, this time using the [Haskell web framework IHP](https://ihp.digitallyinduced.com/) on the backend. I kept the front-end in Elm, but re-wrote it to not be a Single Page App because I had learned in other projects that managing routing on the client-side is a pain in the butt.\n\nIHP has been fantastic. The documentation is solid, it’s easy to manage dependencies with Nix, I found a great tutorial on integrating with Elm, and deploying to IHP Cloud was a breeze (especially relative to the App Store). I encountered one problem with setting up a custom subdomain, but after reporting it, it was fixed within a couple of days, with a friendly reply from the CEO (Google could never).\n\nOn the downside, I have had to fight against the framework in some places in order to write the front-end almost entirely in Elm. IHP encourages you to use their hsx language and auto-generated forms rather than a separate front-end. I respect that design decision, but after I discovered elm-ui, I refuse to write CSS in my free time. My decision to lean heavily into Elm meant that there were some issues with redirects and rendering JSON responses, but I’ve managed.\n\nBest of all, I’m finally learning Haskell and I’m loving its type safety and idiot-proofness. Having a compiler tell me what stupid bugs I’ve written is so relaxing. When my code eventually compiles, I am very confident that it will work. Likewise with Elm, of course.\n\n## Conclusion\n\nI still don’t have notifications or a social feed or ML algorithms, but I do have:\n\n- one very dedicated daily active user\n- experience with three new languages and three new frameworks\n- A pretty cool word cloud of my excuses\n- No stupid Stateful Widgets\n- No CSS\n- One long blog post\n- Happiness?\n\nIf you’ve read this far, you’re now legally obligated to log your exercise and excuses every day on XcuseMe ([https://xcuseme.ihpapp.com](https://xcuseme.ihpapp.com)). Enjoy!\n    ';
 var $author$project$Generated$Zip$content = '\n\nZip. Lou re-zipped the tent flap. He paused, waiting for his eyes to adjust to the dark. He walked carefully toward the edge of camp and into the woods. The leaves crunched underfoot. His face caught a spiderweb and he quickly swiped the sticky fibers away. Gross. There was something crawling up his bare arm. He brushed it away and shivered. *Relax.* Just a spider.\n\nZip. Lou relieved himself. Zip. And returned back to camp, guided by the glow of dying embers in the fire pit.\n\nZip. Jill turned in her sleep and murmured softly. "Just me," whispered Lou. He slipped back into the tent. Zip. And zipped the flap back up. Lou never left it open for long. The spiders might get in.\n\nZip. Lou sealed himself snugly in his sleeping bag. Warm, cozy, and entirely content, he drifted off to sleep.\n\nZip. The tent flapped opened. "Jill?" said Lou, still half-asleep.\n\n"Just me," said the voice.\n\nJill turned in her sleep and murmured again.\n\n"Just me," the voice whispered.\n\nZip. The tent flap closed.\n\n"Jill? Jill wake up!" pleaded Lou. His flashlight was just to his right, but he needed to get his arm out of the sleeping bag first. He floundered for the zipper, but couldn\'t find it. "Jill! Jill wake up!"\n\nJill woke up.\n\n"Good night, Jill," said the voice.\n\nShe began to scream, but, to her surprise, her mouth would not open. The hand reached down slowly toward her face. Lou writhed helplessly in his bag.\n\nZip. Unzippered, Jill\'s lip sprang apart. She screamed and she screamed and she --\n\nZip. The sheriff closed the body bag and heaved it into the truck. "Dispatch, this is the sheriff. We\'ve got a double homicide out here."\n\nZip. Lou found the zipper.\n    ';
 var $author$project$PostList$all = _List_fromArray(
 	[
@@ -5596,6 +5597,9 @@ var $author$project$PostList$all = _List_fromArray(
 		_Utils_Tuple2(
 		'beantown',
 		{a5: $author$project$Generated$Beantown$content, aO: 'A political proposal for the prosperity of posterity', bm: true, es: 'Building a Better Boston: A 3-Step Plan for Urban Superiority'}),
+		_Utils_Tuple2(
+		'xcuseme',
+		{a5: $author$project$Generated$XcuseMe$content, aO: 'What I learned from making and re-making an app', bm: true, es: 'Notes on Building \"XcuseMe: Exercise tracking for real people\"'}),
 		_Utils_Tuple2(
 		'contact-me',
 		{a5: $author$project$Generated$Contact$content, aO: '', bm: false, es: 'Contact me'}),
@@ -19424,6 +19428,114 @@ var $dillonkearns$elm_markdown$Markdown$Renderer$render = F2(
 		return $dillonkearns$elm_markdown$Markdown$Renderer$combineResults(
 			A2($dillonkearns$elm_markdown$Markdown$Renderer$renderHelper, renderer, ast));
 	});
+var $mdgriffith$elm_ui$Internal$Flag$fontAlignment = $mdgriffith$elm_ui$Internal$Flag$flag(12);
+var $mdgriffith$elm_ui$Element$Font$center = A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$fontAlignment, $mdgriffith$elm_ui$Internal$Style$classes.ed);
+var $mdgriffith$elm_ui$Element$Font$italic = $mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.du);
+var $mdgriffith$elm_ui$Internal$Model$Paragraph = {$: 9};
+var $mdgriffith$elm_ui$Element$paragraph = F2(
+	function (attrs, children) {
+		return A4(
+			$mdgriffith$elm_ui$Internal$Model$element,
+			$mdgriffith$elm_ui$Internal$Model$asParagraph,
+			$mdgriffith$elm_ui$Internal$Model$div,
+			A2(
+				$elm$core$List$cons,
+				$mdgriffith$elm_ui$Internal$Model$Describe($mdgriffith$elm_ui$Internal$Model$Paragraph),
+				A2(
+					$elm$core$List$cons,
+					$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+					A2(
+						$elm$core$List$cons,
+						$mdgriffith$elm_ui$Element$spacing(5),
+						attrs))),
+			$mdgriffith$elm_ui$Internal$Model$Unkeyed(children));
+	});
+var $author$project$Renderer$renderCaption = function (caption) {
+	return A2(
+		$mdgriffith$elm_ui$Element$paragraph,
+		_List_fromArray(
+			[
+				$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+				$mdgriffith$elm_ui$Element$Font$italic,
+				$mdgriffith$elm_ui$Element$Font$size(11),
+				$mdgriffith$elm_ui$Element$centerX,
+				$mdgriffith$elm_ui$Element$Font$center,
+				$mdgriffith$elm_ui$Element$paddingEach(
+				_Utils_update(
+					$author$project$Utils$directions0,
+					{aq: 5}))
+			]),
+		_List_fromArray(
+			[
+				$mdgriffith$elm_ui$Element$text(caption)
+			]));
+};
+var $dillonkearns$elm_markdown$Markdown$HtmlRenderer$HtmlRenderer = $elm$core$Basics$identity;
+var $dillonkearns$elm_markdown$Markdown$Html$tag = F2(
+	function (expectedTag, a) {
+		return F3(
+			function (tagName, attributes, children) {
+				return _Utils_eq(tagName, expectedTag) ? $elm$core$Result$Ok(a) : $elm$core$Result$Err('Expected ' + (expectedTag + (' but was ' + tagName)));
+			});
+	});
+var $dillonkearns$elm_markdown$List$Helpers$find = F2(
+	function (predicate, list) {
+		find:
+		while (true) {
+			if (!list.b) {
+				return $elm$core$Maybe$Nothing;
+			} else {
+				var first = list.a;
+				var rest = list.b;
+				if (predicate(first)) {
+					return $elm$core$Maybe$Just(first);
+				} else {
+					var $temp$predicate = predicate,
+						$temp$list = rest;
+					predicate = $temp$predicate;
+					list = $temp$list;
+					continue find;
+				}
+			}
+		}
+	});
+var $dillonkearns$elm_markdown$Markdown$Html$withAttribute = F2(
+	function (attributeName, _v0) {
+		var renderer = _v0;
+		return F3(
+			function (tagName, attributes, innerBlocks) {
+				return function () {
+					var _v1 = A2(
+						$dillonkearns$elm_markdown$List$Helpers$find,
+						function (_v2) {
+							var name = _v2.D;
+							var value = _v2.a_;
+							return _Utils_eq(name, attributeName);
+						},
+						attributes);
+					if (!_v1.$) {
+						var value = _v1.a.a_;
+						return $elm$core$Result$map(
+							$elm$core$Basics$apR(value));
+					} else {
+						return function (_v3) {
+							return $elm$core$Result$Err('Expecting attribute \"' + (attributeName + '\".'));
+						};
+					}
+				}()(
+					A3(renderer, tagName, attributes, innerBlocks));
+			});
+	});
+var $author$project$Renderer$captionRenderer = A2(
+	$dillonkearns$elm_markdown$Markdown$Html$withAttribute,
+	'text',
+	A2(
+		$dillonkearns$elm_markdown$Markdown$Html$tag,
+		'caption',
+		F2(
+			function (caption, children) {
+				return $author$project$Renderer$renderCaption(caption);
+			})));
 var $author$project$Renderer$hr = A2(
 	$mdgriffith$elm_ui$Element$el,
 	_List_fromArray(
@@ -19437,7 +19549,6 @@ var $author$project$Renderer$hr = A2(
 				{aA: 1}))
 		]),
 	$mdgriffith$elm_ui$Element$none);
-var $dillonkearns$elm_markdown$Markdown$HtmlRenderer$HtmlRenderer = $elm$core$Basics$identity;
 var $dillonkearns$elm_markdown$Markdown$Html$resultOr = F2(
 	function (ra, rb) {
 		if (ra.$ === 1) {
@@ -19529,25 +19640,6 @@ var $dillonkearns$elm_markdown$Markdown$Html$oneOf = function (decoders) {
 };
 var $mdgriffith$elm_ui$Internal$Model$Monospace = {$: 2};
 var $mdgriffith$elm_ui$Element$Font$monospace = $mdgriffith$elm_ui$Internal$Model$Monospace;
-var $mdgriffith$elm_ui$Internal$Model$Paragraph = {$: 9};
-var $mdgriffith$elm_ui$Element$paragraph = F2(
-	function (attrs, children) {
-		return A4(
-			$mdgriffith$elm_ui$Internal$Model$element,
-			$mdgriffith$elm_ui$Internal$Model$asParagraph,
-			$mdgriffith$elm_ui$Internal$Model$div,
-			A2(
-				$elm$core$List$cons,
-				$mdgriffith$elm_ui$Internal$Model$Describe($mdgriffith$elm_ui$Internal$Model$Paragraph),
-				A2(
-					$elm$core$List$cons,
-					$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-					A2(
-						$elm$core$List$cons,
-						$mdgriffith$elm_ui$Element$spacing(5),
-						attrs))),
-			$mdgriffith$elm_ui$Internal$Model$Unkeyed(children));
-	});
 var $author$project$Renderer$renderCodeBlock = function (_v0) {
 	var body = _v0.cJ;
 	var paragraphs = A2(
@@ -19586,7 +19678,6 @@ var $author$project$Renderer$renderCodeSpan = function (s) {
 			]),
 		$mdgriffith$elm_ui$Element$text(s));
 };
-var $mdgriffith$elm_ui$Element$Font$italic = $mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.du);
 var $author$project$Renderer$renderEmphasis = $mdgriffith$elm_ui$Element$row(
 	_List_fromArray(
 		[$mdgriffith$elm_ui$Element$Font$italic]));
@@ -19686,23 +19777,34 @@ var $mdgriffith$elm_ui$Element$image = F2(
 						$mdgriffith$elm_ui$Internal$Model$Unkeyed(_List_Nil))
 					])));
 	});
+var $mdgriffith$elm_ui$Internal$Flag$overflow = $mdgriffith$elm_ui$Internal$Flag$flag(20);
+var $mdgriffith$elm_ui$Element$scrollbarY = A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$overflow, $mdgriffith$elm_ui$Internal$Style$classes.dU);
 var $author$project$Renderer$renderImage = F2(
 	function (_v0, imageWidth) {
 		var alt = _v0.cA;
 		var src = _v0.cd;
 		var title = _v0.es;
 		return A2(
-			$mdgriffith$elm_ui$Element$image,
+			$mdgriffith$elm_ui$Element$el,
 			_List_fromArray(
 				[
 					$mdgriffith$elm_ui$Element$width(imageWidth),
-					$mdgriffith$elm_ui$Element$centerX,
-					A2($mdgriffith$elm_ui$Element$paddingXY, 0, 20)
+					A2($mdgriffith$elm_ui$Element$paddingXY, 0, 5)
 				]),
-			{
-				aO: alt,
-				cd: _Utils_ap($author$project$Env$rootUrl, src)
-			});
+			A2(
+				$mdgriffith$elm_ui$Element$image,
+				_List_fromArray(
+					[
+						$mdgriffith$elm_ui$Element$width(imageWidth),
+						$mdgriffith$elm_ui$Element$height(
+						A2($mdgriffith$elm_ui$Element$maximum, 800, $mdgriffith$elm_ui$Element$fill)),
+						$mdgriffith$elm_ui$Element$centerX,
+						$mdgriffith$elm_ui$Element$scrollbarY
+					]),
+				{
+					aO: alt,
+					cd: _Utils_ap($author$project$Env$rootUrl, src)
+				}));
 	});
 var $author$project$Renderer$renderLink = F2(
 	function (_v0, content) {
@@ -19770,7 +19872,11 @@ var $author$project$Renderer$renderOrderedList = F2(
 var $author$project$Renderer$renderParagraph = $mdgriffith$elm_ui$Element$paragraph(
 	_List_fromArray(
 		[
-			$mdgriffith$elm_ui$Element$spacing(12)
+			$mdgriffith$elm_ui$Element$spacing(12),
+			$mdgriffith$elm_ui$Element$paddingEach(
+			_Utils_update(
+				$author$project$Utils$directions0,
+				{aA: 5}))
 		]));
 var $author$project$Renderer$renderStrong = $mdgriffith$elm_ui$Element$row(
 	_List_fromArray(
@@ -19806,7 +19912,9 @@ var $author$project$Renderer$renderer = function (imageWidth) {
 		c7: $author$project$Renderer$renderEmphasis,
 		dd: $mdgriffith$elm_ui$Element$none,
 		de: $author$project$Renderer$renderHeading,
-		dh: $dillonkearns$elm_markdown$Markdown$Html$oneOf(_List_Nil),
+		dh: $dillonkearns$elm_markdown$Markdown$Html$oneOf(
+			_List_fromArray(
+				[$author$project$Renderer$captionRenderer])),
 		dj: function (args) {
 			return A2($author$project$Renderer$renderImage, args, imageWidth);
 		},
@@ -20610,8 +20718,6 @@ var $mdgriffith$elm_ui$Element$Input$checkbox = F2(
 							icon(checked)
 						]))));
 	});
-var $mdgriffith$elm_ui$Internal$Flag$fontAlignment = $mdgriffith$elm_ui$Internal$Flag$flag(12);
-var $mdgriffith$elm_ui$Element$Font$center = A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$fontAlignment, $mdgriffith$elm_ui$Internal$Style$classes.ed);
 var $elm$core$Basics$pi = _Basics_pi;
 var $elm$core$Basics$degrees = function (angleInDegrees) {
 	return (angleInDegrees * $elm$core$Basics$pi) / 180;
@@ -20775,7 +20881,6 @@ var $mdgriffith$elm_ui$Element$Input$calcMoveToCompensateForPadding = function (
 			$elm$core$Basics$floor(vSpace / 2));
 	}
 };
-var $mdgriffith$elm_ui$Internal$Flag$overflow = $mdgriffith$elm_ui$Internal$Flag$flag(20);
 var $mdgriffith$elm_ui$Element$clip = A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$overflow, $mdgriffith$elm_ui$Internal$Style$classes.cW);
 var $mdgriffith$elm_ui$Element$Input$darkGrey = A3($mdgriffith$elm_ui$Element$rgb, 186 / 255, 189 / 255, 182 / 255);
 var $mdgriffith$elm_ui$Element$Input$defaultTextPadding = A2($mdgriffith$elm_ui$Element$paddingXY, 12, 12);
@@ -21187,7 +21292,6 @@ var $mdgriffith$elm_ui$Element$Input$renderPlaceholder = F3(
 					placeholderAttrs)),
 			placeholderEl);
 	});
-var $mdgriffith$elm_ui$Element$scrollbarY = A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$overflow, $mdgriffith$elm_ui$Internal$Style$classes.dU);
 var $elm$html$Html$span = _VirtualDom_node('span');
 var $elm$html$Html$Attributes$spellcheck = $elm$html$Html$Attributes$boolProperty('spellcheck');
 var $mdgriffith$elm_ui$Element$Input$spellcheck = A2($elm$core$Basics$composeL, $mdgriffith$elm_ui$Internal$Model$Attr, $elm$html$Html$Attributes$spellcheck);
