@@ -1,4 +1,4 @@
 #!/bin/bash
 
-http-server --proxy http://localhost:8080?
+simple-http-server --try-file 404.html --index --nocache
 
