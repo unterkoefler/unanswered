@@ -1,5 +1,4 @@
+
 module Env exposing (..)
 
-
-rootUrl =
-    "/"
+rootUrl = "/"

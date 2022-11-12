@@ -17,6 +17,7 @@ class Metadata(yaml.YAMLObject):
         self.description = description
         self.show_on_home_page = show_on_home_page
         self.slug = slug
+        self.date = None
 
     def __repr__(self):
         return "%s(title=%r, filename=%r, description=%r, show_on_home_page=%r, slug=%r)" % (
@@ -28,6 +29,14 @@ class Metadata(yaml.YAMLObject):
             self.slug,
         )
 
+    def date_to_elm(self):
+        if self.date == None:
+            return "Nothing"
+        year = self.date["year"]
+        month = self.date["month"]
+        day = self.date["day"]
+        return f"Just {{ year = {year}, month = {month}, day = {day} }}"
+
     def to_elm(self):
         return f"""
             ( "{self.slug}",
@@ -35,6 +44,7 @@ class Metadata(yaml.YAMLObject):
               , description = "{self.description}"
               , content = Generated.{self.filename}.content
               , showOnHomePage = {self.show_on_home_page}
+              , date = {self.date_to_elm()}
               }}
             )
             """
@@ -64,6 +74,8 @@ def create_post_list_elm_file(posts):
         for post in posts:
             file_handler.write(f"import Generated.{post.filename}\n")
 
+        file_handler.write("import InternalPost exposing (InternalPost)\n")
+        file_handler.write("all : List (String, InternalPost)\n")
         file_handler.write("all = \n    [")
         file_handler.write(','.join([p.to_elm() for p in posts]))
         file_handler.write('   ]')
@@ -75,10 +87,28 @@ def process_file(filename, posts):
         metadata_end = lines.index('--->')
         metadata = '\n'.join(lines[metadata_start + 1 :metadata_end])
         metadata = yaml.safe_load(metadata)
+        metadata.date = date_from_filename(filename)
         body = '\n'.join(lines[metadata_end + 1:])
         create_elm_file(metadata.filename, body)
         posts.append(metadata)
 
+def date_from_filename(filename):
+    """
+    path/to/dir/2022-10-04-blog-post.md -> { "year": 2022, "month": 10, "day": 4 }
+    path/to/dir/About.md -> None
+    """
+    filename = os.path.basename(filename)
+    parts = filename.split("-")
+    if len(parts) < 4:
+        return None
+    try:
+        year = int(parts[0])
+        month = int(parts[1])
+        day = int(parts[2])
+        return { "year": year, "month": month, "day": day }
+    except ValueError:
+        return None
+            
 def compile_elm(production):
     args = ['elm', 'make', 'src/Main.elm', '--output=main.js']
     if production:
@@ -97,7 +127,7 @@ rootUrl = "{root_url}"
 """)
 
 
-def main(*, production=False):
+def main(*, production):
     posts = []
     markdown_files = glob.glob('src/markdown/*.md')
 
@@ -116,7 +146,7 @@ def main(*, production=False):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) >= 2 and sys.argv[1] == '--productionize':
-        main(production=True)
+    if len(sys.argv) >= 2 and sys.argv[1] == '--debug':
+        main(production=False)
     else:
-        main()
+        main(production=True)

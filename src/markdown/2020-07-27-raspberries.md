@@ -11,7 +11,7 @@ filename: Raspberry
 
 I arrived panting and damp with sweat. I slid off my bike, and, fumbling a moment with the keys, locked it to the rack. I checked the time. 7:56. I heaved a sigh of relief; it would all be worth it soon.
 
-I hurried through the parking lot, past the flowers and through the automatic doors. The line at the checkout looked long enough to buy me all the time I needed. I hadn't been there in over a year and the layout, or my memory of it, had changed. Funny I how things do. that snaked around the display stands and refrigerator cases, eyes darting madly about, searching for my grail.
+I hurried through the parking lot, past the flowers and through the automatic doors. The line at the checkout looked long enough to buy me all the time I needed. I hadn't been there in over a year and the layout, or my memory of it, had changed. Funny how things do that. I snaked around the display stands and refrigerator cases, eyes darting madly about, searching for my grail.
 
 It eluded me. I was Galahad, Ahab, the Cowardly Lion, the object of my quest no less thwarting. I turned towards the registers. The rest of the clientèle was older and looked on with suspicion as I grew more frantic. They had forgotten what it meant to live, to want! To set your mind's eye on a prize and seek it out, no matter the cost! They had lost their passion.
 

@@ -12,6 +12,7 @@
             "elm/html": "1.0.0",
             "elm/url": "1.0.0",
             "feathericons/elm-feather": "1.5.0",
+            "justinmimbs/date": "4.0.1",
             "mdgriffith/elm-ui": "1.1.7",
             "pzp1997/assoc-list": "1.0.0"
         },
