@@ -22,6 +22,7 @@ import Generated.Houseplant
 import Generated.Lost
 import Generated.Metaphor
 import Generated.ModernCommerce
+import Generated.Pete
 import Generated.Radicalized
 import Generated.Rambling1
 import Generated.Raspberry
@@ -384,6 +385,14 @@ all =
         , content = Generated.Houseplant.content
         , showOnHomePage = True
         , date = Just { year = 2022, month = 11, day = 12 }
+        }
+      )
+    , ( "pete"
+      , { title = "Pete"
+        , description = "A fungal fable"
+        , content = Generated.Pete.content
+        , showOnHomePage = True
+        , date = Just { year = 2022, month = 12, day = 5 }
         }
       )
     , ( "contact-me"
