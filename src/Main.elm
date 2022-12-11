@@ -5,6 +5,8 @@ import Browser exposing (Document)
 import Browser.Dom as Dom
 import Browser.Events exposing (onResize)
 import Browser.Navigation as Nav
+import Categories
+import Colors exposing (..)
 import Element exposing (..)
 import Element.Background as Background
 import Element.Border as Border
@@ -17,7 +19,7 @@ import Post
 import Task
 import Url as Url exposing (Url)
 import Url.Builder
-import Url.Parser as Parser exposing ((<?>))
+import Url.Parser as Parser exposing ((</>), (<?>))
 import Url.Parser.Query as Query
 import Utils exposing (borderBetween, directions0, relativePath)
 
@@ -75,6 +77,8 @@ type alias Model =
 type Route
     = HomeRoute (Maybe Int)
     | ArticleRoute String
+    | CategoriesRoute
+    | CategoryRoute String
     | NotFound
 
 
@@ -82,6 +86,8 @@ route : Parser.Parser (Route -> a) a
 route =
     Parser.oneOf
         [ Parser.map HomeRoute (Parser.query <| Query.int "page")
+        , Parser.map CategoriesRoute (Parser.s "categories")
+        , Parser.map CategoryRoute (Parser.s "category" </> Parser.string)
         , Parser.map ArticleRoute Parser.string
         ]
 
@@ -202,6 +208,23 @@ view model =
                 NotFound ->
                     notFound model
 
+                CategoriesRoute ->
+                    homeFrame model
+                        [ content model.width 90 <|
+                            Categories.view
+                        ]
+
+                CategoryRoute slug ->
+                    case Categories.fromSlug slug of
+                        Nothing ->
+                            notFound model
+
+                        Just category ->
+                            homeFrame model
+                                [ content model.width 90 <|
+                                    Categories.viewCategory category
+                                ]
+
                 ArticleRoute slug ->
                     case Post.fromSlug slug model.posts of
                         Nothing ->
@@ -229,19 +252,27 @@ homeBody posts pageNumber model =
                 True ->
                     content model.width 70 <| searchUI model
     in
+    homeFrame model
+        [ search
+        , content model.width 90 <|
+            homeContent model.width posts pageNumber model.searchTerm { searchFullText = model.searchFullText }
+        ]
+
+
+homeFrame : Model -> List (Element Msg) -> Element Msg
+homeFrame model innerContents =
     column
         [ width fill
         , spacing 24
         , paddingEach { left = 0, right = 0, top = 0, bottom = 36 }
         ]
-        [ column [ width fill ]
+        ([ column [ width fill ]
             [ header model Nothing
             , subheader
             ]
-        , search
-        , content model.width 90 <|
-            homeContent model.width posts pageNumber model.searchTerm { searchFullText = model.searchFullText }
-        ]
+         ]
+            ++ innerContents
+        )
 
 
 articleBody : Post.Post -> Model -> Element Msg
@@ -309,18 +340,6 @@ sideBar w =
 sidebarWidth : Int -> Int
 sidebarWidth w =
     w * 5 // 100 |> min 96
-
-
-teal =
-    rgb255 103 201 207
-
-
-gray =
-    rgb255 80 80 80
-
-
-darkTeal =
-    rgb255 64 124 128
 
 
 arrowRight : Model -> Post.Post -> Element Msg
@@ -487,6 +506,7 @@ menuOptions =
             [ menuOption "what-is-this" "What is this?"
             , menuOption "who-am-i" "Who am I?"
             , menuOption "contact-me" "Contact me"
+            , menuOption "categories" "Posts by category"
             , showSearch
             , subscribeLink
             ]
