@@ -18,6 +18,7 @@ import Generated.FourStars
 import Generated.GooseQuestion
 import Generated.Hell
 import Generated.HelmetSalad
+import Generated.Hooked1
 import Generated.Houseplant
 import Generated.Lost
 import Generated.Metaphor
@@ -393,6 +394,14 @@ all =
         , content = Generated.Pete.content
         , showOnHomePage = True
         , date = Just { year = 2022, month = 12, day = 5 }
+        }
+      )
+    , ( "hooked-mystery"
+      , { title = "Hooked: A Five Paragraph Essay Outline Murder Mystery"
+        , description = "A murder mystery in the form of a five paragraph essay"
+        , content = Generated.Hooked1.content
+        , showOnHomePage = True
+        , date = Just { year = 2023, month = 1, day = 11 }
         }
       )
     , ( "contact-me"

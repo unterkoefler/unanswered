@@ -119,6 +119,7 @@ categories =
                                     [ "a-dangerous-hobby"
                                     , "bells"
                                     , "hell"
+                                    , "hooked-mystery"
                                     ]
                                 }
                       }
