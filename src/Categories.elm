@@ -136,6 +136,7 @@ categories =
                     , "kkkfc-chicken"
                     , "helmet-salad"
                     , "cleveland"
+                    , "taken4"
                     ]
                 }
       }

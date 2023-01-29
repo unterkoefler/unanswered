@@ -36,6 +36,7 @@ import Generated.SimpleTrick
 import Generated.Squirrel
 import Generated.StupidConvo1
 import Generated.StupidConvo2
+import Generated.Taken4
 import Generated.TechSupport
 import Generated.TheBoys
 import Generated.TheHearse
@@ -402,6 +403,14 @@ all =
         , content = Generated.Hooked1.content
         , showOnHomePage = True
         , date = Just { year = 2023, month = 1, day = 11 }
+        }
+      )
+    , ( "taken4"
+      , { title = "\"Taken 4: Your Turn\" opens to empty theaters"
+        , description = "The thrilling new installment is out now! You can't watch it!"
+        , content = Generated.Taken4.content
+        , showOnHomePage = True
+        , date = Just { year = 2023, month = 1, day = 29 }
         }
       )
     , ( "contact-me"
