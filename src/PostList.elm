@@ -19,6 +19,7 @@ import Generated.GooseQuestion
 import Generated.Hell
 import Generated.HelmetSalad
 import Generated.Hooked1
+import Generated.Hooked2
 import Generated.Houseplant
 import Generated.Lost
 import Generated.Metaphor
@@ -411,6 +412,14 @@ all =
         , content = Generated.Taken4.content
         , showOnHomePage = True
         , date = Just { year = 2023, month = 1, day = 29 }
+        }
+      )
+    , ( "hooked-solution"
+      , { title = "Hooked: A Narrative Explanation of the Murder Mystery"
+        , description = "The good detective's explanation of the evenings events"
+        , content = Generated.Hooked2.content
+        , showOnHomePage = True
+        , date = Just { year = 2023, month = 1, day = 31 }
         }
       )
     , ( "contact-me"

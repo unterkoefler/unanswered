@@ -120,6 +120,7 @@ categories =
                                     , "bells"
                                     , "hell"
                                     , "hooked-mystery"
+                                    , "hooked-solution"
                                     ]
                                 }
                       }
