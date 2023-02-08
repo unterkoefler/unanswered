@@ -224,13 +224,13 @@ categories =
     ]
 
 
-view : Element msg
-view =
+view : Colors.ColorScheme -> Element msg
+view colorScheme =
     column
         [ spacing 24
         ]
         [ heading
-        , viewCategories
+        , viewCategories colorScheme
         ]
 
 
@@ -242,40 +242,40 @@ heading =
         ]
 
 
-viewCategories : Element msg
-viewCategories =
+viewCategories : Colors.ColorScheme -> Element msg
+viewCategories colorScheme =
     column
         [ spacing 12
         ]
         (List.map
-            (\cat -> viewCategoryHelp cat 0 False)
+            (\cat -> viewCategoryHelp colorScheme cat 0 False)
             categories
         )
 
 
-viewCategory : Category -> Element msg
-viewCategory category =
+viewCategory : Colors.ColorScheme -> Category -> Element msg
+viewCategory colorScheme category =
     column
         [ spacing 24 ]
-        [ viewBreadcrumbs category
-        , viewCategoryHelp category 0 True
+        [ viewBreadcrumbs colorScheme category
+        , viewCategoryHelp colorScheme category 0 True
         ]
 
 
-viewBreadcrumbs : Category -> Element msg
-viewBreadcrumbs category =
+viewBreadcrumbs : Colors.ColorScheme -> Category -> Element msg
+viewBreadcrumbs colorScheme category =
     paragraph
         []
-        (viewBreadcrumb "all" "/categories"
+        (viewBreadcrumb colorScheme "all" "/categories"
             :: (breadcrumbs category
-                    |> List.map (\slug -> viewBreadcrumb slug ("/category/" ++ slug))
+                    |> List.map (\slug -> viewBreadcrumb colorScheme slug ("/category/" ++ slug))
                )
             |> List.intersperse (text ":: ")
         )
 
 
-viewBreadcrumb : String -> String -> Element msg
-viewBreadcrumb name url =
+viewBreadcrumb : Colors.ColorScheme -> String -> String -> Element msg
+viewBreadcrumb colorScheme name url =
     row
         [ paddingEach
             { left = 0
@@ -285,15 +285,15 @@ viewBreadcrumb name url =
             }
         ]
         [ link
-            [ Font.color Colors.darkTeal ]
+            [ Font.color <| Colors.link colorScheme ]
             { label = text name
             , url = url
             }
         ]
 
 
-viewCategoryHelp : Category -> Int -> Bool -> Element msg
-viewCategoryHelp category depth showPosts =
+viewCategoryHelp : Colors.ColorScheme -> Category -> Int -> Bool -> Element msg
+viewCategoryHelp colorScheme category depth showPosts =
     column
         [ spacing 6
         ]
@@ -302,19 +302,19 @@ viewCategoryHelp category depth showPosts =
             , Region.heading (2 + depth)
             ]
             [ link
-                [ Font.color Colors.darkTeal
+                [ Font.color <| Colors.link colorScheme
                 , Font.underline
                 ]
                 { label = text category.name
                 , url = "/category/" ++ category.slug
                 }
             ]
-        , viewMembers category.members depth showPosts
+        , viewMembers colorScheme category.members depth showPosts
         ]
 
 
-viewMembers : CategoryMembers -> Int -> Bool -> Element msg
-viewMembers members depth showPosts =
+viewMembers : Colors.ColorScheme -> CategoryMembers -> Int -> Bool -> Element msg
+viewMembers colorScheme members depth showPosts =
     column
         [ spacing 8
         , paddingEach
@@ -334,7 +334,7 @@ viewMembers members depth showPosts =
 
             SubCategories { subCategories } ->
                 List.map
-                    (\cat -> viewCategoryHelp cat (depth + 1) showPosts)
+                    (\cat -> viewCategoryHelp colorScheme cat (depth + 1) showPosts)
                     subCategories
         )
 

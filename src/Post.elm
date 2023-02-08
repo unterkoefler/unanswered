@@ -9,6 +9,7 @@ module Post exposing
     )
 
 import AssocList as Dict exposing (Dict)
+import Colors
 import Date exposing (Date)
 import Element exposing (..)
 import Element.Font as Font
@@ -104,12 +105,12 @@ fromSlug slug posts =
 -- VIEW
 
 
-view : Length -> Post -> Element msg
-view w post =
+view : Colors.ColorScheme -> Length -> Post -> Element msg
+view colorScheme w post =
     column [ centerX, spacingXY 0 24, width w, paddingXY 0 48, alignTop ]
         [ viewTitle post.title
         , viewDate post.date
-        , viewContent w post.content
+        , viewContent colorScheme w post.content
         ]
 
 
@@ -138,15 +139,15 @@ viewDate date =
                 [ text <| Date.format "EEEE, MMMM d, yyyy" d ]
 
 
-viewContent : Length -> String -> Element msg
-viewContent w content =
+viewContent : Colors.ColorScheme -> Length -> String -> Element msg
+viewContent colorScheme w content =
     textColumn
         [ spacingXY 0 18
         , Font.size 16
         , width w
         ]
     <|
-        renderPost content w
+        renderPost colorScheme content w
 
 
 preview : String -> Post -> Element msg

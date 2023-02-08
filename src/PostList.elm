@@ -416,7 +416,7 @@ all =
       )
     , ( "hooked-solution"
       , { title = "Hooked: A Narrative Explanation of the Murder Mystery"
-        , description = "The good detective's explanation of the evenings events"
+        , description = "The good detective's explanation of the evening's events"
         , content = Generated.Hooked2.content
         , showOnHomePage = True
         , date = Just { year = 2023, month = 1, day = 31 }

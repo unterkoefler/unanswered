@@ -1,5 +1,6 @@
 module Renderer exposing (renderPost)
 
+import Colors
 import Element exposing (..)
 import Element.Background as Background
 import Element.Border as Border
@@ -13,17 +14,17 @@ import Markdown.Renderer exposing (..)
 import Utils exposing (directions0)
 
 
-renderPost : String -> Length -> List (Element msg)
-renderPost md imageWidth =
+renderPost : Colors.ColorScheme -> String -> Length -> List (Element msg)
+renderPost colorScheme md imageWidth =
     md
         |> Markdown.Parser.parse
         |> Result.mapError (\deadEnds -> deadEnds |> List.map deadEndToString |> String.join "\n")
-        |> Result.andThen (\ast -> render (renderer imageWidth) ast)
+        |> Result.andThen (\ast -> render (renderer colorScheme imageWidth) ast)
         |> Result.withDefault [ text "parse failed" ]
 
 
-renderer : Length -> Renderer (Element msg)
-renderer imageWidth =
+renderer : Colors.ColorScheme -> Length -> Renderer (Element msg)
+renderer colorScheme imageWidth =
     { heading = renderHeading
     , paragraph = renderParagraph
     , blockQuote = \els -> row [ width fill ] els
@@ -33,7 +34,7 @@ renderer imageWidth =
     , strong = renderStrong
     , emphasis = renderEmphasis
     , hardLineBreak = Element.none
-    , link = renderLink
+    , link = renderLink colorScheme
     , image = \args -> renderImage args imageWidth
     , unorderedList = renderUnorderedList
     , orderedList = renderOrderedList
@@ -164,12 +165,14 @@ renderListItem marker els =
 
 
 renderLink :
-    { title : Maybe String
-    , destination : String
-    }
+    Colors.ColorScheme
+    ->
+        { title : Maybe String
+        , destination : String
+        }
     -> List (Element msg)
     -> Element msg
-renderLink { title, destination } content =
+renderLink colorScheme { title, destination } content =
     let
         label =
             case content of
@@ -180,7 +183,7 @@ renderLink { title, destination } content =
                     row [] content
     in
     link
-        [ Font.color <| rgb255 0 0 240 ]
+        [ Font.color <| Colors.link colorScheme ]
         { url = destination
         , label = label
         }

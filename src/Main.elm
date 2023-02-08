@@ -6,7 +6,7 @@ import Browser.Dom as Dom
 import Browser.Events exposing (onResize)
 import Browser.Navigation as Nav
 import Categories
-import Colors exposing (..)
+import Colors
 import Element exposing (..)
 import Element.Background as Background
 import Element.Border as Border
@@ -53,6 +53,7 @@ init { width } url key =
       , searchFullText = False
       , width = width
       , route = routeFromUrl url
+      , colorScheme = Colors.Light
       }
     , Cmd.none
     )
@@ -71,6 +72,7 @@ type alias Model =
     , searchFullText : Bool
     , width : Int
     , route : Route
+    , colorScheme : Colors.ColorScheme
     }
 
 
@@ -120,6 +122,7 @@ type Msg
     | ShowSearch
     | SearchChanged String
     | ToggleFullTextSearch Bool
+    | ChangeColorScheme Colors.ColorScheme
     | NoOp
 
 
@@ -171,6 +174,11 @@ update msg model =
             , Cmd.none
             )
 
+        ChangeColorScheme colorScheme ->
+            ( { model | colorScheme = colorScheme }
+            , Cmd.none
+            )
+
         NoOp ->
             ( model, Cmd.none )
 
@@ -211,7 +219,7 @@ view model =
                 CategoriesRoute ->
                     homeFrame model
                         [ content model.width 90 <|
-                            Categories.view
+                            Categories.view model.colorScheme
                         ]
 
                 CategoryRoute slug ->
@@ -222,7 +230,7 @@ view model =
                         Just category ->
                             homeFrame model
                                 [ content model.width 90 <|
-                                    Categories.viewCategory category
+                                    Categories.viewCategory model.colorScheme category
                                 ]
 
                 ArticleRoute slug ->
@@ -235,7 +243,12 @@ view model =
     in
     { title = "Unanswered"
     , body =
-        [ layout [ montserrat ] <| body
+        [ layout
+            [ montserrat
+            , Font.color (Colors.primary model.colorScheme)
+            , Background.color (Colors.secondary model.colorScheme)
+            ]
+            body
         ]
     }
 
@@ -255,7 +268,7 @@ homeBody posts pageNumber model =
     homeFrame model
         [ search
         , content model.width 90 <|
-            homeContent model.width posts pageNumber model.searchTerm { searchFullText = model.searchFullText }
+            homeContent model.colorScheme model.width posts pageNumber model.searchTerm { searchFullText = model.searchFullText }
         ]
 
 
@@ -268,7 +281,7 @@ homeFrame model innerContents =
         ]
         ([ column [ width fill ]
             [ header model Nothing
-            , subheader
+            , subheader model.colorScheme
             ]
          ]
             ++ innerContents
@@ -285,9 +298,10 @@ articleBody post model =
             [ el [ width fill, alignTop ] <|
                 content model.width 70 <|
                     Post.view
+                        model.colorScheme
                         (pct model.width 70 |> maximum 800)
                         post
-            , sideBar model.width
+            , sideBar model.colorScheme model.width
             ]
         , el [ width fill, alignBottom ] <| header model (Just post)
         ]
@@ -302,14 +316,14 @@ notFound model =
         ]
         [ column [ width fill ]
             [ header model Nothing
-            , subheader
+            , subheader model.colorScheme
             ]
         , content model.width 70 <|
             paragraph
                 [ width fill ]
                 [ text "Hmm. What you're looking for does not exist. "
                 , text "Maybe someone sent you the wrong link. "
-                , link [ Font.color darkTeal ]
+                , link [ Font.color <| Colors.link model.colorScheme ]
                     { label = text "Let's go back home."
                     , url = Url.Builder.absolute [] []
                     }
@@ -325,11 +339,11 @@ content w percent =
         ]
 
 
-sideBar : Int -> Element Msg
-sideBar w =
+sideBar : Colors.ColorScheme -> Int -> Element Msg
+sideBar colorScheme w =
     el
         [ width <| px (sidebarWidth w)
-        , Background.color teal
+        , Background.color <| Colors.accent colorScheme
         , alignRight
         , height fill
         ]
@@ -360,7 +374,7 @@ arrow ic slugf model post =
     in
     case next of
         Nothing ->
-            icon [ Font.color gray ] ic
+            icon [ Font.color <| Colors.disabled model.colorScheme ] ic
 
         Just s ->
             link []
@@ -406,16 +420,16 @@ header model post =
         maybeMenu =
             case post of
                 Nothing ->
-                    menu model.showMenu
+                    menu model.colorScheme model.showMenu
 
                 Just p ->
                     navButtons model p
     in
     row
-        [ Background.color teal
+        [ Background.color <| Colors.accent model.colorScheme
         , padding 24
         , width fill
-        , Font.color <| rgb255 250 250 250
+        , Font.color Colors.white
         ]
         [ heading
         , maybeMenu
@@ -448,12 +462,12 @@ montserrat =
         ]
 
 
-menu : Bool -> Element Msg
-menu showMenu =
+menu : Colors.ColorScheme -> Bool -> Element Msg
+menu colorScheme showMenu =
     let
         modal =
             if showMenu then
-                menuModal
+                menuModal colorScheme
 
             else
                 Element.none
@@ -481,22 +495,22 @@ navButtons model post =
         ]
 
 
-menuModal : Element Msg
-menuModal =
+menuModal : Colors.ColorScheme -> Element Msg
+menuModal colorScheme =
     el
         [ width shrink
         , height shrink
-        , Background.color darkTeal
-        , Border.color teal
+        , Background.color <| Colors.accentDark colorScheme
+        , Border.color <| Colors.accent colorScheme
         , Border.width 1
         , Border.rounded 6
         , paddingXY 45 5
         ]
-        menuOptions
+        (menuOptions colorScheme)
 
 
-menuOptions : Element Msg
-menuOptions =
+menuOptions : Colors.ColorScheme -> Element Msg
+menuOptions colorScheme =
     column
         [ Font.size 24
         , sourceSerifPro
@@ -508,8 +522,28 @@ menuOptions =
             , menuOption "contact-me" "Contact me"
             , menuOption "categories" "Posts by category"
             , showSearch
+            , colorSchemeSwitcher colorScheme
             , subscribeLink
             ]
+
+
+colorSchemeSwitcher : Colors.ColorScheme -> Element Msg
+colorSchemeSwitcher colorScheme =
+    let
+        ( lbl, nextScheme ) =
+            case colorScheme of
+                Colors.Light ->
+                    ( "Switch to dark mode 🌚", Colors.Dark )
+
+                Colors.Dark ->
+                    ( "Switch to light mode 🌞", Colors.Light )
+    in
+    Input.button
+        [ paddingEach { directions0 | top = 24, bottom = 24 }
+        ]
+        { label = text lbl
+        , onPress = Just <| ChangeColorScheme nextScheme
+        }
 
 
 menuOption : String -> String -> Element Msg
@@ -542,14 +576,14 @@ showSearch =
         }
 
 
-subheader =
+subheader colorScheme =
     paragraph
         [ Region.heading 2
         , Font.size 18
         , width fill
         , paddingXY 24 12
-        , Background.color <| gray
-        , Font.color <| rgb255 255 255 255
+        , Background.color <| Colors.neutral colorScheme
+        , Font.color <| Colors.white
         ]
         [ text "Where I type and scream my thoughts into the void, unanswered" ]
 
@@ -579,8 +613,8 @@ searchUI model =
         ]
 
 
-homeContent : Int -> Dict String Post.Post -> Int -> String -> Post.SearchOptions -> Element Msg
-homeContent w posts pageNumber searchTerm searchOpts =
+homeContent : Colors.ColorScheme -> Int -> Dict String Post.Post -> Int -> String -> Post.SearchOptions -> Element Msg
+homeContent colorScheme w posts pageNumber searchTerm searchOpts =
     let
         postList : List (Element Msg)
         postList =
@@ -609,6 +643,7 @@ homeContent w posts pageNumber searchTerm searchOpts =
                     }
                     postList
                     ++ [ paginationControls
+                            colorScheme
                             { numPosts = List.length postList
                             , currentPage = pageNumber
                             }
@@ -620,8 +655,8 @@ postsPerPage =
     15
 
 
-paginationControls : { numPosts : Int, currentPage : Int } -> Element Msg
-paginationControls { numPosts, currentPage } =
+paginationControls : Colors.ColorScheme -> { numPosts : Int, currentPage : Int } -> Element Msg
+paginationControls colorScheme { numPosts, currentPage } =
     let
         numPages : Int
         numPages =
@@ -644,26 +679,26 @@ paginationControls { numPosts, currentPage } =
             case hasPrevious of
                 True ->
                     link
-                        [ Font.color darkTeal ]
+                        [ Font.color <| Colors.link colorScheme ]
                         { label = text "Previous"
                         , url = Url.Builder.absolute [] [ Url.Builder.int "page" (currentPage - 1) ]
                         }
 
                 False ->
-                    el [ Font.color gray ] <|
+                    el [ Font.color <| Colors.disabled colorScheme ] <|
                         text "Previous"
 
         nextEl =
             case hasNext of
                 True ->
                     link
-                        [ Font.color darkTeal ]
+                        [ Font.color <| Colors.link colorScheme ]
                         { label = text "Next"
                         , url = Url.Builder.absolute [] [ Url.Builder.int "page" (currentPage + 1) ]
                         }
 
                 False ->
-                    el [ Font.color gray ] <|
+                    el [ Font.color <| Colors.disabled colorScheme ] <|
                         text "Next"
     in
     row
