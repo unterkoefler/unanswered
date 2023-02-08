@@ -7,6 +7,7 @@ import Element.Border as Border
 import Element.Font as Font
 import Element.Region as Region
 import Env exposing (rootUrl)
+import Font exposing (fontSize)
 import Markdown.Block as Block exposing (HeadingLevel(..), ListItem(..))
 import Markdown.Html
 import Markdown.Parser exposing (deadEndToString)
@@ -14,21 +15,21 @@ import Markdown.Renderer exposing (..)
 import Utils exposing (directions0)
 
 
-renderPost : Colors.ColorScheme -> String -> Length -> List (Element msg)
-renderPost colorScheme md imageWidth =
+renderPost : Colors.ColorScheme -> Int -> String -> Length -> List (Element msg)
+renderPost colorScheme baseFontSize md imageWidth =
     md
         |> Markdown.Parser.parse
         |> Result.mapError (\deadEnds -> deadEnds |> List.map deadEndToString |> String.join "\n")
-        |> Result.andThen (\ast -> render (renderer colorScheme imageWidth) ast)
+        |> Result.andThen (\ast -> render (renderer colorScheme baseFontSize imageWidth) ast)
         |> Result.withDefault [ text "parse failed" ]
 
 
-renderer : Colors.ColorScheme -> Length -> Renderer (Element msg)
-renderer colorScheme imageWidth =
-    { heading = renderHeading
+renderer : Colors.ColorScheme -> Int -> Length -> Renderer (Element msg)
+renderer colorScheme baseFontSize imageWidth =
+    { heading = renderHeading baseFontSize
     , paragraph = renderParagraph
     , blockQuote = \els -> row [ width fill ] els
-    , html = Markdown.Html.oneOf [ captionRenderer ]
+    , html = Markdown.Html.oneOf [ captionRenderer baseFontSize ]
     , text = \t -> text t
     , codeSpan = renderCodeSpan
     , strong = renderStrong
@@ -49,18 +50,18 @@ renderer colorScheme imageWidth =
     }
 
 
-captionRenderer : Markdown.Html.Renderer (List (Element msg) -> Element msg)
-captionRenderer =
-    Markdown.Html.tag "caption" (\caption children -> renderCaption caption)
+captionRenderer : Int -> Markdown.Html.Renderer (List (Element msg) -> Element msg)
+captionRenderer baseFontSize =
+    Markdown.Html.tag "caption" (\caption children -> renderCaption baseFontSize caption)
         |> Markdown.Html.withAttribute "text"
 
 
-renderCaption : String -> Element msg
-renderCaption caption =
+renderCaption : Int -> String -> Element msg
+renderCaption baseFontSize caption =
     paragraph
         [ width fill
         , Font.italic
-        , Font.size 11
+        , fontSize (baseFontSize - 2)
         , centerX
         , Font.center
         , paddingEach { directions0 | bottom = 5 }
@@ -78,28 +79,28 @@ hr =
         Element.none
 
 
-renderHeading : { level : Block.HeadingLevel, rawText : String, children : List (Element msg) } -> Element msg
-renderHeading { level, rawText, children } =
+renderHeading : Int -> { level : Block.HeadingLevel, rawText : String, children : List (Element msg) } -> Element msg
+renderHeading baseFontSize { level, rawText, children } =
     let
-        ( levelNumber, fontSize ) =
+        ( levelNumber, fs ) =
             case level of
                 H1 ->
-                    ( 1, 36 )
+                    ( 1, baseFontSize + 3 )
 
                 H2 ->
-                    ( 2, 24 )
+                    ( 2, baseFontSize + 2 )
 
                 H3 ->
-                    ( 3, 18 )
+                    ( 3, baseFontSize + 1 )
 
                 H4 ->
-                    ( 4, 16 )
+                    ( 4, baseFontSize )
 
                 H5 ->
-                    ( 5, 14 )
+                    ( 5, baseFontSize - 1 )
 
                 H6 ->
-                    ( 6, 12 )
+                    ( 6, baseFontSize - 2 )
     in
     case level of
         H6 ->
@@ -107,7 +108,7 @@ renderHeading { level, rawText, children } =
             row [ width fill ] children
 
         _ ->
-            paragraph [ Region.heading levelNumber, Font.size fontSize, paddingEach { directions0 | top = 12 } ]
+            paragraph [ Region.heading levelNumber, fontSize fs, paddingEach { directions0 | top = 12 } ]
                 children
 
 

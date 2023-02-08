@@ -1,5 +1,6 @@
 module Main exposing (main)
 
+import Array
 import AssocList as Dict exposing (Dict)
 import Browser exposing (Document)
 import Browser.Dom as Dom
@@ -15,13 +16,14 @@ import Element.Input as Input
 import Element.Region as Region
 import Env exposing (rootUrl)
 import FeatherIcons
+import Font exposing (decreaseFontSize, fontSize, increaseFontSize)
 import Post
 import Task
 import Url as Url exposing (Url)
 import Url.Builder
 import Url.Parser as Parser exposing ((</>), (<?>))
 import Url.Parser.Query as Query
-import Utils exposing (borderBetween, directions0, relativePath)
+import Utils exposing (borderBetween, borderBetweenRow, directions0, relativePath)
 
 
 
@@ -43,8 +45,20 @@ main =
 -- INIT
 
 
-init : { width : Int } -> Url -> Nav.Key -> ( Model, Cmd Msg )
-init { width } url key =
+init : { width : Int, colorScheme : String } -> Url -> Nav.Key -> ( Model, Cmd Msg )
+init { width, colorScheme } url key =
+    let
+        colorSchemeParsed =
+            case colorScheme of
+                "Light" ->
+                    Colors.Light
+
+                "Dark" ->
+                    Colors.Dark
+
+                _ ->
+                    Colors.Light
+    in
     ( { posts = Post.all
       , key = key
       , showMenu = False
@@ -53,7 +67,8 @@ init { width } url key =
       , searchFullText = False
       , width = width
       , route = routeFromUrl url
-      , colorScheme = Colors.Light
+      , colorScheme = colorSchemeParsed
+      , baseFontSize = 4
       }
     , Cmd.none
     )
@@ -73,6 +88,7 @@ type alias Model =
     , width : Int
     , route : Route
     , colorScheme : Colors.ColorScheme
+    , baseFontSize : Int
     }
 
 
@@ -123,6 +139,8 @@ type Msg
     | SearchChanged String
     | ToggleFullTextSearch Bool
     | ChangeColorScheme Colors.ColorScheme
+    | IncreaseFontSize
+    | DecreaseFontSize
     | NoOp
 
 
@@ -176,6 +194,16 @@ update msg model =
 
         ChangeColorScheme colorScheme ->
             ( { model | colorScheme = colorScheme }
+            , Cmd.none
+            )
+
+        IncreaseFontSize ->
+            ( { model | baseFontSize = increaseFontSize model.baseFontSize }
+            , Cmd.none
+            )
+
+        DecreaseFontSize ->
+            ( { model | baseFontSize = decreaseFontSize model.baseFontSize }
             , Cmd.none
             )
 
@@ -299,12 +327,40 @@ articleBody post model =
                 content model.width 70 <|
                     Post.view
                         model.colorScheme
+                        model.baseFontSize
+                        (textControls model.colorScheme model.baseFontSize)
                         (pct model.width 70 |> maximum 800)
                         post
             , sideBar model.colorScheme model.width
             ]
         , el [ width fill, alignBottom ] <| header model (Just post)
         ]
+
+
+textControls : Colors.ColorScheme -> Int -> Element Msg
+textControls colorScheme baseFontSize =
+    wrappedRow
+        [ spacing 12
+        ]
+        (borderBetweenRow
+            [ colorSchemeSwitcher colorScheme [ fontSize (baseFontSize - 2) ]
+            , fontSizeChanger baseFontSize IncreaseFontSize "Increase"
+            , fontSizeChanger baseFontSize DecreaseFontSize "Decrease"
+            ]
+        )
+
+
+fontSizeChanger : Int -> Msg -> String -> Element Msg
+fontSizeChanger baseFontSize msg verb =
+    let
+        lbl =
+            verb ++ " font size"
+    in
+    Input.button
+        [ fontSize (baseFontSize - 2) ]
+        { label = text lbl
+        , onPress = Just msg
+        }
 
 
 notFound : Model -> Element Msg
@@ -523,12 +579,13 @@ menuOptions colorScheme =
             , menuOption "categories" "Posts by category"
             , showSearch
             , colorSchemeSwitcher colorScheme
+                [ paddingEach { directions0 | top = 24, bottom = 24 } ]
             , subscribeLink
             ]
 
 
-colorSchemeSwitcher : Colors.ColorScheme -> Element Msg
-colorSchemeSwitcher colorScheme =
+colorSchemeSwitcher : Colors.ColorScheme -> List (Attribute Msg) -> Element Msg
+colorSchemeSwitcher colorScheme attrs =
     let
         ( lbl, nextScheme ) =
             case colorScheme of
@@ -539,8 +596,7 @@ colorSchemeSwitcher colorScheme =
                     ( "Switch to light mode 🌞", Colors.Light )
     in
     Input.button
-        [ paddingEach { directions0 | top = 24, bottom = 24 }
-        ]
+        attrs
         { label = text lbl
         , onPress = Just <| ChangeColorScheme nextScheme
         }

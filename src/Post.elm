@@ -15,6 +15,7 @@ import Element exposing (..)
 import Element.Font as Font
 import Element.Region as Region
 import Env exposing (rootUrl)
+import Font exposing (fontSize)
 import InternalPost exposing (InternalPost)
 import PostList
 import Renderer exposing (renderPost)
@@ -105,12 +106,13 @@ fromSlug slug posts =
 -- VIEW
 
 
-view : Colors.ColorScheme -> Length -> Post -> Element msg
-view colorScheme w post =
+view : Colors.ColorScheme -> Int -> Element msg -> Length -> Post -> Element msg
+view colorScheme baseFontSize controls w post =
     column [ centerX, spacingXY 0 24, width w, paddingXY 0 48, alignTop ]
         [ viewTitle post.title
         , viewDate post.date
-        , viewContent colorScheme w post.content
+        , controls
+        , viewContent colorScheme baseFontSize w post.content
         ]
 
 
@@ -139,15 +141,15 @@ viewDate date =
                 [ text <| Date.format "EEEE, MMMM d, yyyy" d ]
 
 
-viewContent : Colors.ColorScheme -> Length -> String -> Element msg
-viewContent colorScheme w content =
+viewContent : Colors.ColorScheme -> Int -> Length -> String -> Element msg
+viewContent colorScheme baseFontSize w content =
     textColumn
         [ spacingXY 0 18
-        , Font.size 16
+        , fontSize baseFontSize
         , width w
         ]
     <|
-        renderPost colorScheme content w
+        renderPost colorScheme baseFontSize content w
 
 
 preview : String -> Post -> Element msg

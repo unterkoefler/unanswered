@@ -1,4 +1,4 @@
-module Utils exposing (borderBetween, directions0, relativePath)
+module Utils exposing (borderBetween, borderBetweenRow, directions0, relativePath)
 
 import Element exposing (..)
 import Element.Border as Border
@@ -23,6 +23,21 @@ borderBetween elements =
             el [ Border.widthEach { directions0 | bottom = 1 }, width fill ]
                 element
                 :: borderBetween rest
+
+
+borderBetweenRow : List (Element msg) -> List (Element msg)
+borderBetweenRow elements =
+    case elements of
+        [] ->
+            []
+
+        [ element ] ->
+            [ element ]
+
+        element :: rest ->
+            el [ Border.widthEach { directions0 | right = 1 }, paddingEach { directions0 | right = 8 } ]
+                element
+                :: borderBetweenRow rest
 
 
 relativePath : Url -> String
