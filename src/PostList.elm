@@ -24,6 +24,7 @@ import Generated.Houseplant
 import Generated.Lost
 import Generated.Metaphor
 import Generated.ModernCommerce
+import Generated.Nest
 import Generated.Pete
 import Generated.Radicalized
 import Generated.Rambling1
@@ -420,6 +421,14 @@ all =
         , content = Generated.Hooked2.content
         , showOnHomePage = True
         , date = Just { year = 2023, month = 1, day = 31 }
+        }
+      )
+    , ( "nest"
+      , { title = "thank u, nest"
+        , description = "technology bad part 2"
+        , content = Generated.Nest.content
+        , showOnHomePage = True
+        , date = Just { year = 2023, month = 2, day = 8 }
         }
       )
     , ( "contact-me"

@@ -148,7 +148,6 @@ def main(*, production):
 
     create_env_file(production)
     compile_elm(production)
-    subprocess.run(["elm-format", "src", "--yes"], check=True)
 
     print('Build complete!')
 
