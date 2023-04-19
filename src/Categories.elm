@@ -108,6 +108,7 @@ categories =
                                     , "crust"
                                     , "metaphor"
                                     , "arnold"
+                                    , "batman"
                                     ]
                                 }
                       }

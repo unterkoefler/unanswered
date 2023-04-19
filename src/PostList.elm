@@ -1,6 +1,7 @@
 module PostList exposing (all)
 
 import Generated.ADangerousHobby
+import Generated.Batman
 import Generated.Beantown
 import Generated.Bell
 import Generated.Bipartisan
@@ -429,6 +430,14 @@ all =
         , content = Generated.Nest.content
         , showOnHomePage = True
         , date = Just { year = 2023, month = 2, day = 8 }
+        }
+      )
+    , ( "batman"
+      , { title = "Batman’s NJ Transit Problem"
+        , description = "Double Deckered Dilemmas"
+        , content = Generated.Batman.content
+        , showOnHomePage = True
+        , date = Just { year = 2023, month = 4, day = 18 }
         }
       )
     , ( "contact-me"
