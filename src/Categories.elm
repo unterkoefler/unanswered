@@ -173,6 +173,8 @@ categories =
                     , "the-boys-and-amazon"
                     , "tech-support"
                     , "four-stars"
+                    , "nest"
+                    , "aristotle"
                     ]
                 }
       }

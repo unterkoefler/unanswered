@@ -25,6 +25,7 @@ import Generated.Houseplant
 import Generated.Lost
 import Generated.Metaphor
 import Generated.ModernCommerce
+import Generated.Musings
 import Generated.Nest
 import Generated.Pete
 import Generated.Radicalized
@@ -438,6 +439,14 @@ all =
         , content = Generated.Batman.content
         , showOnHomePage = True
         , date = Just { year = 2023, month = 4, day = 18 }
+        }
+      )
+    , ( "aristotle"
+      , { title = "On Aristotle"
+        , description = "Philosophical Musings"
+        , content = Generated.Musings.content
+        , showOnHomePage = True
+        , date = Just { year = 2023, month = 4, day = 30 }
         }
       )
     , ( "contact-me"
