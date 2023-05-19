@@ -22,6 +22,7 @@ import Generated.HelmetSalad
 import Generated.Hooked1
 import Generated.Hooked2
 import Generated.Houseplant
+import Generated.Itch
 import Generated.Lost
 import Generated.Metaphor
 import Generated.ModernCommerce
@@ -447,6 +448,14 @@ all =
         , content = Generated.Musings.content
         , showOnHomePage = True
         , date = Just { year = 2023, month = 4, day = 30 }
+        }
+      )
+    , ( "itch"
+      , { title = "An Alternative to Benadryl"
+        , description = "A horror story"
+        , content = Generated.Itch.content
+        , showOnHomePage = True
+        , date = Just { year = 2023, month = 5, day = 18 }
         }
       )
     , ( "contact-me"

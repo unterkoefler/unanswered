@@ -96,6 +96,7 @@ categories =
                                     [ "zip"
                                     , "two-ways-out"
                                     , "flicker"
+                                    , "itch"
                                     ]
                                 }
                       }
