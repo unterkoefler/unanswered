@@ -1,6 +1,7 @@
 module PostList exposing (all)
 
 import Generated.ADangerousHobby
+import Generated.Aliens
 import Generated.Batman
 import Generated.Beantown
 import Generated.Bell
@@ -456,6 +457,14 @@ all =
         , content = Generated.Itch.content
         , showOnHomePage = True
         , date = Just { year = 2023, month = 5, day = 18 }
+        }
+      )
+    , ( "aliens"
+      , { title = "WeComeInPeace"
+        , description = "A short story about aliens and software engineering"
+        , content = Generated.Aliens.content
+        , showOnHomePage = True
+        , date = Just { year = 2023, month = 8, day = 7 }
         }
       )
     , ( "contact-me"

@@ -123,6 +123,7 @@ categories =
                                     , "hell"
                                     , "hooked-mystery"
                                     , "hooked-solution"
+                                    , "aliens"
                                     ]
                                 }
                       }
