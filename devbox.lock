@@ -1,0 +1,21 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "elmPackages.elm": {
+      "resolved": "github:NixOS/nixpkgs/af9e00071d0971eb292fd5abef334e66eda3cb69#elmPackages.elm",
+      "source": "nixpkg"
+    },
+    "elmPackages.elm-format": {
+      "resolved": "github:NixOS/nixpkgs/af9e00071d0971eb292fd5abef334e66eda3cb69#elmPackages.elm-format",
+      "source": "nixpkg"
+    },
+    "python311": {
+      "resolved": "github:NixOS/nixpkgs/af9e00071d0971eb292fd5abef334e66eda3cb69#python311",
+      "source": "nixpkg"
+    },
+    "simple-http-server": {
+      "resolved": "github:NixOS/nixpkgs/af9e00071d0971eb292fd5abef334e66eda3cb69#simple-http-server",
+      "source": "nixpkg"
+    }
+  }
+}
