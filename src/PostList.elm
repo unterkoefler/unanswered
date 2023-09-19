@@ -29,6 +29,7 @@ import Generated.Metaphor
 import Generated.ModernCommerce
 import Generated.Musings
 import Generated.Nest
+import Generated.NewYork
 import Generated.Pete
 import Generated.Radicalized
 import Generated.Rambling1
@@ -465,6 +466,14 @@ all =
         , content = Generated.Aliens.content
         , showOnHomePage = True
         , date = Just { year = 2023, month = 8, day = 7 }
+        }
+      )
+    , ( "new-york"
+      , { title = "Did I Move In Yet?: Vignettes"
+        , description = "Stories from the Bigger Apple"
+        , content = Generated.NewYork.content
+        , showOnHomePage = True
+        , date = Just { year = 2023, month = 9, day = 18 }
         }
       )
     , ( "contact-me"
