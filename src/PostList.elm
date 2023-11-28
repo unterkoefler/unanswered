@@ -48,6 +48,7 @@ import Generated.TechSupport
 import Generated.TheBoys
 import Generated.TheHearse
 import Generated.ThinkLikeASquirrel
+import Generated.Tide
 import Generated.Upsilon
 import Generated.Vulture
 import Generated.WayOut
@@ -474,6 +475,14 @@ all =
         , content = Generated.NewYork.content
         , showOnHomePage = True
         , date = Just { year = 2023, month = 9, day = 18 }
+        }
+      )
+    , ( "the-tide-rises"
+      , { title = "The Tide Rises"
+        , description = "A short story"
+        , content = Generated.Tide.content
+        , showOnHomePage = True
+        , date = Just { year = 2023, month = 11, day = 27 }
         }
       )
     , ( "contact-me"
